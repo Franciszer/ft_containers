@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 18:16:00 by frthierr          #+#    #+#             */
-/*   Updated: 2020/10/09 18:18:12 by frthierr         ###   ########.fr       */
+/*   Updated: 2020/10/09 19:05:30 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,23 @@
 # include <iomanip>
 # include <string>
 
-class List {
-	public:
-		List(void);
-		List(List const &src);
-		virtual ~List(void);
+namespace ft {
 
-		List   &operator=(List const &src);
+	class List {
+		public:
+			List(void);
+			List(List const &src);
+			virtual ~List(void);
 
-	private:
-		
-};
+			List   &operator=(List const &src);
+
+			iterator begin();
+			const_iterator begin() const;
+			iterator end();
+			const_iterator end() const;
+		private:
+			
+	};
+}
 
 #endif
