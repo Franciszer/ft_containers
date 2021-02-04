@@ -1,12 +1,24 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/01/28 11:42:00 by frthierr          #+#    #+#              #
+#    Updated: 2021/02/04 11:44:43 by frthierr         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # ___COMPILATION___
 
 CPP= c++
 FLAGS= -Wall -Wextra -Werror
-SRCS=	main.cpp
+SRCS=	tests/main.cpp
 
 NAME= ft_containers
 OBJS= ${SRCS:.cpp=.o}
-INCLUDE_DIRS = -I .
+INCLUDE_DIRS = -I . -I srcs/containers/vector/ -I srcs/iterators/
 
 
 .cpp.o:

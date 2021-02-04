@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.hpp                                        :+:      :+:    :+:   */
+/*   constBool.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/09 18:16:00 by frthierr          #+#    #+#             */
-/*   Updated: 2020/10/09 19:05:30 by frthierr         ###   ########.fr       */
+/*   Created: 2021/02/04 11:48:58 by frthierr          #+#    #+#             */
+/*   Updated: 2021/02/04 11:55:09 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_HPP
+#ifndef CONST_BOOL_HPP
 
-# define FT_LIST_HPP
+# define CONST_BOOL_HPP
 
-# include <iostream>
-# include <iomanip>
-# include <string>
+# include "ft_containers.hpp"
 
 namespace ft {
+	template<bool isConst, typename isFalse, typename isTrue>
+	struct ConstBool{};
 
-	class List {
-		public:
-			List(void);
-			List(List const &src);
-			virtual ~List(void);
+	template<typename isFalse, typename isTrue>
+	struct ConstBool<true, isFalse, isTrue>{
+		typedef isTrue type;
+	};
 
-			List   &operator=(List const &src);
-
-			iterator begin();
-			const_iterator begin() const;
-			iterator end();
-			const_iterator end() const;
-		private:
-			
+	template<typename isFalse, typename isTrue>
+	struct	ConstBool<false, isFalse, isTrue> {
+		typedef isFalse type;
 	};
 }
 
