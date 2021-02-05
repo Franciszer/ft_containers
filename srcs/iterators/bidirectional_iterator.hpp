@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 11:45:20 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/04 13:35:19 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/02/04 14:41:47 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ namespace ft {
 			bidirectional_iterator(nonConstPointer val = 0) : _val(val) {}
 			bidirectional_iterator(const bidirectional_iterator<T, false>& src) { _val = src.getNonConstPointer(); }
 			bidirectional_iterator(const rev_bidirectional_iterator<T, false>& src) { _val = src.getNonConstPointer(); }
-			~bidirectional_iterator() {}
+			virtual ~bidirectional_iterator() {}
 
 			nonConstPointer			getNonConstPointer() const {return _val;}
 			

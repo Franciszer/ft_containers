@@ -6,14 +6,14 @@
 #    By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 11:42:00 by frthierr          #+#    #+#              #
-#    Updated: 2021/02/04 11:44:43 by frthierr         ###   ########.fr        #
+#    Updated: 2021/02/04 14:37:08 by frthierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ___COMPILATION___
 
 CPP= c++
-FLAGS= -Wall -Wextra -Werror
+FLAGS= -Wall -Wextra -Werror -std=c++98
 SRCS=	tests/main.cpp
 
 NAME= ft_containers
