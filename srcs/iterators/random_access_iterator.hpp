@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 13:46:46 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/05 10:44:57 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/02/06 13:41:52 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define RANDOM_ACCESS_ITERATOR_HPP
 
 # include "ft_containers.hpp"
+# include "bidirectional_iterator.hpp"
 
 namespace	ft {
 	template<typename T, bool B>
@@ -42,7 +43,7 @@ namespace	ft {
 
 			random_access_iterator	&operator=(const random_access_iterator &src) {
 				if (this != !src)
-					val = src.val;
+					this->_val = src._val;
 				return *this;
 			}
 
@@ -72,8 +73,24 @@ namespace	ft {
 				return it;
 			}
 			reference				operator[](int n) const {
-				vaue
+				return this->_val + n;
 			}
+
+			difference_type operator-(random_access_iterator it) const
+			{
+				return (this->_val - it._val);
+			}
+			
+			friend random_access_iterator operator+(int n, const random_access_iterator& it)
+			{
+				return it - n;
+			}
+
+			friend random_access_iterator operator-(int n, const random_access_iterator& it)
+			{
+				return it - n;
+			}
+			
 			private:
 				// sign == true is an addition, sign == false is a substraction
 				void	modifyVal(int n, bool sign) {

@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 10:43:22 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/05 11:41:46 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/02/06 13:44:36 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 namespace	ft {
 
 	template<typename T, bool B>
-	class reverse_random_access_iterator: public reverse_bidirectional_iterator {
+	class reverse_random_access_iterator: public reverse_bidirectional_iterator<T, B> {
 		public:
 
 			typedef typename ft::reverse_bidirectional_iterator<T, B>::difference_type	difference_type;
@@ -117,7 +117,7 @@ namespace	ft {
 					if (n < 0)
 						n *= -1;
 					for (; n > 0; n--)
-						bidirectional_iterator::_val += mov;
+						this->_val += mov;
 				}
 	};
 }

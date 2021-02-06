@@ -6,13 +6,13 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 11:45:20 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/04 14:41:47 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/02/06 12:03:28 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLASSNAME_HPP
+#ifndef BIDIRECTIONAL_ITERATOR_HPP
 
-# define CLASSNAME_HPP
+# define BIDIRECTIONAL_ITERATOR_HPP
 
 # include "ft_containers.hpp"
 
