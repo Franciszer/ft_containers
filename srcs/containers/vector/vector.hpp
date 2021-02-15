@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:25:58 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/06 15:39:29 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/02/15 14:30:28 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,16 @@ namespace	ft {
 			// DON'T UNDERSTAND THIS ONE YET
 			template <class InputIterator>
          	vector (InputIterator first, InputIterator last,
-                 const allocator_type& alloc = allocator_type());
+                 const allocator_type& alloc = allocator_type(),
+				 typename ft::enable_if<!ft::is_integral<InputIterator>>::value::type = 0) : // checks if InputIterator is not an integral type; if it is, the compiler will use the appropriate constructor defined up above
+				 _allocator(alloc),
+				 _size(0) {
+					this->_size = static_cast<size_type>(last - first);
+					this->_data = this->_allocator(this->_size);
+					this->_capacity = _size;
+					for (size_t i = 0; first != last ; first++)
+						this->_allocator.construct(&this->_data[i], *first)
+				 }
 				 
 			vector(const vector &src):
 			_allocator(src._allocator),
@@ -96,22 +105,47 @@ namespace	ft {
 			}
 			size_type	capacity() const {return this->_capacity;}
 			bool		empty() const {return this->_size==0;}
-			void		reserve(size_type n);
+			void		reserve(size_type n) {
+				if (n > this->max_size())
+					throw std::length_error();
+				if (n > this->_capacity)
+					this->_increaseCapacity(n);
+			}
 
 		// ELEMENT ACCESS
-			reference		operator[] (size_type n);
-			const_reference operator[] (size_type n) const;
-			reference		at (size_type n);
-			const_reference at (size_type n) const;
-			reference		front();
-			const_reference	front() const;
-			reference		back();
-			const_reference	back() const;
+			reference		operator[] (size_type n) {return this->_data[n];}
+			const_reference operator[] (size_type n) const {return this->_data[n];}
+			reference		at (size_type n) {
+				if (n > this->_size)
+					throw std::out_of_range();
+				return this->_data[n];
+			}
+			const_reference at (size_type n) const {
+				if (n > this->_size)
+					throw std::out_of_range();
+				return this->_data[n];
+			}
+			reference		front() {return this->_data[0];}
+			const_reference	front() const {return this->_data[0];}
+			reference		back() {return this->_data[this->_size - 1];}
+			const_reference	back() const {return this->_data[this->_size - 1];}
 
 		// MODIFIERS
 			template <class InputIterator>
-			void 		assign (InputIterator first, InputIterator last);
-			void 		assign (size_type n, const value_type& val);
+			void 		assign (InputIterator first, InputIterator last,
+							typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) {
+				size_type	static_cast<size_type>(last - first);
+
+				if (size < this->_size) {
+					this->~vector();
+					this->_data = this->_allocator(size);
+				}
+				for (size_type i = 0; i < size; i++) 
+					this->_allocator.construct(&this->_data[i], *(first + i));
+			}
+			void 		assign (size_type n, const value_type& val) {
+				
+			}
 			void 		push_back (const value_type& val);
 			void 		pop_back();
 			iterator 	insert (iterator position, const value_type& val);
@@ -141,6 +175,9 @@ namespace	ft {
 			pointer			_data;
 
 			void	_increaseCapacity(size_type capacity) {
+				
+				if (capacity <= this->_capacity)
+					return ;
 				pointer	newData = this->_allocator.allocate(capacity);
 				size_type i;
 
