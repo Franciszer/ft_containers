@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enable_if.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 13:12:33 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/16 12:36:57 by frthierr         ###   ########.fr       */
+/*   Created: 2021/01/28 11:40:53 by frthierr          #+#    #+#             */
+/*   Updated: 2021/02/06 13:39:45 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_containers.hpp"
 
-#ifndef	ENABLE_IF_HPP
-
-# define ENABLE_IF_HPP
-
-namespace	ft {
+int main()
+{
 	
-template<bool B, class T = void>
-struct enable_if {};
- 
-template<class T>
-struct enable_if<true, T> { typedef T type; };
+	return 0;
 }
-
-#endif

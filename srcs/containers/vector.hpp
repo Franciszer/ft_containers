@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:25:58 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/15 14:30:28 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/02/16 14:24:39 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,14 @@ namespace	ft {
 			template <class InputIterator>
          	vector (InputIterator first, InputIterator last,
                  const allocator_type& alloc = allocator_type(),
-				 typename ft::enable_if<!ft::is_integral<InputIterator>>::value::type = 0) : // checks if InputIterator is not an integral type; if it is, the compiler will use the appropriate constructor defined up above
+				 typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) : // checks if InputIterator is not an integral type; if it is, the compiler will use the appropriate constructor defined up above
 				 _allocator(alloc),
 				 _size(0) {
 					this->_size = static_cast<size_type>(last - first);
 					this->_data = this->_allocator(this->_size);
 					this->_capacity = _size;
 					for (size_t i = 0; first != last ; first++)
-						this->_allocator.construct(&this->_data[i], *first)
+						this->_allocator.construct(&this->_data[i], *first);
 				 }
 				 
 			vector(const vector &src):
@@ -107,7 +107,7 @@ namespace	ft {
 			bool		empty() const {return this->_size==0;}
 			void		reserve(size_type n) {
 				if (n > this->max_size())
-					throw std::length_error();
+					throw std::length_error("ft::vector::at : length-_error");
 				if (n > this->_capacity)
 					this->_increaseCapacity(n);
 			}
@@ -117,12 +117,12 @@ namespace	ft {
 			const_reference operator[] (size_type n) const {return this->_data[n];}
 			reference		at (size_type n) {
 				if (n > this->_size)
-					throw std::out_of_range();
+					throw std::out_of_range("ft::vector::at : out_of_range");
 				return this->_data[n];
 			}
 			const_reference at (size_type n) const {
 				if (n > this->_size)
-					throw std::out_of_range();
+					throw std::out_of_range("ft::vector::at : out_of_range");
 				return this->_data[n];
 			}
 			reference		front() {return this->_data[0];}
@@ -134,38 +134,120 @@ namespace	ft {
 			template <class InputIterator>
 			void 		assign (InputIterator first, InputIterator last,
 							typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) {
-				size_type	static_cast<size_type>(last - first);
+				this->_size = static_cast<size_type>(last - first);
 
-				if (size < this->_size) {
+				if (this->_size < this->_capacity) {
 					this->~vector();
-					this->_data = this->_allocator(size);
+					this->_data = this->_allocator.allocate(this->_size);
 				}
-				for (size_type i = 0; i < size; i++) 
-					this->_allocator.construct(&this->_data[i], *(first + i));
+				for (; first < last; first++) 
+					this->_allocator.construct(&this->_data[last - first], *first);
 			}
 			void 		assign (size_type n, const value_type& val) {
+				this->_size = n;
+				if (n < this->_capacity) {
+					this->~vector();
+					this->_data = this->_allocator.allocate(n);
+				}
+				for (size_type i = 0; i < n; i++)
+					this->_allocator.construct(val, &this->_data[i]);
+			}
+			void 		push_back (const value_type& val) {
+				if (this->_capacity <= this->_size)
+					this->_increaseCapacity(this->_capacity * 2);
+				this->_allocator.construct(&this->_data[this->_size], val);
+			}
+			void 		pop_back() {this->_allocator.destroy(&this->_data(--this->_size));};
+			iterator 	insert (iterator position, const value_type& val) {
+				this->insert(position, 1, val);
+			}
+			void 		insert (iterator position, size_type n, const value_type& val) {
+				if (this->_capacity < this->_size + n)
+					this->_increaseCapacity(this->_size + n);
+				this->_size += n;
+				value_type	tmp = val;
+				for (value_type tmp2 = *position ; n; n--, tmp = tmp2, position++, tmp2 = *position) {
+					this->_allocator.destroy(position.getNonConstPointer());
+					this->_allocator.construct(position.getNonConstPointer(), *tmp);
+				}
 				
 			}
-			void 		push_back (const value_type& val);
-			void 		pop_back();
-			iterator 	insert (iterator position, const value_type& val);
-			void 		insert (iterator position, size_type n, const value_type& val);
 			template <class InputIterator>
-			void 		insert (iterator position, InputIterator first, InputIterator last);
-			iterator	erase (iterator position);
-			iterator	erase (iterator first, iterator last);
-			void		swap (vector& x);
-			void 		clear();
+			void 		insert (iterator position, InputIterator first, InputIterator last,
+							typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) {
+				for (; first != last, position != this->end(); position++, first++)
+					this->_insert(position, *first);		
+			}				
+			iterator	erase (iterator position) {
+				iterator	ret(position++);
+				size_type	idx = static_cast<size_type>(position - this->begin());
+				for (; position != this->_end(); idx++, position++) {
+					this->_allocator.destroy(&this->_data[idx]);
+					this->_allocator.construct(&this->_data[idx], *position);
+				}
+				--this->_size;
+				return ret;
+		}
+			iterator	erase (iterator first, iterator last) {
+				iterator	ret;
+				for (; first != last; ++first)
+					ret = this->_erase(first);
+				return ret;
+			}
+			void		swap (vector& x) {
+				vector	tmp;
+				tmp._allocator = this->_allocator;
+				tmp._size = this->_size;
+				tmp._capacity = this->_capacity;
+				tmp._data = this->_data;
+				
+				this->_allocator = x._allocator;
+				this->_size = x._size;
+				this->_capacity = x._capacity;
+				this->_data = x._data;
+
+				x._allocator = tmp._allocator;
+				x._size = tmp._size;
+				x._capacity = tmp._capacity;
+				x._data = tmp._data;
+			}
+			void 		clear() {
+				while(this->_size)
+					this->pop_back();
+			}
 
 		// NON-MEMBER FUNCTION OVERLOADS
-			friend bool operator== (const vector &lhs, const vector &rhs);
-			friend bool operator!= (const vector &lhs, const vector &rhs);
-			friend bool operator<  (const vector &lhs, const vector &rhs);
-			friend bool operator<= (const vector &lhs, const vector &rhs);
-			friend bool operator>  (const vector &lhs, const vector &rhs);
-			friend bool operator>= (const vector &lhs, const vector &rhs);
+			friend bool operator== (const vector &lhs, const vector &rhs) {
+				if (lhs._size != rhs._size)
+					return false;
+				iterator lit = lhs.begin();
+				iterator rit = rhs.begin();
+				for (;	lit != lhs.end(), rit != rhs.end(); lit++, rit++) {
+						if (*lit != *rit)
+							return false;
+					}
+				if (lit == lhs.end() && rit == rhs.end())
+					return true;
+			}
+			friend bool operator!= (const vector &lhs, const vector &rhs) {
+				return !(lhs == rhs);
+			}
+			friend bool operator<  (const vector &lhs, const vector &rhs) {
+				iterator lit = lhs.begin();
+				iterator rit = rhs.begin();
+				for (; lit != lhs.end(), rit != rhs.end(); lit++, rit++) {
+						if (*lit < *rit)
+							return true;
+					}
+				return lhs._size < rhs._size;
+			}
+			friend bool operator<= (const vector &lhs, const vector &rhs) {return (lhs < rhs) || (lhs == rhs);}
+			friend bool operator>  (const vector &lhs, const vector &rhs) {return !(lhs < rhs);};
+			friend bool operator>= (const vector &lhs, const vector &rhs) {return (lhs > rhs) || (lhs == rhs);};
 
-			friend void swap (vector& x, vector& y);
+			friend void swap (vector& x, vector& y) {
+				x.swap(y);
+			}
 		
 		
 		private:

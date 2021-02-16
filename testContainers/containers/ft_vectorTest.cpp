@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enable_if.hpp                                      :+:      :+:    :+:   */
+/*   vectorTest.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 13:12:33 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/16 12:36:57 by frthierr         ###   ########.fr       */
+/*   Created: 2021/02/16 15:39:18 by frthierr          #+#    #+#             */
+/*   Updated: 2021/02/16 16:19:12 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_containers.hpp"
 
-#ifndef	ENABLE_IF_HPP
-
-# define ENABLE_IF_HPP
-
-namespace	ft {
+int	main(void)
+{
+	// CONSTRUCTORS
+	ft::vector<int>	v();
+	// ITERATORS
 	
-template<bool B, class T = void>
-struct enable_if {};
- 
-template<class T>
-struct enable_if<true, T> { typedef T type; };
+	// CAPACITY
+	
+	// ELEMENT_ACCESS
+	
+	// MODIFIERS
+	
+	// NON-MEMBER FUNCTION OVERLOADS
+	
+	return 0;
 }
-
-#endif

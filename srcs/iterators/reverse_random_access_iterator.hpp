@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 10:43:22 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/06 13:44:36 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/02/16 14:26:02 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ namespace	ft {
 			reverse_random_access_iterator(const reverse_random_access_iterator<T, false> &src):
 				reverse_random_access_iterator(src.getNonConstPointer) {}
 
-			reverse_random_access_iterator(const random_access_iterator<T, false> &src):
+			explicit reverse_random_access_iterator(const random_access_iterator<T, false> &src):
 				reverse_bidirectional_iterator(src.getNonConstPointer() - 1) {}
 
 			reverse_random_access_iterator	&operator=(const reverse_random_access_iterator &src) {

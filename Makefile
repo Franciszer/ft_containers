@@ -6,7 +6,7 @@
 #    By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 11:42:00 by frthierr          #+#    #+#              #
-#    Updated: 2021/02/06 12:01:31 by frthierr         ###   ########.fr        #
+#    Updated: 2021/02/16 15:37:59 by frthierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@
 
 CPP= c++
 FLAGS= -Wall -Wextra -Werror -std=c++98
-SRCS=	tests/main.cpp
+SRCS=	main.cpp
 
 NAME= ft_containers
 OBJS= ${SRCS:.cpp=.o}
-INCLUDE_DIRS = -I . -I srcs/containers/vector/ -I srcs/iterators/ -I srcs/templates/
+INCLUDE_DIRS = -I . -I srcs/containers/ -I srcs/iterators/ -I srcs/templates/
 
 
 .cpp.o:

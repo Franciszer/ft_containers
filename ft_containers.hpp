@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:26:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/15 14:09:49 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/02/16 12:41:35 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <string>
 # include <memory>
 # include <limits>
+# include <stdexcept>
 
 # include "constBool.hpp"
 # include "enable_if.hpp"
@@ -31,7 +32,6 @@
 # include "random_access_iterator.hpp"
 # include "reverse_random_access_iterator.hpp"
 
-# include "vector_iterator.hpp"
 # include "vector.hpp"
 
 #endif
