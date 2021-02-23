@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20210223-1341-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.17.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Mac OS X"
+	Hostname="e2r10p4.42.fr"
+	OSRelease="10.14.6"
+	OSVersion="18G8022"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="58"
+	ProcessorCacheSize="32768"
+	NumberOfLogicalCPU="4"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="0"
+	TotalPhysicalMemory="8192"
+	LogicalProcessorsPerPhysical="8"
+	ProcessorClockFrequency="2900"
+	>
+	<Testing>
+		<StartDateTime>Feb 23 15:12 CET</StartDateTime>
+		<StartTestTime>1614089534</StartTestTime>
+		<TestList>
+			<Test>./test/ft_containers_gtest</Test>
+		</TestList>
+		<Test Status="failed">
+			<Name>ft_containers_gtest</Name>
+			<Path>./test</Path>
+			<FullName>./test/ft_containers_gtest</FullName>
+			<FullCommandLine>/Users/frthierr/studlife/ft_containers/build/test/ft_containers_gtest</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>Failed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.00408721</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/Users/frthierr/studlife/ft_containers/build/test/ft_containers_gtest</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJyNkktvwjAMx+/5FD6CNNrRww6VdkCioGlPUdgFIRRSt4uUJlUeg4+/tGFoDPHwpY7zq/23nZmTkssKasplrw+lVjXEC4PaxKW2Xxy1jo11heAlxqVdMyWtR9v7SqlKoEVj/7pGs7hqvXWbMmKMLB8PtoLZvl4CLWNCwXAA47j/RmQ5ONgKpkJtqAgAym+ulaxRehjtwDX/4GHguqStNyRLmC3eoLNVCEVjrJU0VlOL07mPvFKmlSE3dt01me1o3Qhs/zYRa5p0+JDChHLhNJJPKhyCKlMoqTBIAEbMOip+z9muQWaxSMFqh14hTEZPL9n4mkLo3UNt+lc6DhRYZanok8twcjqeJMrRd1t4Ca2yzt6fTy9vEpNcEnNusRapHhRqK48fzvkHA5rK6LiSV/4xyvMw06AqOh50CN6B4MavAjYo1Da9fReE+Ax7dJ7lc/IDGl8Kzw==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Feb 23 15:12 CET</EndDateTime>
+		<EndTestTime>1614089534</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

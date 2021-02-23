@@ -1,0 +1,2 @@
+/usr/bin/ar qc libft_containers.a  CMakeFiles/ft_containers.dir/main.cpp.o
+/usr/bin/ranlib libft_containers.a

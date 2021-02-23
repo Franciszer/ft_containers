@@ -6,10 +6,11 @@
 #    By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/16 15:43:15 by frthierr          #+#    #+#              #
-#    Updated: 2021/02/16 17:19:21 by frthierr         ###   ########.fr        #
+#    Updated: 2021/02/17 09:48:51 by frthierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+ 
 CONTAINERS_LOC="./containers/"
 CONTAINERS_SUFFIX="Test.cpp"
 NAMESPACE="ft"
@@ -47,19 +48,27 @@ stack_BASICS="constructor empty size front back push pop"
 stack_NON_MEMBER_OVERLOADS="operator== operator!= operator< operator> operator<= operator>= swap"
 
 # COLORS
-GREEN="\033[0;32m"
-LIGHT_BLUE="\033[0;34m"
-RED="\033[0;31m"
-YELLOW="\033[0;33m"
-NC="\033[0m"
+GREEN='\033[0;32m'
+LIGHT_BLUE='\033[0;34m'
+YELLOW='\033[0;33m'
+NC='\033[0m'
+
 
 # $1: container_name
 function run_container_tests() {
-	[ -z "$vector_BASICS" ] && echo BASIC
+	[ ! -z "$1_BASICS" ] && echo BASICS
+	[ ! -z "$1_ITERATORS" ] && echo ITERATORS
+	[ ! -z "$1_CAPACITY" ] && echo CAPACITY
+	[ ! -z "$1_ELEMENT_ACCESS" ] && echo ELEMENT_ACCESS
+	[ ! -z "$1_MODIFIERS" ] && echo MODIFIERS
+	[ ! -z "$1_OBSERVERS" ] && echo OBSERVERS
+	[ ! -z "$1_OPERATIONS" ] && echo OPERATIONS
 }
 
+
+# [ ! -z "$vector_BASICS" ] && echo BASIC
 for CONTAINER in $CONTAINERS
 do
-	echo $CONTAINER
+	printf "$YELLOW$CONTAINER$NC\n\n"
 	run_container_tests $CONTAINER
 done
