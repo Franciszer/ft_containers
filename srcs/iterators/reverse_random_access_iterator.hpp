@@ -35,7 +35,7 @@ namespace	ft {
 				reverse_bidirectional_iterator(val) {}
 				
 			reverse_random_access_iterator(const reverse_random_access_iterator<T, false> &src):
-				reverse_random_access_iterator(src.getNonConstPointer) {}
+				reverse_bidirectional_iterator(src.getNonConstPointer) {}
 
 			explicit reverse_random_access_iterator(const random_access_iterator<T, false> &src):
 				reverse_bidirectional_iterator(src.getNonConstPointer() - 1) {}

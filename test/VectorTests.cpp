@@ -19,8 +19,7 @@ class	VectorTests: public ::testing::Test {
 	protected:
 			ft::vector<std::string>		ft_vec;
 			std::vector<std::string>	std_vec;
-			int i = 0;
-			int j = 0;
+
 		virtual void	SetUp() {
 
 		}
@@ -38,5 +37,5 @@ TEST_F(VectorTests, VTEST_SIZE) {
 }
 
 TEST_F(VectorTests, VTEST_TRUE) {
-	EXPECT_TRUE(true);
+	EXPECT_TRUE(false);
 }
