@@ -33,4 +33,6 @@ set(Sources
 
 add_library(${This} STATIC ${Sources} ${Headers})
 
+target_compile_options(${This} PRIVATE -Wall -Wextra -Werror -fsanitize=address)
+
 add_subdirectory(test)

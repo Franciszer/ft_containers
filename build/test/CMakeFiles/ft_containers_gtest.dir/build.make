@@ -77,27 +77,27 @@ include test/CMakeFiles/ft_containers_gtest.dir/progress.make
 # Include the compile flags for this target's objects.
 include test/CMakeFiles/ft_containers_gtest.dir/flags.make
 
-test/CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.o: test/CMakeFiles/ft_containers_gtest.dir/flags.make
-test/CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.o: ../test/ExampleTests.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/studlife/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.o"
-	cd /Users/frthierr/studlife/ft_containers/build/test && /usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.o -c /Users/frthierr/studlife/ft_containers/test/ExampleTests.cpp
+test/CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.o: test/CMakeFiles/ft_containers_gtest.dir/flags.make
+test/CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.o: ../test/VectorTests.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/studlife/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.o"
+	cd /Users/frthierr/studlife/ft_containers/build/test && /usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.o -c /Users/frthierr/studlife/ft_containers/test/VectorTests.cpp
 
-test/CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.i"
-	cd /Users/frthierr/studlife/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/studlife/ft_containers/test/ExampleTests.cpp > CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.i
+test/CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.i"
+	cd /Users/frthierr/studlife/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/studlife/ft_containers/test/VectorTests.cpp > CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.i
 
-test/CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.s"
-	cd /Users/frthierr/studlife/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/studlife/ft_containers/test/ExampleTests.cpp -o CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.s
+test/CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.s"
+	cd /Users/frthierr/studlife/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/studlife/ft_containers/test/VectorTests.cpp -o CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.s
 
 # Object files for target ft_containers_gtest
 ft_containers_gtest_OBJECTS = \
-"CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.o"
+"CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.o"
 
 # External object files for target ft_containers_gtest
 ft_containers_gtest_EXTERNAL_OBJECTS =
 
-test/ft_containers_gtest: test/CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.o
+test/ft_containers_gtest: test/CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.o
 test/ft_containers_gtest: test/CMakeFiles/ft_containers_gtest.dir/build.make
 test/ft_containers_gtest: lib/libgtest_maind.a
 test/ft_containers_gtest: libft_containers.a

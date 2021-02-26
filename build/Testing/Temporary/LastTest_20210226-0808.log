@@ -21,7 +21,7 @@ Running main() from /Users/frthierr/studlife/ft_containers/googletest/googletest
 [==========] 2 tests from 1 test suite ran. (0 ms total)
 [  PASSED  ] 2 tests.
 <end of output>
-Test time =   0.06 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
 "ft_containers_gtest" end time: Feb 26 14:51 CET

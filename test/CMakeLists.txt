@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.17)
 set(This ft_containers_gtest)
 
 set(Sources
-	ExampleTests.cpp
+	VectorTests.cpp
 )
 
 add_executable(${This} ${Sources})

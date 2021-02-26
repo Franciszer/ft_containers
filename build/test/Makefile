@@ -202,32 +202,32 @@ ft_containers_gtest/fast:
 	cd /Users/frthierr/studlife/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/ft_containers_gtest.dir/build.make test/CMakeFiles/ft_containers_gtest.dir/build
 .PHONY : ft_containers_gtest/fast
 
-ExampleTests.o: ExampleTests.cpp.o
+VectorTests.o: VectorTests.cpp.o
 
-.PHONY : ExampleTests.o
+.PHONY : VectorTests.o
 
 # target to build an object file
-ExampleTests.cpp.o:
-	cd /Users/frthierr/studlife/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/ft_containers_gtest.dir/build.make test/CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.o
-.PHONY : ExampleTests.cpp.o
+VectorTests.cpp.o:
+	cd /Users/frthierr/studlife/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/ft_containers_gtest.dir/build.make test/CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.o
+.PHONY : VectorTests.cpp.o
 
-ExampleTests.i: ExampleTests.cpp.i
+VectorTests.i: VectorTests.cpp.i
 
-.PHONY : ExampleTests.i
+.PHONY : VectorTests.i
 
 # target to preprocess a source file
-ExampleTests.cpp.i:
-	cd /Users/frthierr/studlife/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/ft_containers_gtest.dir/build.make test/CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.i
-.PHONY : ExampleTests.cpp.i
+VectorTests.cpp.i:
+	cd /Users/frthierr/studlife/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/ft_containers_gtest.dir/build.make test/CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.i
+.PHONY : VectorTests.cpp.i
 
-ExampleTests.s: ExampleTests.cpp.s
+VectorTests.s: VectorTests.cpp.s
 
-.PHONY : ExampleTests.s
+.PHONY : VectorTests.s
 
 # target to generate assembly for a file
-ExampleTests.cpp.s:
-	cd /Users/frthierr/studlife/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/ft_containers_gtest.dir/build.make test/CMakeFiles/ft_containers_gtest.dir/ExampleTests.cpp.s
-.PHONY : ExampleTests.cpp.s
+VectorTests.cpp.s:
+	cd /Users/frthierr/studlife/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/ft_containers_gtest.dir/build.make test/CMakeFiles/ft_containers_gtest.dir/VectorTests.cpp.s
+.PHONY : VectorTests.cpp.s
 
 # Help Target
 help:
@@ -243,9 +243,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... ft_containers_gtest"
-	@echo "... ExampleTests.o"
-	@echo "... ExampleTests.i"
-	@echo "... ExampleTests.s"
+	@echo "... VectorTests.o"
+	@echo "... VectorTests.i"
+	@echo "... VectorTests.s"
 .PHONY : help
 
 

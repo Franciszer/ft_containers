@@ -12,6 +12,7 @@
 		"commands" : 
 		[
 			"add_library",
+			"target_compile_options",
 			"include_directories"
 		],
 		"files" : 
@@ -32,6 +33,12 @@
 			{
 				"command" : 1,
 				"file" : 0,
+				"line" : 36,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
 				"line" : 12,
 				"parent" : 0
 			}
@@ -46,29 +53,45 @@
 					"fragment" : "-g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14  "
 				},
 				{
+					"backtrace" : 2,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 2,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 2,
+					"fragment" : "-Werror"
+				},
+				{
+					"backtrace" : 2,
+					"fragment" : "-fsanitize=address"
+				},
+				{
 					"fragment" : "-std=gnu++98"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 2,
+					"backtrace" : 3,
 					"path" : "/Users/frthierr/studlife/ft_containers/srcs"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 3,
 					"path" : "/Users/frthierr/studlife/ft_containers/srcs/iterators"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 3,
 					"path" : "/Users/frthierr/studlife/ft_containers/srcs/templates"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 3,
 					"path" : "/Users/frthierr/studlife/ft_containers/srcs/containers"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 3,
 					"path" : "/Users/frthierr/studlife/ft_containers/."
 				}
 			],

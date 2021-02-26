@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:25:58 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/16 14:24:39 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/02/26 14:50:20 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ namespace	ft {
 			_allocator(alloc),
 			_size(0),
 			_capacity(0),
-			_data(_allocator.allocate(_capacity)) {}
+			_data(_allocator.allocate(0)) {}
 			
 			explicit vector(size_type n, const value_type &val = value_type(),
 							const allocator_type &alloc = allocator_type()):
@@ -153,11 +153,18 @@ namespace	ft {
 					this->_allocator.construct(val, &this->_data[i]);
 			}
 			void 		push_back (const value_type& val) {
-				if (this->_capacity <= this->_size)
-					this->_increaseCapacity(this->_capacity * 2);
-				this->_allocator.construct(&this->_data[this->_size], val);
+				if (this->_capacity <= this->_size) {
+					if (this->_capacity)
+						this->_increaseCapacity(this->_capacity * 2);
+					else
+						this->_increaseCapacity(1);
+				}
+				this->_allocator.construct(&this->_data[this->_size++], val);
 			}
-			void 		pop_back() {this->_allocator.destroy(&this->_data(--this->_size));};
+			void 		pop_back() {
+				if (this->_size)
+					this->_allocator.destroy(&this->_data[--this->_size]);
+			}
 			iterator 	insert (iterator position, const value_type& val) {
 				this->insert(position, 1, val);
 			}

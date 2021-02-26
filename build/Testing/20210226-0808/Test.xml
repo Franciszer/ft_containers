@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Site BuildName="(empty)"
-	BuildStamp="20210223-1341-Experimental"
+	BuildStamp="20210226-0808-Experimental"
 	Name="(empty)"
 	Generator="ctest-3.17.3"
 	CompilerName=""
 	CompilerVersion=""
 	OSName="Mac OS X"
-	Hostname="e1r7p8.42.fr"
+	Hostname="e2r5p12.42.fr"
 	OSRelease="10.14.6"
 	OSVersion="18G8022"
 	OSPlatform="x86_64"
@@ -24,25 +24,19 @@
 	ProcessorClockFrequency="2900"
 	>
 	<Testing>
-		<StartDateTime>Feb 23 15:39 CET</StartDateTime>
-		<StartTestTime>1614091198</StartTestTime>
+		<StartDateTime>Feb 26 14:51 CET</StartDateTime>
+		<StartTestTime>1614347487</StartTestTime>
 		<TestList>
 			<Test>./test/ft_containers_gtest</Test>
 		</TestList>
-		<Test Status="failed">
+		<Test Status="passed">
 			<Name>ft_containers_gtest</Name>
 			<Path>./test</Path>
 			<FullName>./test/ft_containers_gtest</FullName>
 			<FullCommandLine>/Users/frthierr/studlife/ft_containers/build/test/ft_containers_gtest</FullCommandLine>
 			<Results>
-				<NamedMeasurement type="text/string" name="Exit Code">
-					<Value>Failed</Value>
-				</NamedMeasurement>
-				<NamedMeasurement type="text/string" name="Exit Value">
-					<Value>1</Value>
-				</NamedMeasurement>
 				<NamedMeasurement type="numeric/double" name="Execution Time">
-					<Value>0.00448624</Value>
+					<Value>0.00470654</Value>
 				</NamedMeasurement>
 				<NamedMeasurement type="numeric/double" name="Processors">
 					<Value>1</Value>
@@ -54,12 +48,12 @@
 					<Value>/Users/frthierr/studlife/ft_containers/build/test/ft_containers_gtest</Value>
 				</NamedMeasurement>
 				<Measurement>
-					<Value encoding="base64" compression="gzip">eJyNkktvwjAMx+/5FD6CNNq1hx0q7YDEQ9OeorALQiikbhcpTao8Bh9/acMmGOLhSx3nV/tvOzMnJZcV1JTLXh9KrWqIFwa1iUttvzhqHRvrCsFLjEu7Zkpaj7b3lVKVQIvGHrpGs7hqvXWbMmKMLB//bAWzfb0UWsaEguEAxnH/jchy8GcrmAq1oSIAKL+5VrJG6WG0A9f8g5PAdUlbLyFLmC3eoLNVCEUjrJU0VlOL07mPvFKmlSE3dt01Od7RuhHY/m0i1jRZ8pDBhHLhNJJPKhyCKjMoqTBIAIbMOip+z+Ndg8xikYHVDr1CmAyfXsajawqhdw+16V/pOFBglaWiTy7D6el40ihH323hJbTKOnt/Pr28SUx6Scy5xVqkelCorTx+OOcfDGgqI+glB5W88o9hnoeZBlXR8aBD8A4EN34VsEGhttntuyDEZ9ij83E+Jz8a3QrQ====</Value>
+					<Value encoding="base64" compression="gzip">eJyNkc1qwzAQhO96ij3GB0tt7z0UakopJMU/OdQYoyprVyBLRVq3r18rDiYuhGROK+2nWWaVj9Zq28Mgtd0k0Hk3gKgC+iA6T18avReBxoPRHYqOWuUsTWjs9871BgkDnZfBK9HHqo2WXClWPy5qID/Ne4DIhHng/fEAYdSEnNXpogZejPuUZu6j/dHe2QHtxCKl4/c/eGW6R0XOl/GC1ZBXWziqOW/wfZkVZVu8fmQTM2v3dpGBzR0MIblmV+bVVbvILHa3ZJhhIEfSJOy2JRFKnx7cr13/wcXdg5eWrwdNMd6fiiJ7jlFPDzn7A+DasmY=</Value>
 				</Measurement>
 			</Results>
 		</Test>
-		<EndDateTime>Feb 23 15:39 CET</EndDateTime>
-		<EndTestTime>1614091198</EndTestTime>
+		<EndDateTime>Feb 26 14:51 CET</EndDateTime>
+		<EndTestTime>1614347487</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>
