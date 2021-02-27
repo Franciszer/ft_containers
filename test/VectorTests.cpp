@@ -11,31 +11,51 @@
 /* ************************************************************************** */
 
 #include "ft_containers.hpp"
+#include <stdarg.h>
 #include <gtest/gtest.h>
 
-class	VectorTests: public ::testing::Test {
+class	TVector_Constructor: public ::testing::Test {
 	public:
-		VectorTests() {}
-	protected:
-			ft::vector<std::string>		ft_vec;
-			std::vector<std::string>	std_vec;
+		TVector_Constructor() {}
 
+		std::vector<int>	*std_vec = nullptr;
+		ft::vector<int>		*ft_vec = nullptr;
+		void		compare(std::vector<int> &std_vec, ft::vector<int> &ft_vec) {
+			_size = std_vec.size();
+			EXPECT_EQ(_size, ft_vec.size());
+			for (size_t i = 0; i < _size; i++)
+				EXPECT_EQ(std_vec[i], ft_vec[i]);
+			this->TearDown();
+		}
+	protected:
+		std::vector<int>::size_type	_size;
 		virtual void	SetUp() {
 
 		}
 
 		virtual void	TearDown() {
-			ft_vec.clear();
-			std_vec.clear();
+			if (std_vec != nullptr) {
+				delete std_vec;
+				std_vec = nullptr;
+			}
+			if (ft_vec != nullptr) {
+				delete ft_vec;
+				ft_vec = nullptr;
+			}
 		}
 };
 
-TEST_F(VectorTests, VTEST_SIZE) {
-	ft_vec.push_back("hello world");
-	std_vec.push_back("hello world");
-	EXPECT_EQ(ft_vec.size(), std_vec.size());
+TEST_F(TVector_Constructor, TVECTOR_Constructor_default) {
+	std_vec = new std::vector<int>;
+	ft_vec = new ft::vector<int>;
+	this->compare(*std_vec, *ft_vec);
 }
 
-TEST_F(VectorTests, VTEST_TRUE) {
-	EXPECT_TRUE(false);
+TEST_F(TVector_Constructor, TVECTOR_Constructor_fill) {
+	
+
+	std_vec = new std::vector<int>(10);
+	ft_vec = new ft::vector<int>(10);
+
+	this->compare(*std_vec, *ft_vec);
 }
