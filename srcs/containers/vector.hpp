@@ -61,11 +61,12 @@ namespace	ft {
 				 typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) : // checks if InputIterator is not an integral type; if it is, the compiler will use the appropriate constructor defined up above
 				 _allocator(alloc),
 				 _size(0) {
-					this->_size = static_cast<size_type>(last - first);
-					this->_data = this->_allocator(this->_size);
-					this->_capacity = _size;
-					for (size_t i = 0; first != last ; first++)
-						this->_allocator.construct(&this->_data[i], *first);
+					InputIterator	nav(first);
+
+					for (; nav != last; this->_capacity++, nav++);
+					this->_data = this->_allocator.allocate(this->_capacity);
+					for (; this->_size < this->_capacity; this->_size++, first++)
+						this->_allocator.construct(&this->_data[this->_size], *first);					
 				 }
 				 
 			vector(const vector &src):
