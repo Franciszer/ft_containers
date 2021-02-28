@@ -3,8 +3,10 @@ cmake_minimum_required(VERSION 3.10)
 set(This ft_containers_gtest)
 set(CMAKE_CXX_STANDARD 17)
 
+set(VECTOR_DIR srcs/vector)
+
 set(Sources
-	VectorTests.cpp
+	${VECTOR_DIR}/TVector_Constructor.cpp
 )
 
 add_executable(${This} ${Sources})
