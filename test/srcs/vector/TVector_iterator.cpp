@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 10:34:16 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/06 14:57:51 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/06 15:15:28 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,39 +18,16 @@ class	TVector_Iterator: public ::testing::Test {
 	public:
 		TVector_Iterator() {}
 
-		std::vector<int>	*std_vec = nullptr;
 		ft::vector<int>		*ft_vec = nullptr;
 
-		std::stringstream	buffer;
-		std::streambuf 		*sbuf;
-		void		compare() {
-			_size = std_vec->size();
-			EXPECT_EQ(_size, ft_vec->size());
-			for (size_t i = 0; i < _size; i++)
-				EXPECT_EQ((*std_vec)[i], (*ft_vec)[i]);
-			this->TearDown();
-		}
 	protected:
-		std::vector<int>::size_type	_size;
-		virtual void	SetUp() {
-			sbuf = std::cerr.rdbuf();
-
-			// Redirect cout to our stringstream buffer or any other ostream
-			std::cerr.rdbuf(buffer.rdbuf());
-		}
+		virtual void	SetUp() {}
 
 		virtual void	TearDown() {
-			if (std_vec != nullptr) {
-				delete std_vec;
-				std_vec = nullptr;
-			}
 			if (ft_vec != nullptr) {
 				delete ft_vec;
 				ft_vec = nullptr;
 			}
-
-			// When done redirect cout to its old self
-			std::cerr.rdbuf(sbuf);
 		}
 };
 
