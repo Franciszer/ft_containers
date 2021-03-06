@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:25:58 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/06 09:32:33 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/06 12:32:12 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,9 @@ namespace	ft {
 			iterator				begin() {return iterator(this->_data);}
 			const_iterator			begin() const {return const_iterator(this->_data);}
 			iterator				end() {return iterator(this->_data + this->_size);}
-			const_iterator			end() const {return const_iterator(this->_data + this->_size);}
+			const_iterator			end() const {
+				return const_iterator(this->_data + this->_size);
+			}
 			reverse_iterator		rbegin() {return reverse_iterator(this->_data + this->_size - 1);}
 			const_reverse_iterator	rbegin() const {return const_reverse_iterator(this->_data + this->_size - 1);}
 			reverse_iterator		rend() {return reverse_iterator(this->_data - 1);}

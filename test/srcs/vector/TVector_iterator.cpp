@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 10:34:16 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/06 11:33:02 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/06 14:57:51 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,47 @@ TEST_F(TVector_Iterator, TVector_Iterator_end) {
 	ft_vec->push_back(2048123128);
 
 	EXPECT_EQ(*(--ft_vec->end()), 2048123128);
+}
+
+TEST_F(TVector_Iterator, TVector_Iterator_rbegin) {
+	ft_vec = new ft::vector<int>;
+	ft::vector<int>::reverse_iterator	rit = ft_vec->rbegin();
+
+	EXPECT_EQ(rit, ft_vec->rend());
+	ft_vec->push_back(5);
+	ft_vec->push_back(-123);
+	ft_vec->push_back(21312);
+	ft_vec->push_back(213114414);
+	ft_vec->push_back(-2131321);
+	ft_vec->push_back(2048123128);
+
+	ft::vector<int> ft_vec2(ft_vec->rbegin(), ft_vec->rend());
+	ft::vector<int> ft_vec3(ft_vec2.rbegin(), ft_vec2.rend());
+
+	ft::vector<int>::reverse_iterator it = ft_vec->rbegin();
+	for (int i = ft_vec->size() - 1; it != ft_vec->rend() && i >= 0; i--, it++) {
+		EXPECT_EQ(*it, (*ft_vec)[i]);
+	}
+}
+
+TEST_F(TVector_Iterator, TVector_Iterator_rend) {
+	ft_vec = new ft::vector<int>;
+	ft::vector<int>::reverse_iterator rit = ft_vec->rend();
+
+	EXPECT_EQ(ft_vec->rbegin(), rit);
+	ft_vec->push_back(5);
+	ft_vec->push_back(-123);
+	ft_vec->push_back(21312);
+	ft_vec->push_back(213114414);
+	ft_vec->push_back(-2131321);
+	ft_vec->push_back(2048123128);
+
+	ft::vector<int> ft_vec2(ft_vec->rbegin(), ft_vec->rend());
+	ft::vector<int> ft_vec3(ft_vec2.rbegin(), ft_vec2.rend());
+
+	ft::vector<int>::reverse_iterator it = ft_vec->rend();
+	--it;
+	for (int i = 0; i < ft_vec->size(); i++, it--) {
+		EXPECT_EQ(*it, (*ft_vec)[i]);
+	}
 }

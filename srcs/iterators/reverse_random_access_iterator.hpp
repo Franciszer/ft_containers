@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 10:43:22 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/16 14:26:02 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/06 12:44:23 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ namespace	ft {
 				reverse_bidirectional_iterator(val) {}
 				
 			reverse_random_access_iterator(const reverse_random_access_iterator<T, false> &src):
-				reverse_bidirectional_iterator(src.getNonConstPointer) {}
+				reverse_bidirectional_iterator(src.getNonConstPointer()) {}
 
 			explicit reverse_random_access_iterator(const random_access_iterator<T, false> &src):
 				reverse_bidirectional_iterator(src.getNonConstPointer() - 1) {}
@@ -106,7 +106,7 @@ namespace	ft {
 				return it2 -= n;
 			}
 			
-			virtual ~reverse_random_access_iterator(void);
+			virtual ~reverse_random_access_iterator(void) {}
 				
 		private:
 			void	modifyVal(int n, bool sign) {
