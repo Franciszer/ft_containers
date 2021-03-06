@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:25:58 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/26 14:50:20 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/06 09:32:33 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ namespace	ft {
                  const allocator_type& alloc = allocator_type(),
 				 typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) : // checks if InputIterator is not an integral type; if it is, the compiler will use the appropriate constructor defined up above
 				 _allocator(alloc),
-				 _size(0) {
+				 _size(0),
+				 _capacity(0) {
 					InputIterator	nav(first);
 
 					for (; nav != last; this->_capacity++, nav++);
