@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:25:58 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/06 12:32:12 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/06 16:50:36 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,13 @@ namespace	ft {
 			const_reverse_iterator	rbegin() const {return const_reverse_iterator(this->_data + this->_size - 1);}
 			reverse_iterator		rend() {return reverse_iterator(this->_data - 1);}
 			const_reverse_iterator	rend() const {return const_reverse_iterator(this->_data - 1);}
-
+// 4611686018427387904
+// 4611686018427387904
 		// CAPACITY	
 			size_type	size() const {return this->_size;}
-			size_type	max_size() const {return std::numeric_limits<difference_type>::max();}
+			size_type	max_size() const {
+				return (static_cast<size_type>(pow(2.0, sizeof(pointer) * 8)/sizeof(value_type)) - 1);
+			}                                                                                                                                                                                                                                                                                                                                                             
 			void		resize (size_type n, value_type val = value_type()) {
 				if (n > this->_capacity)
 					this->_increaseCapacity(n);

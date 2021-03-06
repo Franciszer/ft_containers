@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:26:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/16 12:41:35 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/06 16:29:37 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <iomanip>
 # include <string>
 # include <memory>
-# include <limits>
 # include <stdexcept>
+# include <cmath>
 
 # include "constBool.hpp"
 # include "enable_if.hpp"
