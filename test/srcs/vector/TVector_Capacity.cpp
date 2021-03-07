@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 15:15:44 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/06 16:34:25 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/07 14:56:23 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,54 @@ TEST_F(TVector_Capacity, TVector_Capacity_capacity) {
 	ft::vector<std::string>	v;
 
 	EXPECT_EQ(0, v.capacity());
+}
+
+TEST_F(TVector_Capacity, TVector_Capacity_resize) {
+	ft_vec = new ft::vector<int>;
+
+	ft_vec->resize(10, 1);
+	
+	EXPECT_EQ(10, ft_vec->size());
+	ft_vec->resize(7);
+	EXPECT_EQ(7, ft_vec->size());
+	ft_vec->clear();
+	ft_vec->push_back(3);
+	ft_vec->push_back(7);
+
+	ft_vec->resize(20);
+	ft::vector<int>::size_type	i = 0;
+	EXPECT_EQ((*ft_vec)[i++], 3);
+	EXPECT_EQ((*ft_vec)[i++], 7);
+	for (; i < 20; i++)
+		EXPECT_EQ((*ft_vec)[i], 0);
+	EXPECT_EQ(20, ft_vec->size());
+}
+
+TEST_F(TVector_Capacity, TVector_Capacity_empty) {
+	ft_vec = new ft::vector<int>;
+	
+	EXPECT_TRUE(ft_vec->empty());
+	ft_vec->push_back(1);
+	EXPECT_FALSE(ft_vec->empty());
+}
+
+TEST_F(TVector_Capacity, TVector_Capacity_reserve) {
+	ft_vec = new ft::vector<int>;
+
+	ft_vec->reserve(10);
+	
+	EXPECT_EQ(10, ft_vec->capacity());
+	ft_vec->reserve(7);
+	EXPECT_EQ(10, ft_vec->capacity());
+	ft_vec->clear();
+	ft_vec->push_back(3);
+	ft_vec->push_back(7);
+
+	ft::vector<int>::size_type	size = ft_vec->size();
+	ft_vec->reserve(20);
+	EXPECT_EQ(size, ft_vec->size());
+	ft::vector<int>::size_type	i = 0;
+	EXPECT_EQ((*ft_vec)[i++], 3);
+	EXPECT_EQ((*ft_vec)[i], 7);
+	EXPECT_EQ(20, ft_vec->capacity());
 }
