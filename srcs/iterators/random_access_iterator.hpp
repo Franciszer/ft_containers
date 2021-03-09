@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   random_access_iterator.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 13:46:46 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/06 11:04:25 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/09 20:06:21 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ namespace	ft {
 			~random_access_iterator() {}
 
 			random_access_iterator	&operator=(const random_access_iterator &src) {
-				if (this != !src)
+				if (this != &src)
 					this->_val = src._val;
 				return *this;
 			}

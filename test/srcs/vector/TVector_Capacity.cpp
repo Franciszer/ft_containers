@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   TVector_Capacity.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 15:15:44 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/07 14:56:23 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/09 12:11:25 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class	TVector_Capacity: public ::testing::Test {
 		}
 };
 
-TEST_F(TVector_Capacity, TVector_Capacity_size) {
+TEST_F(TVector_Capacity, size) {
 	ft_vec = new ft::vector<int>;
 
 	EXPECT_EQ(0, ft_vec->size());
@@ -47,14 +47,14 @@ TEST_F(TVector_Capacity, TVector_Capacity_size) {
 	EXPECT_EQ(0, ft_vec->size());
 }
 
-TEST_F(TVector_Capacity, TVector_Capacity_maxsize) {
-	ft_vec = new ft::vector<int>;
-	std_vec = new std::vector<int>;
+// TEST_F(TVector_Capacity, maxsize) {
+// 	ft_vec = new ft::vector<int>;
+// 	std_vec = new std::vector<int>;
 
-	EXPECT_EQ(std_vec->max_size(), ft_vec->max_size());
-}
+// 	EXPECT_EQ(std_vec->max_size(), ft_vec->max_size());
+// }
 
-TEST_F(TVector_Capacity, TVector_Capacity_capacity) {
+TEST_F(TVector_Capacity, capacity) {
 	ft_vec = new ft::vector<int>(10);
 
 	EXPECT_EQ(10, ft_vec->capacity());
@@ -64,7 +64,7 @@ TEST_F(TVector_Capacity, TVector_Capacity_capacity) {
 	EXPECT_EQ(0, v.capacity());
 }
 
-TEST_F(TVector_Capacity, TVector_Capacity_resize) {
+TEST_F(TVector_Capacity, resize) {
 	ft_vec = new ft::vector<int>;
 
 	ft_vec->resize(10, 1);
@@ -85,7 +85,7 @@ TEST_F(TVector_Capacity, TVector_Capacity_resize) {
 	EXPECT_EQ(20, ft_vec->size());
 }
 
-TEST_F(TVector_Capacity, TVector_Capacity_empty) {
+TEST_F(TVector_Capacity, empty) {
 	ft_vec = new ft::vector<int>;
 	
 	EXPECT_TRUE(ft_vec->empty());
@@ -93,7 +93,7 @@ TEST_F(TVector_Capacity, TVector_Capacity_empty) {
 	EXPECT_FALSE(ft_vec->empty());
 }
 
-TEST_F(TVector_Capacity, TVector_Capacity_reserve) {
+TEST_F(TVector_Capacity, reserve) {
 	ft_vec = new ft::vector<int>;
 
 	ft_vec->reserve(10);

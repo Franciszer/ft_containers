@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   TVector_Iterator.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 10:34:16 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/06 15:15:28 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/09 12:12:54 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class	TVector_Iterator: public ::testing::Test {
 		}
 };
 
-TEST_F(TVector_Iterator, TVector_Iterator_begin) {
+TEST_F(TVector_Iterator, begin) {
 	ft_vec = new ft::vector<int>;
 
 	// checking is ft::vector::begin segaults on empty vector
@@ -58,7 +58,7 @@ TEST_F(TVector_Iterator, TVector_Iterator_begin) {
 	FAIL();
 }
 
-TEST_F(TVector_Iterator, TVector_Iterator_end) {
+TEST_F(TVector_Iterator, end) {
 	ft_vec = new ft::vector<int>;
 	EXPECT_EQ(ft_vec->begin(), ft_vec->end());
 	
@@ -72,7 +72,7 @@ TEST_F(TVector_Iterator, TVector_Iterator_end) {
 	EXPECT_EQ(*(--ft_vec->end()), 2048123128);
 }
 
-TEST_F(TVector_Iterator, TVector_Iterator_rbegin) {
+TEST_F(TVector_Iterator, rbegin) {
 	ft_vec = new ft::vector<int>;
 	ft::vector<int>::reverse_iterator	rit = ft_vec->rbegin();
 
@@ -93,7 +93,7 @@ TEST_F(TVector_Iterator, TVector_Iterator_rbegin) {
 	}
 }
 
-TEST_F(TVector_Iterator, TVector_Iterator_rend) {
+TEST_F(TVector_Iterator, rend) {
 	ft_vec = new ft::vector<int>;
 	ft::vector<int>::reverse_iterator rit = ft_vec->rend();
 

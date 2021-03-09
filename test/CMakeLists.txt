@@ -9,6 +9,8 @@ set(Sources
 	${VECTOR_DIR}/TVector_Constructor.cpp
 	${VECTOR_DIR}/TVector_Iterator.cpp
 	${VECTOR_DIR}/TVector_Capacity.cpp
+	${VECTOR_DIR}/TVector_Operator.cpp
+	${VECTOR_DIR}/TVector_Modifiers.cpp
 )
 
 add_executable(${This} ${Sources})

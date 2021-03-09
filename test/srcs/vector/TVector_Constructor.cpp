@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   TVector_Constructor.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 12:51:12 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/06 10:53:50 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/09 12:12:56 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,14 @@ class	TVector_Constructor: public ::testing::Test {
 		}
 };
 
-TEST_F(TVector_Constructor, TVector_Constructor_default) {
+TEST_F(TVector_Constructor, c_default) {
 	std_vec = new std::vector<int>;
 	ft_vec = new ft::vector<int>;
 	this->compare();
 	SUCCEED();
 }
 
-TEST_F(TVector_Constructor, TVector_Constructor_fill) {
+TEST_F(TVector_Constructor, fill) {
 	
 
 	std_vec = new std::vector<int>(10);
@@ -78,7 +78,7 @@ TEST_F(TVector_Constructor, TVector_Constructor_fill) {
 	FAIL();
 }
 
-TEST_F(TVector_Constructor, TVector_Constructor_range) {
+TEST_F(TVector_Constructor, range) {
 	ft::vector<int>	src;
 
 	src.push_back(10);
