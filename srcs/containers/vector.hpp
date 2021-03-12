@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:25:58 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/09 20:29:39 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/10 01:39:32 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -246,20 +246,10 @@ namespace	ft {
 			}
 			void		swap (vector& x) {
 				vector	tmp;
-				tmp._allocator = this->_allocator;
-				tmp._size = this->_size;
-				tmp._capacity = this->_capacity;
-				tmp._data = this->_data;
-				
-				this->_allocator = x._allocator;
-				this->_size = x._size;
-				this->_capacity = x._capacity;
-				this->_data = x._data;
 
-				x._allocator = tmp._allocator;
-				x._size = tmp._size;
-				x._capacity = tmp._capacity;
-				x._data = tmp._data;
+				tmp = *this;
+				*this = x;
+				x = *this;
 			}
 			void 		clear() {
 				while(this->_size)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bidirectional_iterator.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 11:45:20 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/06 12:03:28 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/12 22:00:32 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
