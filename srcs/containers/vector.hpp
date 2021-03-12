@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:25:58 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/10 01:39:32 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/12 22:21:48 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ namespace	ft {
 			typedef	T*													pointer;
 			typedef	const T*											const_pointer;
 			
-			typedef typename ft::random_access_iterator<T, false>		iterator;
-			typedef typename ft::random_access_iterator<T, true>		const_iterator;
+			typedef typename ft::vector_iterator<T, false>		iterator;
+			typedef typename ft::vector_iterator<T, true>		const_iterator;
 
-			typedef typename ft::reverse_random_access_iterator<T, false>		reverse_iterator;
-			typedef typename ft::reverse_random_access_iterator<T, true>		const_reverse_iterator;
+			typedef typename ft::rev_vector_iterator<T, false>	reverse_iterator;
+			typedef typename ft::rev_vector_iterator<T, true>	const_reverse_iterator;
 
 			explicit vector(const allocator_type &alloc = allocator_type()):
 			_allocator(alloc),

@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RANDOM_ACCESS_ITERATOR_HPP
+#ifndef VECTOR_ITERATOR
 
-# define RANDOM_ACCESS_ITERATOR_HPP
+# define VECTOR_ITERATOR
 
 # include "ft_containers.hpp"
 namespace	ft {
@@ -20,7 +20,7 @@ namespace	ft {
 	class	rev_vector_iterator;
 
 	template<typename T, bool B>
-	class	vector_iterator: {
+	class	vector_iterator {
 		public:
 			typedef long int										difference_type;
 			typedef T												value_type;
@@ -33,7 +33,7 @@ namespace	ft {
 
 			vector_iterator(nonConstPointer val = 0) : _val(val) {}
 				vector_iterator(const vector_iterator<T, false>& src) { _val = src.getNonConstPointer(); }
-			vector_iterator(const rev_bidirectional_iterator<T, false>& src) { _val = src.getNonConstPointer(); }
+			vector_iterator(const rev_vector_iterator<T, false>& src) { _val = src.getNonConstPointer(); }
 			virtual ~vector_iterator() {}
 
 			nonConstPointer	getNonConstPointer() const {return _val;}
@@ -57,8 +57,8 @@ namespace	ft {
 			bool operator<=(const vector_iterator& src) const	{return (src._val >= this->_val);}
 			bool operator>=(const vector_iterator& src) const	{return (src._val <= this->_val);}
 
-			bool operator==(const bidirectional_iterator& it) const	{ return (it._val == _val); }
-			bool operator!=(const bidirectional_iterator& it) const	{ return (it._val != _val); }
+			bool operator==(const vector_iterator& it) const	{ return (it._val == _val); }
+			bool operator!=(const vector_iterator& it) const	{ return (it._val != _val); }
 
 			vector_iterator	&operator+=(int n) {
 				this->modifyVal(n, ADD);
@@ -100,7 +100,10 @@ namespace	ft {
 			}
 			
 			private:
-				// sign == true is an addition, sign == false is a substraction
+
+				nonConstPointer	_val;
+
+				// sign == ADD is an addition, sign == SUB is a substraction
 				void	modifyVal(int n, bool sign) {
 					int	mov = 1;
 					
