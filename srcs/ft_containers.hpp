@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_containers.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:26:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/06 16:29:37 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/13 03:50:28 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@
 # include "constBool.hpp"
 # include "enable_if.hpp"
 # include "is_integral.hpp"
-# include "bidirectional_iterator.hpp"
-# include "reverse_bidirectional_iterator.hpp"
-# include "random_access_iterator.hpp"
-# include "reverse_random_access_iterator.hpp"
+# include "vector_iterator.hpp"
+# include "reverse_iterator.hpp"
 
 # include "vector.hpp"
 

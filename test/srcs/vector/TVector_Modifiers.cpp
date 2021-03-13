@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:54:18 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/09 20:30:13 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/10 01:39:35 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,4 +129,25 @@ TEST_F(TVector_Modifiers, erase) {
     ft_vec->erase(ft_vec->begin(), it);
     ASSERT_EQ(1, ft_vec->size());
     EXPECT_EQ(15, (*ft_vec)[0]);
+}
+
+TEST_F(TVector_Modifiers, swap) {
+    ft_vec = new ft::vector<int>;
+
+    ft_vec->push_back(8);
+    ft_vec->push_back(8213123);
+    ft_vec->push_back(-1231238);
+    ft_vec->push_back(0);
+    ft_vec->push_back(INT32_MAX);
+    ft_vec->push_back(INT32_MIN);
+    ft_vec->push_back(8);
+    
+    ft::vector<int> copy(*ft_vec);
+    ft::vector<int> v;
+
+    v.swap(*ft_vec);
+    EXPECT_EQ(copy.size(), v.size());
+    for (ft::vector<int>::size_type i = 0; i < copy.size(); i++) {
+        EXPECT_EQ(copy[i], v[i]);
+    }
 }

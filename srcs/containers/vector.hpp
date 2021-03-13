@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:25:58 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/09 20:29:39 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/13 03:47:13 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ namespace	ft {
 			typedef	T*													pointer;
 			typedef	const T*											const_pointer;
 			
-			typedef typename ft::random_access_iterator<T, false>		iterator;
-			typedef typename ft::random_access_iterator<T, true>		const_iterator;
+			typedef typename ft::vector_iterator<T, false>				iterator;
+			typedef typename ft::vector_iterator<T, true>				const_iterator;
 
-			typedef typename ft::reverse_random_access_iterator<T, false>		reverse_iterator;
-			typedef typename ft::reverse_random_access_iterator<T, true>		const_reverse_iterator;
+			typedef typename ft::reverse_iterator<iterator>				reverse_iterator;
+			typedef typename ft::reverse_iterator<const_iterator>		const_reverse_iterator;
 
 			explicit vector(const allocator_type &alloc = allocator_type()):
 			_allocator(alloc),
@@ -97,10 +97,10 @@ namespace	ft {
 			const_iterator			end() const {
 				return const_iterator(this->_data + this->_size);
 			}
-			reverse_iterator		rbegin() {return reverse_iterator(this->_data + this->_size - 1);}
-			const_reverse_iterator	rbegin() const {return const_reverse_iterator(this->_data + this->_size - 1);}
-			reverse_iterator		rend() {return reverse_iterator(this->_data - 1);}
-			const_reverse_iterator	rend() const {return const_reverse_iterator(this->_data - 1);}
+			reverse_iterator		rbegin() {return reverse_iterator(this->_data + this->_size);}
+			const_reverse_iterator	rbegin() const {return const_reverse_iterator(this->_data + this->_size);}
+			reverse_iterator		rend() {return reverse_iterator(this->_data);}
+			const_reverse_iterator	rend() const {return const_reverse_iterator(this->_data);}
 // 4611686018427387904
 // 4611686018427387904
 		// CAPACITY	
@@ -246,20 +246,10 @@ namespace	ft {
 			}
 			void		swap (vector& x) {
 				vector	tmp;
-				tmp._allocator = this->_allocator;
-				tmp._size = this->_size;
-				tmp._capacity = this->_capacity;
-				tmp._data = this->_data;
-				
-				this->_allocator = x._allocator;
-				this->_size = x._size;
-				this->_capacity = x._capacity;
-				this->_data = x._data;
 
-				x._allocator = tmp._allocator;
-				x._size = tmp._size;
-				x._capacity = tmp._capacity;
-				x._data = tmp._data;
+				tmp = *this;
+				*this = x;
+				x = *this;
 			}
 			void 		clear() {
 				while(this->_size)

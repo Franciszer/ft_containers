@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 12:51:12 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/09 12:12:56 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/10 01:43:34 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ class	TVector_Constructor: public ::testing::Test {
 		}
 };
 
-TEST_F(TVector_Constructor, c_default) {
+TEST_F(TVector_Constructor, def) {
 	std_vec = new std::vector<int>;
 	ft_vec = new ft::vector<int>;
 	this->compare();
