@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:25:58 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/13 03:47:13 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/13 04:09:34 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,7 @@ namespace	ft {
 			const_reverse_iterator	rbegin() const {return const_reverse_iterator(this->_data + this->_size);}
 			reverse_iterator		rend() {return reverse_iterator(this->_data);}
 			const_reverse_iterator	rend() const {return const_reverse_iterator(this->_data);}
-// 4611686018427387904
-// 4611686018427387904
+
 		// CAPACITY	
 			size_type	size() const {return this->_size;}
 			size_type	max_size() const {
