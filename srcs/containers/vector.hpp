@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:25:58 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/12 22:21:48 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/13 03:47:13 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ namespace	ft {
 			typedef	T*													pointer;
 			typedef	const T*											const_pointer;
 			
-			typedef typename ft::vector_iterator<T, false>		iterator;
-			typedef typename ft::vector_iterator<T, true>		const_iterator;
+			typedef typename ft::vector_iterator<T, false>				iterator;
+			typedef typename ft::vector_iterator<T, true>				const_iterator;
 
-			typedef typename ft::rev_vector_iterator<T, false>	reverse_iterator;
-			typedef typename ft::rev_vector_iterator<T, true>	const_reverse_iterator;
+			typedef typename ft::reverse_iterator<iterator>				reverse_iterator;
+			typedef typename ft::reverse_iterator<const_iterator>		const_reverse_iterator;
 
 			explicit vector(const allocator_type &alloc = allocator_type()):
 			_allocator(alloc),
@@ -97,10 +97,10 @@ namespace	ft {
 			const_iterator			end() const {
 				return const_iterator(this->_data + this->_size);
 			}
-			reverse_iterator		rbegin() {return reverse_iterator(this->_data + this->_size - 1);}
-			const_reverse_iterator	rbegin() const {return const_reverse_iterator(this->_data + this->_size - 1);}
-			reverse_iterator		rend() {return reverse_iterator(this->_data - 1);}
-			const_reverse_iterator	rend() const {return const_reverse_iterator(this->_data - 1);}
+			reverse_iterator		rbegin() {return reverse_iterator(this->_data + this->_size);}
+			const_reverse_iterator	rbegin() const {return const_reverse_iterator(this->_data + this->_size);}
+			reverse_iterator		rend() {return reverse_iterator(this->_data);}
+			const_reverse_iterator	rend() const {return const_reverse_iterator(this->_data);}
 // 4611686018427387904
 // 4611686018427387904
 		// CAPACITY	

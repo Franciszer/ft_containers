@@ -18,7 +18,7 @@ include_directories(srcs
 set(Headers
 	srcs/ft_containers.hpp
 	srcs/iterators/vector_iterator.hpp
-	srcs/iterators/rev_vector_iterator.hpp
+	srcs/iterators/reverse_iterator.hpp
 	srcs/templates/constBool.hpp
 	srcs/templates/enable_if.hpp
 	srcs/templates/is_integral.hpp
