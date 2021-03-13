@@ -25,12 +25,10 @@ set(Headers
 	srcs/containers/vector.hpp
 )
 
-set(Sources
-	main.cpp
-)
+add_library(${This} INTERFACE)
 
-add_library(${This} STATIC ${Sources} ${Headers})
-
-target_compile_options(${This} PRIVATE -Wall -Wextra -Werror -fsanitize=address)
+target_sources(${This} INTERFACE)
+target_include_directories(${This} INTERFACE Headers)
+target_compile_options(${This} INTERFACE -Wall -Wextra -Werror)
 
 add_subdirectory(test)
