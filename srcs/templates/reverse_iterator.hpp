@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 22:49:52 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/13 03:52:51 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/13 21:46:33 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,15 +94,13 @@ namespace ft{
             friend bool operator>= (const reverse_iterator<Iter>& lhs,
                 const reverse_iterator<Iter>& rhs) { return lhs._current >= rhs._current; }
 
-            template <class Iterator>
-            friend reverse_iterator<Iterator> operator+ (
-             typename reverse_iterator<Iterator>::difference_type n,
-             const reverse_iterator<Iterator>& rev_it) { return (rev_it + n); }
+            friend reverse_iterator<Iter> operator+ (
+             typename reverse_iterator<Iter>::difference_type n,
+             const reverse_iterator<Iter>& rev_it) { return (rev_it + n); }
             
-            template <class Iterator>
-            friend reverse_iterator<Iterator> operator- (
-             typename reverse_iterator<Iterator>::difference_type n,
-             const reverse_iterator<Iterator>& rev_it) { return (rev_it - n); }
+            friend reverse_iterator<Iter> operator- (
+             typename reverse_iterator<Iter>::difference_type n,
+             const reverse_iterator<Iter>& rev_it) { return (rev_it - n); }
 
             private:
                 iterator_type                   _current;

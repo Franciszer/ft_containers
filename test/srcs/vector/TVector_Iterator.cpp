@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 10:34:16 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/13 03:41:01 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/13 21:43:41 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ TEST_F(TVector_Iterator, rend) {
 
 	ft::vector<int>::reverse_iterator it = ft_vec->rend();
 	--it;
-	for (int i = 0; i < ft_vec->size(); i++, it--) {
+	for (ft::vector<int>::size_type i = 0; i < ft_vec->size(); i++, it--) {
 		EXPECT_EQ(*it, (*ft_vec)[i]);
 	}
 }

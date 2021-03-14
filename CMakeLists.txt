@@ -18,9 +18,11 @@ include_directories(srcs
 set(Headers
 	srcs/ft_containers.hpp
 	srcs/iterators/vector_iterator.hpp
-	srcs/iterators/reverse_iterator.hpp
+	srcs/iterators/list_iterator.hpp
+	srcs/templates/reverse_iterator.hpp
 	srcs/templates/constBool.hpp
 	srcs/templates/enable_if.hpp
+	srcs/templates/list_node.hpp
 	srcs/templates/is_integral.hpp
 	srcs/containers/vector.hpp
 )
@@ -29,6 +31,6 @@ add_library(${This} INTERFACE)
 
 target_sources(${This} INTERFACE)
 target_include_directories(${This} INTERFACE Headers)
-target_compile_options(${This} INTERFACE -Wall -Wextra -Werror)
+target_compile_options(${This} INTERFACE -Wall -Wextra -Werror -std=c++98)
 
 add_subdirectory(test)

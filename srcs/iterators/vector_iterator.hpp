@@ -15,9 +15,8 @@
 # define VECTOR_ITERATOR
 
 # include "ft_containers.hpp"
+# include "reverse_iterator.hpp"
 namespace	ft {
-	template<typename T, bool B>
-	class	rev_vector_iterator;
 
 	template<typename T, bool B>
 	class	vector_iterator {
@@ -32,8 +31,7 @@ namespace	ft {
 
 
 			vector_iterator(nonConstPointer val = 0) : _val(val) {}
-				vector_iterator(const vector_iterator<T, false>& src) { _val = src.getNonConstPointer(); }
-			vector_iterator(const rev_vector_iterator<T, false>& src) { _val = src.getNonConstPointer(); }
+			vector_iterator(const vector_iterator<T, false>& src) { _val = src.getNonConstPointer(); }
 			virtual ~vector_iterator() {}
 
 			nonConstPointer	getNonConstPointer() const {return _val;}

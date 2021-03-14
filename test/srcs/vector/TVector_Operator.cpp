@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:13:36 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/09 12:58:06 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/13 21:46:38 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ TEST_F(TVector_ElementAccess, operator_square_brackets) {
     std_vec->push_back(-888);
     std_vec->push_back(777);
 
-    for (int i = 0; i < std_vec->size(); i++) {
+    for (ft::vector<int>::size_type i = 0; i < std_vec->size(); i++) {
         (*ft_vec)[i] = (*std_vec)[i];
         EXPECT_EQ((*std_vec)[i], (*ft_vec)[i]);
     }
