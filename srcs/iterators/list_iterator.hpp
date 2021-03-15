@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:30:05 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/14 14:24:09 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/14 21:44:58 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ namespace ft {
 			typedef	ft::list_node<T>*								nodePtr;
 			
 			list_iterator(nodePtr node = 0): _current(node) {}
-			list_iterator(const list_iterator<T, false> &src): _current(src.getNonConstPtr()) {}
+			list_iterator(const list_iterator<T, false> &src): _current(src.getNodePtr()) {}
 			~list_iterator() {}
 
-			nodePtr			getNonConstPtr() const { return _current; }
+			nodePtr			getNodePtr() const { return _current; }
 
 			list_iterator	&operator=(const &list_iterator &src) {
 				if (this != &src)
@@ -65,4 +65,4 @@ namespace ft {
 	};
 }
 
-#endif
+#endif 	

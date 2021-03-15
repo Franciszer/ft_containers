@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/14 12:47:17 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/15 04:32:36 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,244 @@
 
 # include "ft_containers.hpp"
 
-template<typename T, bool B>
-class list {
-    
-    
-    private:
+namespace ft {
+    template<typename T, bool B, class Alloc=std::allocator<T> >
+    class list {
+        
+		public:
+			typedef	T													value_type;
+			typedef	Alloc												allocator_type;
+			typedef	long int											difference_type;
+			typedef	size_t												size_type;
 
+			typedef	T&													reference;
+			typedef	const T&											const_reference;
+			typedef	T*													pointer;
+			typedef	const T*											const_pointer;
+				
+			typedef typename ft::list_iterator<T, false>				iterator;
+			typedef typename ft::list_iterator<T, true>				    const_iterator;
+
+			typedef typename ft::reverse_iterator<iterator>				reverse_iterator;
+			typedef typename ft::reverse_iterator<const_iterator>		const_reverse_iterator;
+
+			typedef typename list_node<T>								node;
+			typedef typename node*										nodePtr;
+			typedef typename std::allocator<node>						node_allocator;
+
+			explicit list (const allocator_type& alloc = allocator_type()):\
+				_alloc(alloc), _size(0) {
+					_setUp();
+			}
+
+			explicit list (size_type n, const value_type& val = value_type(),
+					const allocator_type& alloc = allocator_type()) {
+						_setUp();
+						for (; _size < n ;)
+							this->push_back(val);
+					}
+
+			template <class InputIterator>
+			list (InputIterator first, InputIterator last,
+				const allocator_type& alloc = allocator_type(),
+				typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0):\
+				_alloc(alloc),
+				_size(0) {
+					_setUp();
+					for (; first != last; first++)
+						this->push_back(*first);
+			}
+
+			list (const list &src):\
+			_alloc(src._alloc),
+			_node_alloc(src._node_alloc),
+			_size(src._size) {
+				_setUp();
+				for (const_iterator it = src.begin(); it != src.end(); it++)
+					push_back(*it);
+			}
+
+			~list() {
+				while (_size)
+					this->pop_front();
+			}
+			list	&operator=(const list &src) {
+				list	copy(src);
+				
+				this->swap(copy);
+				return *this;
+			}
+
+			iterator					begin() { return(_size ? iterator(_end)->next : iterator(_end)); }
+			const_iterator				begin() const { return(_size ? const_iterator(_end)->next : const_iterator(_end)); }
+			iterator					end() { return iterator(_end); }
+			const_iterator				end() const { return const_iterator(_end); }
+
+			reverse_iterator			rbegin() { return (_size ? reverse_iterator(_end->prev) ? reverse_iterator(_end)); }
+			const_reverse_iterator		rbegin() const { return (_size ? const_reverse_iterator(_end->prev) ? const_reverse_iterator(_end)); }
+			reverse_iterator			end() { return reverse_iterator(_end); }
+			const_reverse_iterator		end() const { return const_reverse_iterator(_end); }
+
+			bool						empty() const { return _size == 0; }
+			size_type					size() const { return _size; }
+			size_type					max_size() const {
+				return (static_cast<size_type>(pow(2.0, sizeof(pointer) * 8)/sizeof(value_type)) - 1);
+			}
+			reference					front() { return _end->next->content; }
+			const_reference				front() const { return _end->next->content; }
+			reference					back() { return _end->prev->content; }
+			const_reference				back() const { return _end->prev->content; }
+
+			template <class InputIterator>
+            void		assign (InputIterator first, InputIterator last) {
+				while (_size)
+					this->pop_back();
+					
+				for (; first != last; first++) {
+					this->push_back(*first);
+				}
+			}
+			void		assign(size_type n, const value_type &val) {
+				while (_size)
+					this->pop_back();
+				for (size_type i = 0; i != n; i++)
+					this->push_back(n);
+			}
+			void		push_front(const value_type &val) {
+				_newNode(val, _end);
+			}
+
+			void		pop_front() {
+				_delNode(_end->next);
+			}
+
+			void		push_back(const value_type &val) {
+				_newNode(val, _end->prev);
+			}
+
+			void		pop_back() {
+				_delNode(_end->prev);
+			}
+
+			iterator	insert(iterator position, const value_type& val) {
+				_newNode(val, position.getNodePtr()->prev)
+			}
+			
+			void		insert(iterator position, size_type n, const value_type& val) {
+				while (n--)
+					this->insert(position, val);
+			}
+
+			template <class InputIterator>
+			void 		insert(iterator position, InputIterator first, InputIterator last,
+				typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) {
+					for (; first != last; first++) {
+						this->insert(position, *first);
+					}
+			}
+
+			iterator erase (iterator position) {
+				_delNode(position.getNodePtr());
+			}
+			iterator erase (iterator first, iterator last) {
+				first++;
+				for ( first != last; first++) {
+					_delNode(first->prev->getNodePtr());
+				_delNode(first->prev->getNodePtr());
+				}
+			}
+
+			void	swap (list &x) {
+				list	tmp(*this);
+
+				_alloc = x._alloc;
+				_node_alloc = x._node_alloc;
+				_end = x._end;
+				_size = x._size;
+
+				x._alloc = tmp._alloc;
+				x._node_alloc = tmp._node_alloc;
+				x._end = tmp._end;
+				x._size = tmp._size;
+			}
+			
+			void	resize (size_type n, value_type val = value_type()) {
+				while (n < _size)
+					this->pop_back();
+				while (n > _size)
+					this->push_back(val);
+			}
+
+			void	clear() {
+				while (_size)
+					this->pop_back();
+			}
+
+			void splice (iterator position, list& x) {
+				this->insert(position, x.begin(), x.end());
+				x.clear();
+			}
+
+			void splice (iterator position, list& x, iterator i) {
+				_newNode(*i, position);
+				x._delNode(i.getNodePtr());
+			}
+
+			void splice (iterator position, list& x, iterator first, iterator last) {
+				for (iterator tmp = first, nodePtr last_val = position.getNodePtr();\
+				first != last ; first++) {
+					last_val = _newNode(*first, last_val);
+					x.erase(tmp);
+				}
+			}
+
+			void remove (const value_type& val) {
+				for (iterator it = this->begin() ; it != this->end();) {
+					if (*it == val) {
+						iterator tmp = ++it;
+						this->erase(it);
+						it = tmp;
+					}
+					else
+						it++;
+				}
+			}
+
+			
+
+        private:
+			allocator_type	_alloc;
+			node_allocator	_node_alloc;
+            nodePtr			_end;
+			size_type		_size;
+
+			void			_setUp() {
+				_end.prev = &_end;
+				_end.next = &_end;
+			}
+
+			nodePtr			_newNode(value_type 	&val, nodePtr prev) {
+				nodePtr	ret = _alloc.allocate(sizeof(node));
+
+				_alloc.construct(&ret->content, val);
+
+				nodePtr next = prev->next;
+				prev->next = ret;
+				next->prev = ret;
+				ret->prev = prev;
+				ret->next = next;
+				_size++
+				return ret;
+			}
+
+			void			_delNode(nodePtr ptr) {
+				ptr->prev->next = ptr->next;
+				ptr->next->prev = ptr->prev;
+
+				_alloc.destroy(&ptr->content);
+				_alloc.deallocate(ptr, sizeof(node));
+				_size--;
+			}
+    };
 }
-
 #endif
