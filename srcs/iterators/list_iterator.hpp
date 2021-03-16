@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:30:05 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/14 21:44:58 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/15 14:55:42 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ namespace ft {
 
 			nodePtr			getNodePtr() const { return _current; }
 
-			list_iterator	&operator=(const &list_iterator &src) {
+			list_iterator	&operator=(const list_iterator &src) {
 				if (this != &src)
 					this->_current = src._current;
 				return *this;

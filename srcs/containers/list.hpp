@@ -6,18 +6,19 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/15 04:32:36 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/16 20:24:23 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_HPP
+#ifndef LIST_HPP
 
-# define VECTOR_HPP
+# define LIST_HPP
 
 # include "ft_containers.hpp"
+# include "list_node.hpp"
 
 namespace ft {
-    template<typename T, bool B, class Alloc=std::allocator<T> >
+    template<typename T, class Alloc=std::allocator<T> >
     class list {
         
 		public:
@@ -37,9 +38,8 @@ namespace ft {
 			typedef typename ft::reverse_iterator<iterator>				reverse_iterator;
 			typedef typename ft::reverse_iterator<const_iterator>		const_reverse_iterator;
 
-			typedef typename list_node<T>								node;
-			typedef typename node*										nodePtr;
-			typedef typename std::allocator<node>						node_allocator;
+			typedef ft::list_node<T>							node;
+			typedef node*										nodePtr;
 
 			explicit list (const allocator_type& alloc = allocator_type()):\
 				_alloc(alloc), _size(0) {
@@ -47,7 +47,8 @@ namespace ft {
 			}
 
 			explicit list (size_type n, const value_type& val = value_type(),
-					const allocator_type& alloc = allocator_type()) {
+					const allocator_type& alloc = allocator_type()):
+					_alloc(alloc) {
 						_setUp();
 						for (; _size < n ;)
 							this->push_back(val);
@@ -66,7 +67,6 @@ namespace ft {
 
 			list (const list &src):\
 			_alloc(src._alloc),
-			_node_alloc(src._node_alloc),
 			_size(src._size) {
 				_setUp();
 				for (const_iterator it = src.begin(); it != src.end(); it++)
@@ -89,10 +89,10 @@ namespace ft {
 			iterator					end() { return iterator(_end); }
 			const_iterator				end() const { return const_iterator(_end); }
 
-			reverse_iterator			rbegin() { return (_size ? reverse_iterator(_end->prev) ? reverse_iterator(_end)); }
-			const_reverse_iterator		rbegin() const { return (_size ? const_reverse_iterator(_end->prev) ? const_reverse_iterator(_end)); }
-			reverse_iterator			end() { return reverse_iterator(_end); }
-			const_reverse_iterator		end() const { return const_reverse_iterator(_end); }
+			reverse_iterator			rbegin() { return (_size ? reverse_iterator(_end->prev) : reverse_iterator(_end)); }
+			const_reverse_iterator		rbegin() const { return (_size ? const_reverse_iterator(_end->prev) : const_reverse_iterator(_end)); }
+			reverse_iterator			rend() { return reverse_iterator(_end); }
+			const_reverse_iterator		rend() const { return const_reverse_iterator(_end); }
 
 			bool						empty() const { return _size == 0; }
 			size_type					size() const { return _size; }
@@ -116,8 +116,8 @@ namespace ft {
 			void		assign(size_type n, const value_type &val) {
 				while (_size)
 					this->pop_back();
-				for (size_type i = 0; i != n; i++)
-					this->push_back(n);
+				for (size_type i = 0; i < n; i++)
+					this->push_back(val);
 			}
 			void		push_front(const value_type &val) {
 				_newNode(val, _end);
@@ -136,7 +136,7 @@ namespace ft {
 			}
 
 			iterator	insert(iterator position, const value_type& val) {
-				_newNode(val, position.getNodePtr()->prev)
+				_newNode(val, position.getNodePtr()->prev);
 			}
 			
 			void		insert(iterator position, size_type n, const value_type& val) {
@@ -157,7 +157,7 @@ namespace ft {
 			}
 			iterator erase (iterator first, iterator last) {
 				first++;
-				for ( first != last; first++) {
+				for (; first != last; first++) {
 					_delNode(first->prev->getNodePtr());
 				_delNode(first->prev->getNodePtr());
 				}
@@ -167,12 +167,10 @@ namespace ft {
 				list	tmp(*this);
 
 				_alloc = x._alloc;
-				_node_alloc = x._node_alloc;
 				_end = x._end;
 				_size = x._size;
 
 				x._alloc = tmp._alloc;
-				x._node_alloc = tmp._node_alloc;
 				x._end = tmp._end;
 				x._size = tmp._size;
 			}
@@ -200,8 +198,8 @@ namespace ft {
 			}
 
 			void splice (iterator position, list& x, iterator first, iterator last) {
-				for (iterator tmp = first, nodePtr last_val = position.getNodePtr();\
-				first != last ; first++) {
+				nodePtr last_val = position.getNodePtr();
+				for (iterator tmp = first; first != last ; first++) {
 					last_val = _newNode(*first, last_val);
 					x.erase(tmp);
 				}
@@ -219,17 +217,118 @@ namespace ft {
 				}
 			}
 
+			template <class Predicate>
+			void remove_if (Predicate pred) {
+				for (iterator it = this->begin() ; it != this->end() ; it++) {
+					if (pred(*it)) {
+						iterator tmp = it;
+						tmp--;
+						this->erase(it);
+						it = tmp;
+					}
+				}
+			}
 			
+			void	unique() {
+				iterator it = this->begin();
+				for (iterator it2 = ++(this->begin());\
+					it2 != this->end() ; it2 = iterator(it->getNodePtr()->next)) {
+					if (*it == *it2) {
+						this->erase(it2);
+					}
+					else
+						it++;
+				}
+			}
+
+			template <class BinaryPredicate>
+			void unique (BinaryPredicate binary_pred) {
+				iterator it = this->begin();
+				for (iterator it2 = ++(this->begin());\
+					it2 != this->end() ; it2 = iterator(it->getNodePtr()->next)) {
+					if (binary_pred(it, it2)) {
+						this->erase(it2);
+					}
+					else
+						it++;
+				}
+			}
+
+			void merge (list& x) {
+				if (&x != this) {
+					for (iterator it = x.begin() ; it != x.end() ; it = x.begin()) {
+						this->push_back(*it);
+						x.erase(it);
+					}
+				}
+			}
+
+			template <class Compare>
+			void merge (list& x, Compare comp) {
+				for (iterator it = x.begin() ; it != x.end() ; it++) {
+					for (iterator it2 = this->begin() ; it2 != this->end() ; it2++) {
+						if (comp(it, it2)) {
+							_newNode(*it2, it->getNodePtr());
+							break ;
+						}
+					}
+				}
+			}
+
+			// void sort() {
+			// 	for (iterator it = this->begin(); it != this->end(); it++) {
+			// 		for (iterator it2(it); )
+			// 	}
+			// }
+
+			friend bool operator==(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+				if (lhs._size != rhs._size)
+					return false;
+				iterator	it = lhs.begin();
+				iterator	it2 = rhs.begin();
+				
+				for (; it != lhs.end(), it2 != rhs.end() ; it++, it2++) {
+					if (*it != *it2)
+						return false;
+				}
+				return true;
+			}
+
+			friend bool operator!=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+				return !(lhs == rhs);
+			}
+
+			friend bool operator<(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+				iterator	it = lhs.begin();
+				iterator	it2 = rhs.begin();
+
+				for (; it != lhs.end(), it2 != rhs.end(); it++, it2++) {
+					if (*it < *it2)
+						return true;
+				}
+				return lhs._size < rhs._size;
+			}
+
+			friend bool operator>(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+				return rhs < lhs;
+			}
+
+			friend bool operator<=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+				return (lhs < rhs || lhs == rhs);
+			}
+
+			friend bool operator>=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+				return (lhs > rhs || lhs == rhs);
+			}
 
         private:
 			allocator_type	_alloc;
-			node_allocator	_node_alloc;
             nodePtr			_end;
 			size_type		_size;
 
 			void			_setUp() {
-				_end.prev = &_end;
-				_end.next = &_end;
+				_end->prev = &_end;
+				_end->next = &_end;
 			}
 
 			nodePtr			_newNode(value_type 	&val, nodePtr prev) {
@@ -242,7 +341,7 @@ namespace ft {
 				next->prev = ret;
 				ret->prev = prev;
 				ret->next = next;
-				_size++
+				_size++;
 				return ret;
 			}
 
@@ -256,4 +355,5 @@ namespace ft {
 			}
     };
 }
+
 #endif

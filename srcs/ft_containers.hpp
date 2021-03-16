@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:26:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/14 14:15:03 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/15 14:56:11 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@
 # include "reverse_iterator.hpp"
 
 # include "vector.hpp"
+# include "list.hpp"
 
 #endif

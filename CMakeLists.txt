@@ -25,6 +25,7 @@ set(Headers
 	srcs/templates/list_node.hpp
 	srcs/templates/is_integral.hpp
 	srcs/containers/vector.hpp
+	srcs/containers/list.hpp
 )
 
 add_library(${This} INTERFACE)
