@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/16 20:24:23 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/16 21:06:28 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -275,11 +275,11 @@ namespace ft {
 				}
 			}
 
-			// void sort() {
-			// 	for (iterator it = this->begin(); it != this->end(); it++) {
-			// 		for (iterator it2(it); )
-			// 	}
-			// }
+			void sort() {
+				for (iterator it = this->begin(); it != this->end(); it++) {
+					for (iterator it2(it); )
+				}
+			}
 
 			friend bool operator==(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
 				if (lhs._size != rhs._size)
