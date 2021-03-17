@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 14:11:25 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/17 19:42:11 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/17 20:02:59 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,14 @@ class	TList_Constructor: public ::testing::Test {
 			}
 		}
 		void		compare() {
+			if (ft_list == nullptr)
+				FAIL() << "bad_test: ft_list is uninitialized";
+			else if (std_list == nullptr)
+				FAIL() << "bad_test: std_list is uninitialized";
 			EXPECT_EQ(std_list->size(), ft_list->size());
 			ft::list<int>::const_iterator it = ft_list->begin();
 			std::list<int>::const_iterator it2 = std_list->begin();
-			EXPECT_EQ(std_list->size(), ft_list->size());
+			ASSERT_EQ(std_list->size(), ft_list->size());
 			for (; it2 != std_list->end() ; it++, it2++)
 				EXPECT_EQ(*it, *it2);
 			this->TearDown();
@@ -54,7 +58,25 @@ TEST_F(TList_Constructor, def) {
 
 TEST_F(TList_Constructor, fill) {
 	ft_list = new ft::list<int>(10, 55);
+	std_list = new std::list<int>(10, 55);
 
-	for (ft::list<int>::iterator it = ft_list->begin() ; it != ft_list->end(); it++)
-		EXPECT_EQ(55, *it);
+	compare();
 }
+
+TEST_F(TList_Constructor, range) {
+	ft::list<int> l2;
+	
+	l2.push_back(5);
+	ft_list = new ft::list<int>(l2.begin(), l2.end());
+	ASSERT_EQ(l2.size(), ft_list->size());
+	ft::list<int>::iterator it = ft_list->begin();
+	ft::list<int>::iterator it2 = l2.begin();
+	for (; it != ft_list->end() ; it++, it2++)
+		EXPECT_EQ(*it, *it2);
+	delete ft_list;
+	--it2;
+	ft_list = new ft::list<int>(l2.begin(), it2);
+	it2 = l2.begin();
+	ASSERT_EQ(l2.size() - 1, ft_list->size());
+	for (; it != ft_list->end() ; it++, it2++)
+			EXPECT_EQ(*it, *it2);}
