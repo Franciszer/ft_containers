@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_iterator.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:30:05 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/15 14:55:42 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/17 17:18:29 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ namespace ft {
 				return tmp;
 			}
 
-			bool			operator==( list_iterator &it ) { return this->_current == it._current; }
-			bool			operator!=( list_iterator &it ) { return this->_current != it._current; }
+			bool			operator==( const list_iterator &it ) const { return this->_current == it._current; }
+			bool			operator!=( const list_iterator &it ) const { return this->_current != it._current; }
 		private:
 			nodePtr	_current;
 	};

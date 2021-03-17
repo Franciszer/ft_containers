@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 14:11:25 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/17 14:19:54 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/17 17:04:57 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,15 @@ class	TList_Constructor: public ::testing::Test {
 		}
 };
 
-TEST_F(TList_Constructor, test_true) {
-	EXPECT_TRUE(true);
+TEST_F(TList_Constructor, def) {
+	ft_list = new ft::list<int>;
+
+	EXPECT_EQ(0, ft_list->size());
+}
+
+TEST_F(TList_Constructor, fill) {
+	ft_list = new ft::list<int>(10, 55);
+
+	for (ft::list<int>::iterator it = ft_list->begin() ; it != ft_list->end(); it++)
+		EXPECT_EQ(55, *it);
 }
