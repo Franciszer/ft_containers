@@ -16,6 +16,7 @@ if [ "$?" -ne "0" ]; then
     mkdir build
 fi
 
+/usr/bin/cmake -DCMAKE_C_COMPILER:FILEPATH=/bin/clang -DCMAKE_CXX_COMPILER:FILEPATH=/bin/clang++ -H/home/francisco/workplace/ft_containers -B/home/francisco/workplace/ft_containers/build -G "Unix Makefiles"
+
 cd build
-cmake ..
 make
