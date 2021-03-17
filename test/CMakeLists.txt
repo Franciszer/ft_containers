@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 
-set(This ft_containers_gtest)
+set(This gtest_ft_containers)
 set(CMAKE_CXX_STANDARD 17)
 
 set(VECTOR_DIR srcs/vector)
+set(LIST_DIR srcs/list)
 
 set(Sources
 	${VECTOR_DIR}/TVector_Constructor.cpp
@@ -11,6 +12,8 @@ set(Sources
 	${VECTOR_DIR}/TVector_Capacity.cpp
 	${VECTOR_DIR}/TVector_Operator.cpp
 	${VECTOR_DIR}/TVector_Modifiers.cpp
+
+	${LIST_DIR}/TList_Constructor.cpp
 )
 
 add_executable(${This} ${Sources})

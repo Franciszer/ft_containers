@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/16 21:06:28 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/17 16:53:31 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "list_node.hpp"
 
 namespace ft {
-    template<typename T, class Alloc=std::allocator<T> >
+    template<typename T, class Alloc=std::allocator<list_node<T> > >
     class list {
         
 		public:
@@ -276,11 +276,34 @@ namespace ft {
 			}
 
 			void sort() {
-				for (iterator it = this->begin(); it != this->end(); it++) {
-					for (iterator it2(it); )
+				for (iterator it = this->begin(); it.getNodePtr()->next != _end ; it++) {
+					iterator it2 = it;
+					++it2;
+					for (; it2 != this->end() ; it2++) {
+						if (*it < *it2) {
+							value_type tmp = *it;
+							*it = it2;
+							it2 = tmp;
+						}
+					}
 				}
 			}
 
+			template <class Compare>
+			void sort (Compare comp) {
+				for (iterator it = this->begin(); it.getNodePtr()->next != _end ; it++) {
+					iterator it2 = it;
+					++it2;
+					for (; it2 != this->end() ; it2++) {
+						if (comp(*it, *it2)) {
+							value_type tmp = *it;
+							*it = it2;
+							it2 = tmp;
+						}
+					}
+				}
+			}
+			
 			friend bool operator==(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
 				if (lhs._size != rhs._size)
 					return false;
@@ -334,7 +357,7 @@ namespace ft {
 			nodePtr			_newNode(value_type 	&val, nodePtr prev) {
 				nodePtr	ret = _alloc.allocate(sizeof(node));
 
-				_alloc.construct(&ret->content, val);
+				_alloc.construct(&ret, val);
 
 				nodePtr next = prev->next;
 				prev->next = ret;
@@ -349,8 +372,8 @@ namespace ft {
 				ptr->prev->next = ptr->next;
 				ptr->next->prev = ptr->prev;
 
-				_alloc.destroy(&ptr->content);
-				_alloc.deallocate(ptr, sizeof(node));
+				_alloc.destroy(ptr);
+				_alloc.deallocate(ptr, sizeof(nodePtr));
 				_size--;
 			}
     };
