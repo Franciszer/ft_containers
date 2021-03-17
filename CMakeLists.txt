@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 set(This ft_containers)
+set(CMAKE_CXX_COMPILER clang++)
 set(CMAKE_CXX_STANDARD 98)
 set(POSITION_INDEPENDENT_CODE ON)
 
