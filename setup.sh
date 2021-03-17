@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    setup.sh                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+         #
+#    By: francisco <francisco@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/28 10:56:29 by francisco         #+#    #+#              #
-#    Updated: 2021/03/06 15:00:20 by frthierr         ###   ########.fr        #
+#    Updated: 2021/03/17 18:29:40 by francisco        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,18 @@
 
 # DEPENDENCIES: CMAKE, CTEST
 
-mkdir build
+cmake --version
+if [ "$?" -ne "0" ]; then
+    echo "Installing cmake..."
+    sudo apt-get install cmake
+fi
+
+ls build > /dev/null 2>&-
+if [ "$?" -ne "0" ]; then
+    rm -rf build
+    mkdir build
+fi
+
 cd build
 cmake ..
 make
