@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/17 17:14:56 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/17 18:37:48 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ namespace ft {
 
 			explicit list (size_type n, const value_type& val = value_type(),
 					const allocator_type& alloc = allocator_type()):
-					_alloc(alloc) {
+					_alloc(alloc),
+					_size(0) {
 						_setUp();
 						for (; _size < n ;)
 							this->push_back(val);
