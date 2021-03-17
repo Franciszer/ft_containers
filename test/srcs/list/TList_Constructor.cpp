@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 14:11:25 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/17 20:02:59 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/17 21:54:11 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,15 @@ TEST_F(TList_Constructor, range) {
 	it2 = l2.begin();
 	ASSERT_EQ(l2.size() - 1, ft_list->size());
 	for (; it != ft_list->end() ; it++, it2++)
-			EXPECT_EQ(*it, *it2);}
+			EXPECT_EQ(*it, *it2);
+}
+
+TEST_F(TList_Constructor, copy) {
+	ft::list<std::string>	src(10, "hello");
+	ft::list<std::string>	copy(src);
+
+	// ft::list<std::string>::iterator it = src.begin();
+	// ft::list<std::string>::iterator it2 = copy.begin();
+	// for (; it != src.end(); it++, it2++)
+	// 	EXPECT_EQ(*it, *it2);
+}

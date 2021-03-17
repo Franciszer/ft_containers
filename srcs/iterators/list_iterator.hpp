@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_iterator.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:30:05 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/17 17:18:29 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/17 22:40:32 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,11 @@ namespace ft {
 			
 			typedef typename ConstBool<B, T&, const T&>::type		reference;
 			typedef typename ConstBool<B, T*, const T*>::type		pointer;
-			typedef T*												nonConstPointer;
 			typedef	ft::list_node<T>								node;
 			typedef	ft::list_node<T>*								nodePtr;
 			
-			list_iterator(nodePtr node = 0): _current(node) {}
-			list_iterator(const list_iterator<T, false> &src): _current(src.getNodePtr()) {}
+			list_iterator(nodePtr ptr = 0): _current(ptr) {}
+			list_iterator(const list_iterator<T, false> &src) { _current = src.getNodePtr(); }
 			~list_iterator() {}
 
 			nodePtr			getNodePtr() const { return _current; }

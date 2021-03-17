@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/17 18:37:48 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/17 22:35:09 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ namespace ft {
 			typedef typename ft::reverse_iterator<iterator>				reverse_iterator;
 			typedef typename ft::reverse_iterator<const_iterator>		const_reverse_iterator;
 
-			typedef ft::list_node<T>							node;
-			typedef node*										nodePtr;
+			typedef ft::list_node<T>									node;
+			typedef node*												nodePtr;
 
 			explicit list (const allocator_type& alloc = allocator_type()):\
 				_alloc(alloc), _size(0) {
@@ -70,7 +70,8 @@ namespace ft {
 			_alloc(src._alloc),
 			_size(src._size) {
 				_setUp();
-				for (const_iterator it = src.begin(); it != src.end(); it++)
+				const_iterator it = src.begin();
+				for (; it != src.end(); it++)
 					push_back(*it);
 			}
 
@@ -86,7 +87,7 @@ namespace ft {
 			}
 
 			iterator					begin() { return(_size ? iterator(_end.next) : iterator(&_end)); }
-			const_iterator				begin() const { return(_size ? const_iterator(_end.next) : const_iterator(&_end)); }
+			const_iterator				begin() const { return(_size ? const_iterator(_end.next) : iterator(&_end)); }
 			iterator					end() { return iterator(&_end); }
 			const_iterator				end() const { return const_iterator(&_end); }
 
