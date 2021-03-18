@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 14:11:25 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/18 11:50:28 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/18 12:06:10 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <gtest/gtest.h>
 #include <list>
 
-// CAPACITY TESTS
+// CONSTRUCTOR  TESTS
 class	TList_Constructor: public ::testing::Test {
 	public:
 		TList_Constructor() {}
@@ -93,6 +93,5 @@ TEST_F(TList_Constructor, copy) {
 	for (; it != src.end(); it++, it2++)
 		EXPECT_EQ(*it, *it2);
 	SUCCEED();
-	exit(1);
 	std::cout << "OK" << std::endl;
 }
