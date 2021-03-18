@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/18 11:53:15 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/18 14:11:43 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ namespace ft {
 
 			list (const list &src):\
 			_alloc(src._alloc),
-			_size(src._size) {
+			_size(0) {
 				_setUp();
 				const_iterator it = src.begin();
 				for (; it != src.end(); it++)
@@ -76,10 +76,12 @@ namespace ft {
 			}
 
 			~list() {
-				while (_size)
+				while (_size) {
 					this->pop_front();
+				}
 				delete _end;
 			}
+			
 			list	&operator=(const list &src) {
 				list	copy(src);
 				

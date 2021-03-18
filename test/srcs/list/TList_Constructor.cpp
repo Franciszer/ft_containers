@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 14:11:25 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/18 12:06:10 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/18 14:10:18 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,4 @@ TEST_F(TList_Constructor, copy) {
 	ft::list<std::string>::iterator it2 = copy.begin();
 	for (; it != src.end(); it++, it2++)
 		EXPECT_EQ(*it, *it2);
-	SUCCEED();
-	std::cout << "OK" << std::endl;
 }
