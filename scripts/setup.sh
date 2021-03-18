@@ -8,6 +8,10 @@ cmake --version
 if [ "$?" -ne "0" ]; then
     echo "Installing cmake..."
     sudo apt-get install cmake
+	if [ "&?" -ne "0" ]; then
+		echo "could not install cmake, please install it on your own before proceeding" &1>2
+		exit 1
+	fi
 fi
 
 ls build > /dev/null 2>&-
@@ -16,7 +20,7 @@ if [ "$?" -ne "0" ]; then
     mkdir build
 fi
 
-/usr/bin/cmake -DCMAKE_C_COMPILER:FILEPATH=/bin/clang -DCMAKE_CXX_COMPILER:FILEPATH=/bin/clang++ -H/home/francisco/workplace/ft_containers -B/home/francisco/workplace/ft_containers/build -G "Unix Makefiles"
+cmake -DCMAKE_C_COMPILER:FILEPATH=clang -DCMAKE_CXX_COMPILER:FILEPATH=clang++ -H. -B./build -G "Unix Makefiles"
 
 cd build
 make

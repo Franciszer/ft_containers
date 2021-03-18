@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_iterator.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:30:05 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/17 22:40:32 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/18 11:02:59 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ namespace ft {
 				++(*this);
 				return tmp;
 			}
-			list_iterator	&operator--() { _current = _current->next; return *this; }
+			list_iterator	&operator--() { _current = _current->prev; return *this; }
 			list_iterator	operator--(int) {
 				list_iterator	tmp(*this);
 				--(*this);

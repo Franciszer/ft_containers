@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/17 22:35:09 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/18 11:53:15 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ namespace ft {
 			~list() {
 				while (_size)
 					this->pop_front();
+				delete _end;
 			}
 			list	&operator=(const list &src) {
 				list	copy(src);
@@ -86,15 +87,15 @@ namespace ft {
 				return *this;
 			}
 
-			iterator					begin() { return(_size ? iterator(_end.next) : iterator(&_end)); }
-			const_iterator				begin() const { return(_size ? const_iterator(_end.next) : iterator(&_end)); }
-			iterator					end() { return iterator(&_end); }
-			const_iterator				end() const { return const_iterator(&_end); }
+			iterator					begin() { return iterator(_end->next);}
+			const_iterator				begin() const { return const_iterator(_end->next);}
+			iterator					end() { return iterator(_end); }
+			const_iterator				end() const { return const_iterator(_end); }
 
-			reverse_iterator			rbegin() { return (_size ? reverse_iterator(&_end->prev) : reverse_iterator(&_end)); }
-			const_reverse_iterator		rbegin() const { return (_size ? const_reverse_iterator(&_end->prev) : const_reverse_iterator(&_end)); }
-			reverse_iterator			rend() { return reverse_iterator(&_end); }
-			const_reverse_iterator		rend() const { return const_reverse_iterator(&_end); }
+			reverse_iterator			rbegin() { return reverse_iterator(_end->prev); }
+			const_reverse_iterator		rbegin() const { return const_reverse_iterator(_end->prev); }
+			reverse_iterator			rend() { return reverse_iterator(_end); }
+			const_reverse_iterator		rend() const { return const_reverse_iterator(_end); }
 
 			bool						empty() const { return _size == 0; }
 			size_type					size() const { return _size; }
@@ -126,15 +127,15 @@ namespace ft {
 			}
 
 			void		pop_front() {
-				_delNode(_end.next);
+				_delNode(_end->next);
 			}
 
 			void		push_back(const value_type &val) {
-				_newNode(val, _end.prev);
+				_newNode(val, _end->prev);
 			}
 
 			void		pop_back() {
-				_delNode(_end.prev);
+				_delNode(_end->prev);
 			}
 
 			iterator	insert(iterator position, const value_type& val) {
@@ -348,12 +349,13 @@ namespace ft {
 
         private:
 			allocator_type	_alloc;
-            node			_end;
+            nodePtr			_end;
 			size_type		_size;
 
 			void			_setUp() {
-				_end.prev = &_end;
-				_end.next = &_end;
+				_end = new node;
+				_end->prev = _end;
+				_end->next = _end;
 			}
 
 			nodePtr			_newNode(const value_type &val, nodePtr prev) {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   TVector_Constructor.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 12:51:12 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/17 18:13:51 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/18 09:55:25 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

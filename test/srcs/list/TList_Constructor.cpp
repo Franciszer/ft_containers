@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   TList_Constructor.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 14:11:25 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/17 21:54:11 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/18 11:50:28 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,27 +67,32 @@ TEST_F(TList_Constructor, range) {
 	ft::list<int> l2;
 	
 	l2.push_back(5);
+	l2.push_back(7);
 	ft_list = new ft::list<int>(l2.begin(), l2.end());
 	ASSERT_EQ(l2.size(), ft_list->size());
 	ft::list<int>::iterator it = ft_list->begin();
 	ft::list<int>::iterator it2 = l2.begin();
 	for (; it != ft_list->end() ; it++, it2++)
 		EXPECT_EQ(*it, *it2);
-	delete ft_list;
+	TearDown();
 	--it2;
 	ft_list = new ft::list<int>(l2.begin(), it2);
 	it2 = l2.begin();
 	ASSERT_EQ(l2.size() - 1, ft_list->size());
-	for (; it != ft_list->end() ; it++, it2++)
+	for (; it != ft_list->end() ; it++, it2++) {
 			EXPECT_EQ(*it, *it2);
+	}
 }
 
 TEST_F(TList_Constructor, copy) {
 	ft::list<std::string>	src(10, "hello");
 	ft::list<std::string>	copy(src);
 
-	// ft::list<std::string>::iterator it = src.begin();
-	// ft::list<std::string>::iterator it2 = copy.begin();
-	// for (; it != src.end(); it++, it2++)
-	// 	EXPECT_EQ(*it, *it2);
+	ft::list<std::string>::iterator it = src.begin();
+	ft::list<std::string>::iterator it2 = copy.begin();
+	for (; it != src.end(); it++, it2++)
+		EXPECT_EQ(*it, *it2);
+	SUCCEED();
+	exit(1);
+	std::cout << "OK" << std::endl;
 }
