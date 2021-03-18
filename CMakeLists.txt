@@ -17,6 +17,7 @@ include_directories(srcs
 					.)
 
 set(Headers
+	/Users/frthierr/studlife/ft_containers/build/test/Memd/mem.h
 	srcs/ft_containers.hpp
 	srcs/iterators/vector_iterator.hpp
 	srcs/iterators/list_iterator.hpp
