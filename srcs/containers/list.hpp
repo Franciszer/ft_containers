@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/18 14:11:43 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/19 15:27:28 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -362,16 +362,20 @@ namespace ft {
 
 			nodePtr			_newNode(const value_type &val, nodePtr prev) {
 				nodePtr	ret = _alloc.allocate(sizeof(node));
-				node	src;
-
-				src.content = val;
-				_alloc.construct(ret, src);
-
 				nodePtr next = prev->next;
+
+				// std::cout << _end << std::endl;
+				// std::cout << (next == _end ? "OK" : "WTF") << std::endl;
 				prev->next = ret;
 				next->prev = ret;
-				ret->prev = prev;
-				ret->next = next;
+	
+				node	src;
+				src.prev = prev;
+				src.next = next;
+				src.content = val;
+				
+				_alloc.construct(ret, src);
+
 				_size++;
 				return ret;
 			}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_iterator.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 22:49:52 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/13 21:46:33 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/19 11:44:31 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ namespace ft{
             typedef typename Iter::difference_type   difference_type;
             typedef typename Iter::pointer           pointer;
             typedef typename Iter::reference         reference;
-            typedef typename Iter::nonConstPointer   nonConstPointer;
 
             // CONSTRUCTORS
             reverse_iterator(): _current() {}

@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 14:11:25 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/18 16:05:50 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/19 15:18:37 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ TEST_F(TList_Constructor, range) {
 
 TEST_F(TList_Constructor, copy) {
 	ft::list<std::string>	src(10, "hello");
+	src.push_back("ola");
 	ft::list<std::string>	copy(src);
 
  	ft::list<std::string>::iterator it = src.begin();
