@@ -6,7 +6,8 @@ set(CMAKE_CXX_STANDARD 98)
 set(POSITION_INDEPENDENT_CODE ON)
 
 project(${This} CXX)
-enable_testing()
+# enable_testing()
+include (CTest)
 
 add_subdirectory(googletest)
 

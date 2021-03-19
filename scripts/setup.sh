@@ -4,6 +4,11 @@
 
 # DEPENDENCIES: CMAKE, CTEST
 
+if [[ $1 == "--reconfigure" ]]; then
+    echo it works yeak > working
+    ./scripts/clear.sh
+fi
+
 cmake --version
 if [ "$?" -ne "0" ]; then
     echo "Installing cmake..."
