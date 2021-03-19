@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   TList_Iterators.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:19:15 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/19 15:26:14 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/19 22:40:43 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,8 @@ TEST_F(TList_Iterator, end) {
 TEST_F(TList_Iterator, rbegin) {
 	ft_list = new ft::list<int>;
 	std_list = new std::list<int>;
-	ft::list<int>::reverse_iterator	test = ft_list->rbegin();
 
-	EXPECT_EQ(test, ft_list->rend());
+	EXPECT_EQ(ft_list->rbegin(), ft_list->rend());
 	
 	ft_list->push_back(5);
 	ft_list->push_back(-123);
@@ -83,17 +82,13 @@ TEST_F(TList_Iterator, rbegin) {
 	ft_list->push_back(-2131321);
 	ft_list->push_back(2048123128);
 
-	std_list->push_back(5);
-	std_list->push_back(-123);
-	std_list->push_back(21312);
-	std_list->push_back(213114414);
-	std_list->push_back(-2131321);
-	std_list->push_back(2048123128);
-	
+	for (ft::list<int>::iterator it = ft_list->begin(); it != ft_list->end(); it++)
+		std_list->push_back(*it);
+
 	std::list<int>::reverse_iterator	std_rit = std_list->rbegin();
 	ft::list<int>::reverse_iterator		ft_rit = ft_list->rbegin();
 
-	EXPECT_EQ(std_list->size(), ft_list->size());
+	ASSERT_EQ(std_list->size(), ft_list->size());
 
 	for (; std_rit != std_list->rend() && ft_rit != ft_list->rend(); ft_rit++, std_rit++) {
 		EXPECT_EQ(*std_rit, *ft_rit);

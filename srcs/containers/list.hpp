@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/19 15:27:28 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/19 22:36:42 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,10 @@ namespace ft {
 			iterator					end() { return iterator(_end); }
 			const_iterator				end() const { return const_iterator(_end); }
 
-			reverse_iterator			rbegin() { return reverse_iterator(_end->prev); }
-			const_reverse_iterator		rbegin() const { return const_reverse_iterator(_end->prev); }
-			reverse_iterator			rend() { return reverse_iterator(_end); }
-			const_reverse_iterator		rend() const { return const_reverse_iterator(_end); }
+			reverse_iterator			rbegin() { return reverse_iterator(_end); }
+			const_reverse_iterator		rbegin() const { return const_reverse_iterator(_end); }
+			reverse_iterator			rend() { return reverse_iterator(_end->next); }
+			const_reverse_iterator		rend() const { return const_reverse_iterator(_end->next); }
 
 			bool						empty() const { return _size == 0; }
 			size_type					size() const { return _size; }
