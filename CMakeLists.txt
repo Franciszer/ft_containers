@@ -35,6 +35,6 @@ add_library(${This} INTERFACE)
 
 target_sources(${This} INTERFACE)
 target_include_directories(${This} INTERFACE Headers)
-target_compile_options(${This} INTERFACE -Wall -Wextra -Werror -std=c++98)
+target_compile_options(${This} INTERFACE -Wall -Wextra -std=c++98)
 
 add_subdirectory(test)

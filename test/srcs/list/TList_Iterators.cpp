@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:19:15 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/19 22:40:43 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/20 20:12:14 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,20 +95,20 @@ TEST_F(TList_Iterator, rbegin) {
 	}
 }
 
-// TEST_F(TList_Iterator, rend) {
-// 	ft_list = new ft::list<int>;
-// 	ft::list<int>::reverse_iterator rit(ft_list->rend());
-// 	EXPECT_EQ(ft_list->rbegin(), rit);
-// 	ft_list->push_back(5);
-// 	ft_list->push_back(-123);
-// 	ft_list->push_back(21312);
-// 	ft_list->push_back(213114414);
-// 	ft_list->push_back(-2131321);
-// 	ft_list->push_back(2048123128);
+TEST_F(TList_Iterator, rend) {
+	ft_list = new ft::list<int>;
+	ft::list<int>::reverse_iterator rit(ft_list->rend());
+	EXPECT_EQ(ft_list->rbegin(), rit);
+	ft_list->push_back(5);
+	ft_list->push_back(-123);
+	ft_list->push_back(21312);
+	ft_list->push_back(213114414);
+	ft_list->push_back(-2131321);
+	ft_list->push_back(2048123128);
 
-// 	ft::list<int> ft_list2(ft_list->rbegin(), ft_list->rend());
-// 	ft::list<int> ft_list3(ft_list2.rbegin(), ft_list2.rend());
+	ft::list<int> ft_list2(ft_list->rbegin(), ft_list->rend());
+	ft::list<int> ft_list3(ft_list2.rbegin(), ft_list2.rend());
 
-// 	ft::list<int>::reverse_iterator it = ft_list->rend();
-// 	--it;
-// }
+	ft::list<int>::reverse_iterator it = ft_list->rend();
+	--it;
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   TList_Constructor.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 14:11:25 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/19 15:18:37 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/20 20:09:59 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,12 @@ TEST_F(TList_Constructor, range) {
 	TearDown();
 	--it2;
 	ft_list = new ft::list<int>(l2.begin(), it2);
+	for (ft::list<int>::iterator i = ft_list->begin(); i != ft_list->end(); i++)
+		std::cout << *i << std::endl;
 	it2 = l2.begin();
+	it = ft_list->begin();
 	ASSERT_EQ(l2.size() - 1, ft_list->size());
-	for (; it != ft_list->end() ; it++, it2++) {
-			EXPECT_EQ(*it, *it2);
-	}
+	ASSERT_EQ(*(l2.begin()), *(ft_list->begin()));
 }
 
 TEST_F(TList_Constructor, copy) {
