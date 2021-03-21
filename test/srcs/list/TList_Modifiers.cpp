@@ -13,6 +13,7 @@
 #include "ft_containers.hpp"
 #include <gtest/gtest.h>
 #include <list>
+#include "container_macros.hpp"
 
 // ELEMENT ACCESS TESTS
 
@@ -51,18 +52,21 @@ class	TList_Modifiers: public ::testing::Test {
 };
 
 TEST_F(TList_Modifiers, assign) {
-    std_list = new std::list<int>{5,4,3,2,1};
-    ft_list = new ft::list<int>(10, 10);
+    std::list<int> 	std_1{5,4,3,2,1};
+    CONSTRUCT_FT_LIST(ft_1, int, 10, 10);
 
-    ft_list->assign(std_list->rbegin(), std_list->rend());
-    int n = 1;
-    for (ft::list<int>::const_iterator it = ft_list->begin(); it != ft_list->end(); it++, n++) {
-        EXPECT_EQ(n, *it);
-    }
+    ft_1.assign(std_1.rbegin(), std_1.rend());
+    containers_test::equalsRange(ft_1, std_1.rbegin(), std_1.rend());
+	CONSTRUCT_FT_LIST(ft_2, std::string, 10, "ola_mundo");
+    CONSTRUCT_STD_LIST(std_2, std::string, 7, "hello_world");
+	ft_2.assign(7, "hello_world");
+	COMP_CONTAINERS(ft_2, std_2);
+}
 
-    ft::list<std::string> l(10, "eewefwejikfbhkjwfjkbwejfwbjkfbwejkbfwke");
-    l.assign(10, "hello_world");
-    for (ft::list<std::string>::const_iterator it = l.begin(); it != l.end(); it++) {
-        EXPECT_EQ("hello_world", *it);
-    }
+TEST_F(TList_Modifiers, push_front) {
+	CONSTRUCT_FT_LIST(ft_1, int, 1, 1);
+	CONSTRUCT_STD_LIST(std_1, int, 1, 1);
+
+	APPLY_BOTH(ft_1, std_1, push_front, 77);
+	COMP_CONTAINERS(ft_1, std_1);
 }
