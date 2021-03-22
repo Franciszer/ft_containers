@@ -195,3 +195,38 @@ TEST_F(TList_Modifiers, insert) {
 	std_3.insert(std_it3, 4, 23);
 	COMP_CONTAINERS(ft_3, std_3);
 }
+
+TEST_F(TList_Modifiers, erase) {
+	// SINGLE ELEMENT
+	std::list<int>	std_1({1,2,3,4,5,6,7,8,9});
+	CONSTRUCT_FT_LIST(ft_1, int, std_1.begin(), std_1.end());
+
+	auto ft_it1 = ft_1.erase(ft_1.begin());
+	auto std_it1 = std_1.erase(std_1.begin());
+	COMP_CONTAINERS(ft_1, std_1);
+	EXPECT_EQ(*ft_it1, *std_it1);
+	for (int i = 0; i < 4; i++, ft_it1++, std_it1++);
+	ft_it1 = ft_1.erase(ft_it1);
+	std_it1 = std_1.erase(std_it1);
+	COMP_CONTAINERS(ft_1, std_1);
+	EXPECT_EQ(*ft_it1, *std_it1);
+
+	ft_it1 = --(ft_1.end());
+	std_it1 = --(std_1.end());
+	ft_it1 = ft_1.erase(ft_it1);
+	std_it1 = std_1.erase(std_it1);
+	COMP_CONTAINERS(ft_1, std_1);
+	EXPECT_EQ(ft_it1, ft_1.end());
+	EXPECT_EQ(std_it1, std_1.end());
+
+	// RANGE
+	std::list<int>	std_2({1,2,3,4,5,6,7,8,9});
+	CONSTRUCT_FT_LIST(ft_2, int, std_2.begin(), std_2.end());
+
+	auto ft_it2 = ft_2.begin();
+	auto std_it2 = std_2.begin();
+	for (int i = 0; i < 4; i++, ft_it2++, std_it2++);
+
+	EXPECT_EQ(*(std_2.erase(std_2.begin(), std_it2)),\
+		*(ft_2.erase(ft_2.begin(), ft_it2)));
+}

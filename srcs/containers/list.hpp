@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/22 16:55:03 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/22 19:06:38 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,14 +159,17 @@ namespace ft {
 			}
 
 			iterator erase (iterator position) {
-				_delNode(position.getNodePtr());
+				iterator	to_delete = position++;
+				_delNode(to_delete.getNodePtr());
+				return position;
 			}
 			iterator erase (iterator first, iterator last) {
 				first++;
 				for (; first != last; first++) {
-					_delNode(first->prev->getNodePtr());
-				_delNode(first->prev->getNodePtr());
+					_delNode(first.getNodePtr()->prev);
 				}
+				_delNode(first.getNodePtr()->prev);
+				return first;
 			}
 
 			void	swap (list &x) {
