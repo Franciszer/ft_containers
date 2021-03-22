@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/22 19:27:09 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/22 23:05:47 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,22 +201,21 @@ namespace ft {
 			}
 
 			void splice (iterator position, list& x, iterator i) {
-				_newNode(*i, position);
+				_newNode(*i, position.getNodePtr());
+				this->insert(position, *i);
 				x._delNode(i.getNodePtr());
 			}
 
 			void splice (iterator position, list& x, iterator first, iterator last) {
-				nodePtr last_val = position.getNodePtr();
-				for (iterator tmp = first; first != last ; first++) {
-					last_val = _newNode(*first, last_val);
-					x.erase(tmp);
-				}
+				this->insert(position, first, last);
+				x.erase(first, last);
 			}
 
 			void remove (const value_type& val) {
 				for (iterator it = this->begin() ; it != this->end();) {
 					if (*it == val) {
-						iterator tmp = ++it;
+						iterator tmp = it;
+						tmp++;
 						this->erase(it);
 						it = tmp;
 					}
