@@ -20,7 +20,9 @@ set(Sources
 	${LIST_DIR}/TList_Constructor.cpp
 	${LIST_DIR}/TList_Iterators.cpp
 	${LIST_DIR}/TList_Capacity.cpp
+	${LIST_DIR}/TList_ElementAccess.cpp
 	${LIST_DIR}/TList_Modifiers.cpp
+	${LIST_DIR}/TList_Operators.cpp
 )
 
 add_executable(${This} ${Sources})
