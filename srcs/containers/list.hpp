@@ -141,16 +141,13 @@ namespace ft {
 			}
 
 			iterator	insert(iterator position, const value_type& val) {
-				return (_newNode(val, position.getNodePtr()->prev));
+				return iterator(_newNode(val, position.getNodePtr()->prev));
 			}
 			
 			void		insert(iterator position, size_type n, const value_type& val) {
-				std::cout << "IN INSERT_FILL" << std::endl;
 				while (n--) {
-					std::cout << "hello" << std::endl;
 					position = this->insert(position, val);	
 				}
-				std::cout << "INSERT_FILL END" << std::endl;
 			}
 
 			template <class InputIterator>
@@ -368,8 +365,6 @@ namespace ft {
 				nodePtr	ret = _alloc.allocate(sizeof(node));
 				nodePtr next = prev->next;
 
-				// std::cout << _end << std::endl;
-				// std::cout << (next == _end ? "OK" : "WTF") << std::endl;
 				prev->next = ret;
 				next->prev = ret;
 	

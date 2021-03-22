@@ -165,7 +165,7 @@ TEST_F(TList_Modifiers, insert) {
 	std::list<int>::iterator	std_it2 = std_2.begin();
 	for (int i = 0; i < 4; i++, ft_it2++, std_it2++);
 
-	ft_1.insert(ft_it2, 5, -23);
-	std_1.insert(std_it2, 5, -23);
+	ft_2.insert(ft_it2, 4, 23);
+	std_2.insert(std_it2, 5, 23);
 	COMP_CONTAINERS(ft_1, std_1);
 }
