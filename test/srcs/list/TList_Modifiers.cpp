@@ -254,3 +254,16 @@ TEST_F(TList_Modifiers, resize) {
 	APPLY_BOTH(ft_1, std_1, resize, 10, -232);
 	COMP_CONTAINERS(ft_1, std_1);
 }
+
+TEST_F(TList_Modifiers, clear) {
+	ft::list<std::string>	ft_1;
+	std::list<std::string>	std_1;
+
+	APPLY_BOTH(ft_1, std_1, clear);
+	COMP_CONTAINERS(ft_1, std_1);
+
+	std::list<std::string>	copy({"hello", "what", "is", "up"});
+	APPLY_BOTH(ft_1, std_1, assign, copy.begin(), copy.end());
+	APPLY_BOTH(ft_1, std_1, clear);
+	COMP_CONTAINERS(ft_1, std_1);
+}
