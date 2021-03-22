@@ -64,9 +64,108 @@ TEST_F(TList_Modifiers, assign) {
 }
 
 TEST_F(TList_Modifiers, push_front) {
-	CONSTRUCT_FT_LIST(ft_1, int, 1, 1);
-	CONSTRUCT_STD_LIST(std_1, int, 1, 1);
+	CONSTRUCT_FT_LIST(ft_1, int, 1, 10);
+	CONSTRUCT_STD_LIST(std_1, int, 1, 10);
 
 	APPLY_BOTH(ft_1, std_1, push_front, 77);
+	COMP_CONTAINERS(ft_1, std_1);
+}
+
+TEST_F(TList_Modifiers, pop_front) {
+	CONSTRUCT_FT_LIST(ft_1, int, 1, 2);
+	CONSTRUCT_STD_LIST(std_1, int, 1, 2);
+	APPLY_BOTH(ft_1, std_1, push_front, 88);
+	APPLY_BOTH(ft_1, std_1, push_front, 123);
+	APPLY_BOTH(ft_1, std_1, push_front, 3425);
+	APPLY_BOTH(ft_1, std_1, push_front, 5345345);
+	APPLY_BOTH(ft_1, std_1, push_front, 345345345);
+	APPLY_BOTH(ft_1, std_1, push_front, 234234234);
+	APPLY_BOTH(ft_1, std_1, pop_front);
+	while (!std_1.empty()) {
+		APPLY_BOTH(ft_1, std_1, pop_front);
+		COMP_CONTAINERS(ft_1, std_1);
+	}
+	EXPECT_TRUE(ft_1.empty());
+}
+
+TEST_F(TList_Modifiers, push_back) {
+	CONSTRUCT_FT_LIST(ft_1, int, 1, 2);
+	CONSTRUCT_STD_LIST(std_1, int, 1, 2);
+
+	APPLY_BOTH(ft_1, std_1, push_back, 989);
+	COMP_CONTAINERS(ft_1, std_1);
+	APPLY_BOTH(ft_1, std_1, push_back, 12312);
+	COMP_CONTAINERS(ft_1, std_1);
+	APPLY_BOTH(ft_1, std_1, push_back, -12312312);
+	COMP_CONTAINERS(ft_1, std_1);
+	APPLY_BOTH(ft_1, std_1, push_back, 12312312);
+	COMP_CONTAINERS(ft_1, std_1);
+	APPLY_BOTH(ft_1, std_1, push_back, -123123124);
+	COMP_CONTAINERS(ft_1, std_1);
+	APPLY_BOTH(ft_1, std_1, push_back, 3434234);
+	COMP_CONTAINERS(ft_1, std_1);
+	APPLY_BOTH(ft_1, std_1, push_back, 423423423);
+	COMP_CONTAINERS(ft_1, std_1);
+}
+
+TEST_F(TList_Modifiers, pop_back) {
+	CONSTRUCT_FT_LIST(ft_1, int, 1, 2);
+	CONSTRUCT_STD_LIST(std_1, int, 1, 2);
+
+	APPLY_BOTH(ft_1, std_1, push_back, 989);
+	APPLY_BOTH(ft_1, std_1, push_back, 12312);
+	APPLY_BOTH(ft_1, std_1, push_back, -12312312);
+	APPLY_BOTH(ft_1, std_1, push_back, 12312312);
+	APPLY_BOTH(ft_1, std_1, push_back, -123123124);
+	APPLY_BOTH(ft_1, std_1, push_back, 423423423);
+	APPLY_BOTH(ft_1, std_1, push_back, -1234124 );
+
+	while (!std_1.empty()) {
+		APPLY_BOTH(ft_1, std_1, pop_back);
+		COMP_CONTAINERS(ft_1, std_1);
+	}
+	EXPECT_TRUE(ft_1.empty());
+}
+
+TEST_F(TList_Modifiers, insert) {
+	// SINGLE ELEMENT
+	CONSTRUCT_FT_LIST(ft_1, int, 22, 17);
+	CONSTRUCT_STD_LIST(std_1, int, 22, 17);
+
+	EXPECT_EQ(*(ft_1.insert(ft_1.end(), 8273897)) ,\
+		*(std_1.insert(std_1.end(), 8273897)));
+
+	COMP_CONTAINERS(ft_1, std_1);
+
+	ft_1.insert(ft_1.begin(), 8273897);
+	std_1.insert(std_1.begin(), 8273897);
+
+	COMP_CONTAINERS(ft_1, std_1);
+	ft::list<int>::iterator	ft_it = ft_1.begin();
+	std::list<int>::iterator	std_it = std_1.begin();
+
+	for (int i = 0; i < 4; i++, ft_it++, std_it++);
+
+	ft_1.insert(ft_it, -213123123);
+	std_1.insert(std_it, -213123123);
+	COMP_CONTAINERS(ft_1, std_1);
+
+	// FILL
+	CONSTRUCT_FT_LIST(ft_2, int, 22, 17);
+	CONSTRUCT_STD_LIST(std_2, int, 22, 17);
+
+	COMP_CONTAINERS(ft_2, std_2);
+
+	ft_2.insert(ft_2.begin(), 6, 8273897);
+	std_2.insert(std_2.begin(), 6, 8273897);
+	COMP_CONTAINERS(ft_2, std_2);
+
+	COMP_CONTAINERS(ft_2, std_2);
+	ft::list<int>::iterator		ft_it2 = ft_2.begin();
+	std::list<int>::iterator	std_it2 = std_2.begin();
+	for (int i = 0; i < 4; i++, ft_it2++, std_it2++);
+
+	ft_1.insert(ft_it2, 5, -23);
+	std_1.insert(std_it2, 5, -23);
 	COMP_CONTAINERS(ft_1, std_1);
 }

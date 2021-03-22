@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/20 20:02:58 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/22 14:21:16 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,19 +141,23 @@ namespace ft {
 			}
 
 			iterator	insert(iterator position, const value_type& val) {
-				_newNode(val, position.getNodePtr()->prev);
+				return (_newNode(val, position.getNodePtr()->prev));
 			}
 			
 			void		insert(iterator position, size_type n, const value_type& val) {
-				while (n--)
-					this->insert(position, val);
+				std::cout << "IN INSERT_FILL" << std::endl;
+				while (n--) {
+					std::cout << "hello" << std::endl;
+					position = this->insert(position, val);	
+				}
+				std::cout << "INSERT_FILL END" << std::endl;
 			}
 
 			template <class InputIterator>
 			void 		insert(iterator position, InputIterator first, InputIterator last,
 				typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) {
 					for (; first != last; first++) {
-						this->insert(position, *first);
+						position = this->insert(position, *first);
 					}
 			}
 
