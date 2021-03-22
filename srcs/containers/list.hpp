@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/22 19:06:38 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/22 19:27:09 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,15 +173,14 @@ namespace ft {
 			}
 
 			void	swap (list &x) {
-				list	tmp(*this);
+				nodePtr	tmpEnd = this->_end;
+				size_type tmpSize = this->_size;
 
-				_alloc = x._alloc;
 				_end = x._end;
 				_size = x._size;
 
-				x._alloc = tmp._alloc;
-				x._end = tmp._end;
-				x._size = tmp._size;
+				x._end = tmpEnd;
+				x._size = tmpSize;
 			}
 			
 			void	resize (size_type n, value_type val = value_type()) {

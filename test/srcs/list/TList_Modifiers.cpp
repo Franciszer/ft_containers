@@ -229,4 +229,17 @@ TEST_F(TList_Modifiers, erase) {
 
 	EXPECT_EQ(*(std_2.erase(std_2.begin(), std_it2)),\
 		*(ft_2.erase(ft_2.begin(), ft_it2)));
+
+	ft_2.erase(ft_2.begin(), ft_2.end());
+	std_2.erase(std_2.begin(), std_2.end());
+}
+
+TEST_F(TList_Modifiers, swap) {
+	CONSTRUCT_STD_LIST(std_1, int, {1,2,3,4,5});
+	ft::list<int> ft_1;
+	CONSTRUCT_FT_LIST(ft_2, int, std_1.begin(), std_1.end());
+
+	ft_1.swap(ft_2);
+	// EXPECT_TRUE(ft_2.empty());
+	// COMP_CONTAINERS(ft_1, std_1);
 }
