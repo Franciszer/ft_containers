@@ -243,3 +243,14 @@ TEST_F(TList_Modifiers, swap) {
 	// EXPECT_TRUE(ft_2.empty());
 	// COMP_CONTAINERS(ft_1, std_1);
 }
+
+TEST_F(TList_Modifiers, resize) {
+	CONSTRUCT_FT_LIST(ft_1, int, 2);
+	CONSTRUCT_STD_LIST(std_1, int, 2);
+
+	APPLY_BOTH(ft_1, std_1, resize, 5, 17);
+	COMP_CONTAINERS(ft_1, std_1);
+
+	APPLY_BOTH(ft_1, std_1, resize, 10, -232);
+	COMP_CONTAINERS(ft_1, std_1);
+}
