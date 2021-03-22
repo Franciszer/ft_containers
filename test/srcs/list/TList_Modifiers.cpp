@@ -156,6 +156,10 @@ TEST_F(TList_Modifiers, insert) {
 
 	COMP_CONTAINERS(ft_2, std_2);
 
+	ft_2.insert(ft_2.end(), 4, 7);
+	std_2.insert(std_2.end(), 4, 7);
+	COMP_CONTAINERS(ft_2, std_2);
+
 	ft_2.insert(ft_2.begin(), 6, 8273897);
 	std_2.insert(std_2.begin(), 6, 8273897);
 	COMP_CONTAINERS(ft_2, std_2);
@@ -166,6 +170,28 @@ TEST_F(TList_Modifiers, insert) {
 	for (int i = 0; i < 4; i++, ft_it2++, std_it2++);
 
 	ft_2.insert(ft_it2, 4, 23);
-	std_2.insert(std_it2, 5, 23);
-	COMP_CONTAINERS(ft_1, std_1);
+	std_2.insert(std_it2, 4, 23);
+	COMP_CONTAINERS(ft_2, std_2);
+
+	// RANGE
+	CONSTRUCT_FT_LIST(ft_3, int, 22, 2);
+	CONSTRUCT_STD_LIST(std_3, int, 22, 2);
+	std::list<int>  l({1,2,3,4,5});
+
+	COMP_CONTAINERS(ft_3, std_3);
+
+	ft_3.insert(ft_3.begin(), l.rbegin(), l.rend());
+	std_3.insert(std_3.begin(), l.rbegin(), l.rend());
+	COMP_CONTAINERS(ft_3, std_3);
+
+	ft_3.insert(ft_3.begin(), l.rbegin(), l.rend());
+	std_3.insert(std_3.begin(), l.rbegin(), l.rend());
+	COMP_CONTAINERS(ft_3, std_3);
+
+	ft::list<int>::iterator		ft_it3 = ft_3.begin();
+	std::list<int>::iterator	std_it3 = std_3.begin();
+	for (int i = 0; i < 4; i++, ft_it3++, std_it3++);
+	ft_3.insert(ft_it3, 4, 23);
+	std_3.insert(std_it3, 4, 23);
+	COMP_CONTAINERS(ft_3, std_3);
 }

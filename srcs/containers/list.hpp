@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/22 14:21:16 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/22 16:55:03 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ namespace ft {
 			void 		insert(iterator position, InputIterator first, InputIterator last,
 				typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) {
 					for (; first != last; first++) {
-						position = this->insert(position, *first);
+						position = ++(this->insert(position, *first));
 					}
 			}
 
