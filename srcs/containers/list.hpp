@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/22 23:05:47 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/22 23:33:39 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,7 +239,7 @@ namespace ft {
 			void	unique() {
 				iterator it = this->begin();
 				for (iterator it2 = ++(this->begin());\
-					it2 != this->end() ; it2 = iterator(it->getNodePtr()->next)) {
+					iterator(it.getNodePtr()->next) != this->end() ; it2 = iterator(it.getNodePtr()->next)) {
 					if (*it == *it2) {
 						this->erase(it2);
 					}
@@ -252,12 +252,13 @@ namespace ft {
 			void unique (BinaryPredicate binary_pred) {
 				iterator it = this->begin();
 				for (iterator it2 = ++(this->begin());\
-					it2 != this->end() ; it2 = iterator(it->getNodePtr()->next)) {
-					if (binary_pred(it, it2)) {
-						this->erase(it2);
-					}
-					else
-						it++;
+					iterator(it.getNodePtr()->next) != this->end() ;\
+					it2 = iterator(it.getNodePtr()->next)) {
+						if (binary_pred(*it, *it2)) {
+							this->erase(it2);
+						}
+						else
+							it++;
 				}
 			}
 

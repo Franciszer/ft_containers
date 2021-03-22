@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:51:57 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/22 23:13:20 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/22 23:33:08 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ class	TList_Operators: public ::testing::Test {
         }
         static bool     is2021(const int &i) {
             return i == 2021 ? true : false;
+        }
+        static bool     isLower(const int &i, const int &i2) {
+            return i < i2 ? true : false;
         }
 };
 
@@ -91,4 +94,12 @@ TEST_F(TList_Operators, remove_if) {
     COMP_CONTAINERS(std_1, ft_1);
     APPLY_BOTH(std_1, ft_1, remove_if, TList_Operators::isNegative);
     COMP_CONTAINERS(std_1, ft_1);
+}
+
+TEST_F(TList_Operators, unique) {
+    CONSTRUCT_STD_LIST(std_1, int, {2,3,23,34,543,1,1,1231,1,323,11,1});
+    CONSTRUCT_FT_LIST(ft_1, int, std_1.begin(), std_1.end());
+
+    APPLY_BOTH(ft_1, std_1, unique, TList_Operators::isLower);
+    COMP_CONTAINERS(ft_1, std_1);
 }
