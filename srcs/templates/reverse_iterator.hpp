@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_iterator.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 22:49:52 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/19 11:44:31 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/23 18:23:20 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ namespace ft{
             // CONSTRUCTORS
             reverse_iterator(): _current() {}
             reverse_iterator(iterator_type it): _current(it) {}
-            reverse_iterator(const reverse_iterator<Iter>   &rev_it): _current(rev_it._current) {}
+            reverse_iterator(const reverse_iterator<Iter>   &rev_it) { _current = rev_it._current; }
 
 
-            iterator_type       base() const { return (_current - 1); }
+            iterator_type       base() const { return (--iterator_type(_current)); }
             reference           operator*() const {
                 iterator_type   tmp(_current);
 

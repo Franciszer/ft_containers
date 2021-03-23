@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/22 23:33:39 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/23 18:17:56 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,8 +196,16 @@ namespace ft {
 			}
 
 			void splice (iterator position, list& x) {
-				this->insert(position, x.begin(), x.end());
-				x.clear();
+				position.getNodePtr()->next->prev =\
+					x._end->prev;\
+				x._end->prev->next =\
+					position.getNodePtr()->next;
+				position.getNodePtr()->next = x._end->next;
+				x._end->next->prev = position.getNodePtr(); 
+				x._end->next = x._end;
+				x._end->prev = x._end;
+				_size += x._size;
+				x._size = 0;
 			}
 
 			void splice (iterator position, list& x, iterator i) {
