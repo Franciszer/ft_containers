@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/23 18:17:56 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/25 18:16:20 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -292,32 +292,24 @@ namespace ft {
 			}
 
 			void sort() {
-				for (iterator it = this->begin(); it.getNodePtr()->next != _end ; it++) {
-					iterator it2 = it;
-					++it2;
-					for (; it2 != this->end() ; it2++) {
+				for (size_t i = 0; i < this->_size; i++) {
+					for (iterator it = ++(this->begin()); it != end() ;) {
+						iterator it2 = it;
+						--it2;
 						if (*it < *it2) {
-							value_type tmp = *it;
-							*it = it2;
-							it2 = tmp;
+							value_type tmp = it.getNodePtr()->content;
+							it.getNodePtr()->content = it2.getNodePtr()->content;
+							it2.getNodePtr()->content = tmp;
 						}
+						else
+							it++;
 					}
 				}
 			}
 
 			template <class Compare>
 			void sort (Compare comp) {
-				for (iterator it = this->begin(); it.getNodePtr()->next != _end ; it++) {
-					iterator it2 = it;
-					++it2;
-					for (; it2 != this->end() ; it2++) {
-						if (comp(*it, *it2)) {
-							value_type tmp = *it;
-							*it = it2;
-							it2 = tmp;
-						}
-					}
-				}
+				(void)comp;
 			}
 			
 			friend bool operator==(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
