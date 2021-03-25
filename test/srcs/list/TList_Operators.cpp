@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:51:57 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/25 18:18:59 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/25 18:20:01 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ TEST_F(TList_Operators, unique) {
 }
 
 TEST_F(TList_Operators, sort) {
+	// VOID PARAMETER
 	CONSTRUCT_STD_LIST(std_1, int, {5,4, 1,3,2,1});
     CONSTRUCT_FT_LIST(ft_1, int, std_1.begin(), std_1.end());
 	APPLY_BOTH(std_1, ft_1, sort);
@@ -119,4 +120,6 @@ TEST_F(TList_Operators, sort) {
     CONSTRUCT_FT_LIST(ft_3, int, std_3.begin(), std_3.end());
 	APPLY_BOTH(std_3, ft_3, sort);
 	COMP_CONTAINERS(std_3, ft_3);
+
+	// COMPARE FUNCTION PARAMETER
 }
