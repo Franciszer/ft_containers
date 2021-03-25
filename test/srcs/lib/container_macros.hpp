@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   container_macros.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 15:23:36 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/23 18:06:31 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/25 15:21:30 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ namespace containers_test {
 					EXPECT_EQ(*first, *it);
 			}
             EXPECT_EQ(first, last);
-            EXPECT_EQ(it, ft_cont.end());
+            EXPECT_EQ(it, ft_cont.rend());
 		}
 
 
