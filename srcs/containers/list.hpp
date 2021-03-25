@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/25 18:16:20 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/25 23:23:13 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,12 +196,12 @@ namespace ft {
 			}
 
 			void splice (iterator position, list& x) {
-				position.getNodePtr()->next->prev =\
-					x._end->prev;\
+				x._end->next->prev = position.getNodePtr()->prev;
 				x._end->prev->next =\
-					position.getNodePtr()->next;
-				position.getNodePtr()->next = x._end->next;
-				x._end->next->prev = position.getNodePtr(); 
+					position.getNodePtr();
+				position.getNodePtr()->prev->next =\
+					x._end->next;
+				position.getNodePtr()->prev = x._end->prev;
 				x._end->next = x._end;
 				x._end->prev = x._end;
 				_size += x._size;
@@ -209,14 +209,29 @@ namespace ft {
 			}
 
 			void splice (iterator position, list& x, iterator i) {
-				_newNode(*i, position.getNodePtr());
-				this->insert(position, *i);
-				x._delNode(i.getNodePtr());
+				i.getNodePtr()->prev->next = i.getNodePtr()->next;
+				i.getNodePtr()->next->prev = i.getNodePtr()->prev;
+				position.getNodePtr()->prev->next =\
+					i.getNodePtr();\
+				i.getNodePtr()->next =\
+					position.getNodePtr();
+				i.getNodePtr()->prev =\
+					position.getNodePtr()->prev;
+				position.getNodePtr()->prev = i.getNodePtr();
+				_size += 1;
+				x._size -= 1;
 			}
 
 			void splice (iterator position, list& x, iterator first, iterator last) {
-				this->insert(position, first, last);
-				x.erase(first, last);
+				iterator	tmp = first;
+
+				tmp++;
+				while(first != last)
+				{
+					splice(position, x, first);
+					first = tmp;
+					tmp++;
+				}
 			}
 
 			void remove (const value_type& val) {
@@ -271,12 +286,24 @@ namespace ft {
 			}
 
 			void merge (list& x) {
-				if (&x != this) {
-					for (iterator it = x.begin() ; it != x.end() ; it = x.begin()) {
-						this->push_back(*it);
-						x.erase(it);
-					}
+				iterator a(this->begin());
+				iterator b(x.begin());
+				if (this == &x || x.empty())
+					return;
+				if (empty())
+				{
+					swap(x);
+					return;
 				}
+				while (a.getNodePtr() != this->_end && b.getNodePtr() != x._end)
+				{
+					if (*b > *a)
+						splice(a, x, b++);
+					else
+						a++;
+				}
+				if (!x.empty())
+					splice(a, x, b, x.end());
 			}
 
 			template <class Compare>
@@ -293,7 +320,7 @@ namespace ft {
 
 			void sort() {
 				for (size_t i = 0; i < this->_size; i++) {
-					for (iterator it = ++(this->begin()); it != end() ;) {
+					for (iterator it = ++(this->begin()); it != end() ; it++) {
 						iterator it2 = it;
 						--it2;
 						if (*it < *it2) {
@@ -301,15 +328,23 @@ namespace ft {
 							it.getNodePtr()->content = it2.getNodePtr()->content;
 							it2.getNodePtr()->content = tmp;
 						}
-						else
-							it++;
 					}
 				}
 			}
 
 			template <class Compare>
 			void sort (Compare comp) {
-				(void)comp;
+				for (size_t i = 0; i < this->_size; i++) {
+					for (iterator it = ++(this->begin()); it != end() ; it++) {
+						iterator it2 = it;
+						--it2;
+						if (comp(*it, *it2)) {
+							value_type tmp = it.getNodePtr()->content;
+							it.getNodePtr()->content = it2.getNodePtr()->content;
+							it2.getNodePtr()->content = tmp;
+						}
+					}
+				}
 			}
 			
 			friend bool operator==(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {

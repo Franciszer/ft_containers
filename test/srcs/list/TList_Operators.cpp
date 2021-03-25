@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   TList_Operators.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:51:57 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/25 18:20:01 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/25 23:23:57 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ class	TList_Operators: public ::testing::Test {
         static bool     isLower(const int &i, const int &i2) {
             return i < i2 ? true : false;
         }
+        static bool     isGreater(const int &i, const int &i2) {
+            return i > i2 ? true : false;
+        }
 };
 
 TEST_F(TList_Operators, splice) {
@@ -42,27 +45,25 @@ TEST_F(TList_Operators, splice) {
     CONSTRUCT_STD_LIST(std_src, int, {1,2,3,4,5,6,7,8,9,10});
     CONSTRUCT_STD_LIST(std_copy, int, std_src);
     CONSTRUCT_FT_LIST(ft_src, int, std_src.begin(), std_src.end());
-    ft::list<int>   ft_1;
+    CONSTRUCT_FT_LIST(ft_1, int, 5, 5);
+    CONSTRUCT_STD_LIST(std_1, int, 5, 5);
+    std_1.splice(std_1.end(), std_src);
     ft_1.splice(ft_1.end(), ft_src);
-    EXPECT_TRUE(ft_src.empty());
-    COMP_CONTAINERS(ft_1, std_copy);
+    COMP_CONTAINERS(ft_1, std_1);
 
     // SINGLE ELEMENT
-    ft::list<int>   ft_2_src;
-    
-    ft_2_src.push_back(1);
-    ft_2_src.push_back(2);
-    ft_2_src.push_back(3);
-    ft_2_src.push_back(4);
-    ft_2_src.push_back(5);
-
-    ft::list<int>  ft_2(1,5);
+    CONSTRUCT_STD_LIST(std_2_src, int, {1, 2, 3, 4, 5})
+    CONSTRUCT_FT_LIST(ft_2_src, int, std_2_src.begin(), std_2_src.end());
+    CONSTRUCT_STD_LIST(std_2, int, 1, 5);
+    CONSTRUCT_FT_LIST(ft_2, int, 1, 5);
 
     ft_2.splice(ft_2.begin(), ft_2_src, ft_2_src.begin());
-    EXPECT_EQ(1, ft_2.front());
-    EXPECT_EQ(2, *(ft_2_src.begin()));
-    ft_2.splice(ft_2.end(), ft_2_src, --ft_2_src.end());
-    EXPECT_EQ(5, ft_2.back());
+    std_2.splice(std_2.begin(), std_2_src, std_2_src.begin());
+    COMP_CONTAINERS(ft_2, std_2);
+
+    ft_2.splice(ft_2.end(), ft_2_src, ft_2_src.begin());
+    std_2.splice(std_2.end(), std_2_src, std_2_src.begin());
+    COMP_CONTAINERS(ft_2, std_2);
 
     // RANGE
     CONSTRUCT_STD_LIST(std_copy_3, int, {1,2,3,4,5,6,7});
@@ -104,6 +105,20 @@ TEST_F(TList_Operators, unique) {
     COMP_CONTAINERS(ft_1, std_1);
 }
 
+TEST_F(TList_Operators, merge) {
+    CONSTRUCT_STD_LIST(std_copy_1, int, {1,3,5,7,9});
+    CONSTRUCT_STD_LIST(std_1, int, {2,4,5,8});
+    CONSTRUCT_FT_LIST(ft_copy_1, int, std_copy_1.begin(), std_copy_1.end());
+    CONSTRUCT_FT_LIST(ft_1, int, std_1.begin(), std_1.end());
+    std_1.merge(std_copy_1);
+    ft_1.merge(ft_copy_1);
+    for(auto i = ft_1.begin(); i != ft_1.end(); i++)
+        std::cout << "ft: " << *i << std::endl;
+    for(auto i = std_1.begin(); i != std_1.end(); i++)
+        std::cout << "std: " << *i << std::endl;
+	COMP_CONTAINERS(ft_1, std_1);
+}
+
 TEST_F(TList_Operators, sort) {
 	// VOID PARAMETER
 	CONSTRUCT_STD_LIST(std_1, int, {5,4, 1,3,2,1});
@@ -122,4 +137,17 @@ TEST_F(TList_Operators, sort) {
 	COMP_CONTAINERS(std_3, ft_3);
 
 	// COMPARE FUNCTION PARAMETER
+	CONSTRUCT_STD_LIST(std_4, int, {5,4, 1,3,2,1});
+    CONSTRUCT_FT_LIST(ft_4, int, std_4.begin(), std_4.end());
+	APPLY_BOTH(std_4, ft_4, sort, isGreater);
+	COMP_CONTAINERS(ft_4, std_4);
+	CONSTRUCT_STD_LIST(std_5, int, {1});
+    CONSTRUCT_FT_LIST(ft_5, int, std_5.begin(), std_5.end());
+	APPLY_BOTH(std_5, ft_5, sort, isGreater);
+	COMP_CONTAINERS(std_5, ft_5);
+
+	CONSTRUCT_STD_LIST(std_6, int, {1, -2});
+    CONSTRUCT_FT_LIST(ft_6, int, std_6.begin(), std_6.end());
+	APPLY_BOTH(std_6, ft_6, sort, isGreater);
+	COMP_CONTAINERS(std_6, ft_6);
 }
