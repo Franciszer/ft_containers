@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/25 23:23:13 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/26 01:05:43 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,35 +286,29 @@ namespace ft {
 			}
 
 			void merge (list& x) {
-				iterator a(this->begin());
-				iterator b(x.begin());
-				if (this == &x || x.empty())
-					return;
-				if (empty())
-				{
-					swap(x);
-					return;
-				}
-				while (a.getNodePtr() != this->_end && b.getNodePtr() != x._end)
-				{
-					if (*b > *a)
-						splice(a, x, b++);
+				if (&x == this || x.empty())
+					return ;
+				iterator	it = this->begin();
+				while (!x.empty()) {
+					if (it == end() || *(x.begin()) < *it) {
+						this->splice(it, x, x.begin());
+					}
 					else
-						a++;
+						it++;
 				}
-				if (!x.empty())
-					splice(a, x, b, x.end());
 			}
 
 			template <class Compare>
 			void merge (list& x, Compare comp) {
-				for (iterator it = x.begin() ; it != x.end() ; it++) {
-					for (iterator it2 = this->begin() ; it2 != this->end() ; it2++) {
-						if (comp(it, it2)) {
-							_newNode(*it2, it->getNodePtr());
-							break ;
-						}
+				if (&x == this || x.empty())
+					return ;
+				iterator	it = this->begin();
+				while (!x.empty()) {
+					if (it == end() || comp(*(x.begin()), *it)) {
+						this->splice(it, x, x.begin());
 					}
+					else
+						it++;
 				}
 			}
 
@@ -344,6 +338,21 @@ namespace ft {
 							it2.getNodePtr()->content = tmp;
 						}
 					}
+				}
+			}
+			
+			void	reverse() {
+				if (this->empty())
+					return ;
+				iterator	front(this->begin());
+				iterator	back(--(this->end()));
+
+				while (front != back) {
+					std::swap(*front, *back);
+					front++;
+					if (front == back)
+						break ;
+					back--;
 				}
 			}
 			

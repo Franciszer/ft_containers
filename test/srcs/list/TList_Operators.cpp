@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:51:57 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/25 23:23:57 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/26 00:43:04 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,17 +106,37 @@ TEST_F(TList_Operators, unique) {
 }
 
 TEST_F(TList_Operators, merge) {
+    // VOID PARAMETER
     CONSTRUCT_STD_LIST(std_copy_1, int, {1,3,5,7,9});
-    CONSTRUCT_STD_LIST(std_1, int, {2,4,5,8});
+    CONSTRUCT_STD_LIST(std_1, int, {2,4,5,10});
     CONSTRUCT_FT_LIST(ft_copy_1, int, std_copy_1.begin(), std_copy_1.end());
     CONSTRUCT_FT_LIST(ft_1, int, std_1.begin(), std_1.end());
     std_1.merge(std_copy_1);
     ft_1.merge(ft_copy_1);
-    for(auto i = ft_1.begin(); i != ft_1.end(); i++)
-        std::cout << "ft: " << *i << std::endl;
-    for(auto i = std_1.begin(); i != std_1.end(); i++)
-        std::cout << "std: " << *i << std::endl;
 	COMP_CONTAINERS(ft_1, std_1);
+    CONSTRUCT_STD_LIST(std_copy_2, int, {1,3,5,7,9});
+    CONSTRUCT_STD_LIST(std_2, int, {2,4,5,10});
+    CONSTRUCT_FT_LIST(ft_copy_2, int, std_copy_2.begin(), std_copy_2.end());
+    CONSTRUCT_FT_LIST(ft_2, int, std_2.begin(), std_2.end());
+    std_2.merge(std_copy_2);
+    ft_2.merge(ft_copy_2);
+	COMP_CONTAINERS(ft_2, std_2);
+
+    // COMPARE FUNCTION PARAMETER
+    CONSTRUCT_STD_LIST(std_copy_3, int, {9,6,5,3,2});
+    CONSTRUCT_STD_LIST(std_3, int, {6,5,4,3});
+    CONSTRUCT_FT_LIST(ft_copy_3, int, std_copy_3.begin(), std_copy_3.end());
+    CONSTRUCT_FT_LIST(ft_3, int, std_3.begin(), std_3.end());
+    std_3.merge(std_copy_3, isGreater);
+    ft_3.merge(ft_copy_3, isGreater);
+	COMP_CONTAINERS(ft_3, std_3);
+    CONSTRUCT_STD_LIST(std_copy_4, int, {9,5,3,2});
+    CONSTRUCT_STD_LIST(std_4, int, {9,3,2});
+    CONSTRUCT_FT_LIST(ft_copy_4, int, std_copy_4.begin(), std_copy_4.end());
+    CONSTRUCT_FT_LIST(ft_4, int, std_4.begin(), std_4.end());
+    std_4.merge(std_copy_4, isGreater);
+    ft_4.merge(ft_copy_4, isGreater);
+	COMP_CONTAINERS(ft_4, std_4);
 }
 
 TEST_F(TList_Operators, sort) {
@@ -150,4 +170,11 @@ TEST_F(TList_Operators, sort) {
     CONSTRUCT_FT_LIST(ft_6, int, std_6.begin(), std_6.end());
 	APPLY_BOTH(std_6, ft_6, sort, isGreater);
 	COMP_CONTAINERS(std_6, ft_6);
+}
+
+TEST_F(TList_Operators, reverse) {
+	CONSTRUCT_STD_LIST(std_1, int, {1, -2,231,3,213,122,2});
+    CONSTRUCT_FT_LIST(ft_1, int, std_1.begin(), std_1.end());
+    APPLY_BOTH(std_1, ft_1, reverse);
+    COMP_CONTAINERS(ft_1, std_1);  
 }
