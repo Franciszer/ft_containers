@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   list_node.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 11:40:53 by frthierr          #+#    #+#             */
-/*   Updated: 2021/02/23 14:24:50 by frthierr         ###   ########.fr       */
+/*   Created: 2021/03/14 12:43:25 by francisco         #+#    #+#             */
+/*   Updated: 2021/03/14 13:08:12 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_containers.hpp"
+#ifndef LIST_NODE_HPP
 
-int main()
-{
-	std::cout << "HELLO WORLD" << std::endl;
-	return 0;
+# define LIST_NODE_HPP
+
+# include "ft_containers.hpp"
+
+namespace ft {
+
+    template<typename T>
+    struct list_node {
+        T           content;
+        list_node   *prev;
+        list_node   *next;
+    };
 }
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 12:51:12 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/10 01:43:34 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/19 23:00:54 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,6 @@ TEST_F(TVector_Constructor, fill) {
 	ft_vec = new ft::vector<int>(10);
 
 	this->compare();
-	try {
-		ft_vec = new ft::vector<int>(1'000'000'000'000'000'000);
-	}
-	catch (std::bad_alloc &e) {
-		SUCCEED();
-		return ;
-	}
-	FAIL();
 }
 
 TEST_F(TVector_Constructor, range) {

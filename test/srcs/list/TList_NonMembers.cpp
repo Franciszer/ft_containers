@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 09:10:10 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/26 10:17:37 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/03/26 10:28:24 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ TEST_F(TList_NonMembers, more_equality_operator) {
 	EXPECT_EQ(ft_1 >= ft_1_copy, std_1 >= std_1_copy);
 }
 
-TEST_F(TList_NonMembers, swap) {c
+TEST_F(TList_NonMembers, swap) {
 	CONSTRUCT_STD_LIST(std_1, std::string, {"HELLO", "world", "how", "is", "your", "mifa"});
 	CONSTRUCT_FT_LIST(ft_1, std::string, std_1.begin(), std_1.end());
 	CONSTRUCT_STD_LIST(std_1_copy, std::string, std_1.begin(), std_1.end());

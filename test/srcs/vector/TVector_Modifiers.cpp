@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:54:18 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/10 01:39:35 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/13 21:44:18 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,12 @@ TEST_F(TVector_Modifiers, insert) {
     EXPECT_EQ(2, (*ft_vec)[0]);
     for (int i = 0; i < 10; i++)
         ft_vec->insert(ft_vec->end(), 2);
-    for (int i = 0; i < ft_vec->size(); i++)
+    for (ft::vector<int>::size_type i = 0; i < ft_vec->size(); i++)
         EXPECT_EQ(2, (*ft_vec)[i]);
     EXPECT_EQ(11, ft_vec->size());
     ft_vec->insert(ft_vec->begin(), 10, 4);
     EXPECT_EQ(21, ft_vec->size());
-    for (int i = 0; i < ft_vec->size(); i++) {
+    for (ft::vector<int>::size_type i = 0; i < ft_vec->size(); i++) {
         if (i < 10)
             EXPECT_EQ(4, (*ft_vec)[i]);
         else
@@ -102,7 +102,7 @@ TEST_F(TVector_Modifiers, insert) {
     v.insert(v.begin(), ft_vec->begin(), ft_vec->end());
     EXPECT_EQ(8, v[ft_vec->size()]);
     EXPECT_EQ(ft_vec->size() + 1, v.size());
-    for (int i = 0; i < ft_vec->size(); i++) {
+    for (ft::vector<int>::size_type i = 0; i < ft_vec->size(); i++) {
         EXPECT_EQ((*ft_vec)[i], v[i]);
     }
 }
