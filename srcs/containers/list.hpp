@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/26 01:05:43 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/26 10:02:50 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -356,46 +356,6 @@ namespace ft {
 				}
 			}
 			
-			friend bool operator==(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
-				if (lhs._size != rhs._size)
-					return false;
-				iterator	it = lhs.begin();
-				iterator	it2 = rhs.begin();
-				
-				for (; it != lhs.end(), it2 != rhs.end() ; it++, it2++) {
-					if (*it != *it2)
-						return false;
-				}
-				return true;
-			}
-
-			friend bool operator!=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
-				return !(lhs == rhs);
-			}
-
-			friend bool operator<(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
-				iterator	it = lhs.begin();
-				iterator	it2 = rhs.begin();
-
-				for (; it != lhs.end(), it2 != rhs.end(); it++, it2++) {
-					if (*it < *it2)
-						return true;
-				}
-				return lhs._size < rhs._size;
-			}
-
-			friend bool operator>(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
-				return rhs < lhs;
-			}
-
-			friend bool operator<=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
-				return (lhs < rhs || lhs == rhs);
-			}
-
-			friend bool operator>=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
-				return (lhs > rhs || lhs == rhs);
-			}
-
         private:
 			allocator_type	_alloc;
             nodePtr			_end;
@@ -434,6 +394,59 @@ namespace ft {
 				_size--;
 			}
     };
+
+		template <class T, class Alloc>
+		bool operator==(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+			if (lhs.size() != rhs.size())
+				return false;
+			typename ft::list<T, Alloc>::const_iterator	it = lhs.begin();
+			typename ft::list<T, Alloc>::const_iterator	it2 = rhs.begin();
+			
+			for (; it != lhs.end() ; it++, it2++) {
+				if (*it != *it2)
+					return false;
+			}
+			return true;
+		}
+
+		template<class T, class Alloc>
+		bool operator!=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+			return !(lhs == rhs);
+		}
+
+		template<class T, class Alloc>
+		bool operator<(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+			typename ft::list<T, Alloc>::const_iterator	it = lhs.begin();
+			typename ft::list<T, Alloc>::const_iterator	it2 = rhs.begin();
+
+			for (; it != lhs.end() && it2 != rhs.end(); it++, it2++) {
+				if (*it < *it2)
+					return true;
+			}
+			if (lhs.size() < rhs.size())
+				return true;
+			return false;
+		}
+
+		template<class T, class Alloc>
+		bool operator>(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+			return rhs < lhs;
+		}
+
+		template<class T, class Alloc>
+		bool operator<=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+			return (lhs < rhs || lhs == rhs);
+		}
+
+		template<class T, class Alloc>
+		bool operator>=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+			return (lhs > rhs || lhs == rhs);
+		}
+
+		template <class T, class Alloc>
+  		void swap (list<T,Alloc>& x, list<T,Alloc>& y) {
+			  x.swap(y);
+		  }
 }
 
 #endif

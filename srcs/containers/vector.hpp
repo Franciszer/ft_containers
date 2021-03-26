@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:25:58 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/13 04:09:34 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/26 10:08:11 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,40 +254,6 @@ namespace	ft {
 				while(this->_size)
 					this->pop_back();
 			}
-
-		// NON-MEMBER FUNCTION OVERLOADS
-			friend bool operator== (const vector &lhs, const vector &rhs) {
-				if (lhs._size != rhs._size)
-					return false;
-				iterator lit = lhs.begin();
-				iterator rit = rhs.begin();
-				for (;	lit != lhs.end(), rit != rhs.end(); lit++, rit++) {
-						if (*lit != *rit)
-							return false;
-					}
-				if (lit == lhs.end() && rit == rhs.end())
-					return true;
-			}
-			friend bool operator!= (const vector &lhs, const vector &rhs) {
-				return !(lhs == rhs);
-			}
-			friend bool operator<  (const vector &lhs, const vector &rhs) {
-				iterator lit = lhs.begin();
-				iterator rit = rhs.begin();
-				for (; lit != lhs.end(), rit != rhs.end(); lit++, rit++) {
-						if (*lit < *rit)
-							return true;
-					}
-				return lhs._size < rhs._size;
-			}
-			friend bool operator<= (const vector &lhs, const vector &rhs) {return (lhs < rhs) || (lhs == rhs);}
-			friend bool operator>  (const vector &lhs, const vector &rhs) {return !(lhs < rhs);};
-			friend bool operator>= (const vector &lhs, const vector &rhs) {return (lhs > rhs) || (lhs == rhs);};
-
-			friend void swap (vector& x, vector& y) {
-				x.swap(y);
-			}
-		
 		
 		private:
 			allocator_type	_allocator;
@@ -311,6 +277,46 @@ namespace	ft {
 			}
 			
 	};
+
+	// NON-MEMBER FUNCTION OVERLOADS
+	template<class T, class Alloc>
+	bool operator== (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {
+		if (lhs._size != rhs._size)
+			return false;
+		typename ft::vector<T, Alloc>::const_iterator lit = lhs.begin();
+		typename ft::vector<T, Alloc>::const_iterator rit = rhs.begin();
+		for (;	lit != lhs.end(), rit != rhs.end(); lit++, rit++) {
+				if (*lit != *rit)
+					return false;
+			}
+		if (lit == lhs.end() && rit == rhs.end())
+			return true;
+	}
+	template<class T, class Alloc>
+	bool operator!= (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {
+		return !(lhs == rhs);
+	}
+	template<class T, class Alloc>
+	bool operator<  (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {
+		typename ft::vector<T, Alloc>::const_iterator lit = lhs.begin();
+		typename ft::vector<T, Alloc>::const_iterator rit = rhs.begin();
+		for (; lit != lhs.end(), rit != rhs.end(); lit++, rit++) {
+				if (*lit < *rit)
+					return true;
+			}
+		return lhs._size < rhs._size;
+	}
+	template<class T, class Alloc>
+	bool operator<= (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {return (lhs < rhs) || (lhs == rhs);}
+	template<class T, class Alloc>
+	bool operator>  (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {return !(lhs < rhs);};
+	template<class T, class Alloc>
+	bool operator>= (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {return (lhs > rhs) || (lhs == rhs);};
+
+	template<class T, class Alloc>
+	void swap (vector<T, Alloc>& x, vector<T, Alloc>& y) {
+		x.swap(y);
+	}
 }
 
 
