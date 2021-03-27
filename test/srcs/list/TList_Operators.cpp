@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:51:57 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/26 00:43:04 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/26 23:12:15 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,5 +176,5 @@ TEST_F(TList_Operators, reverse) {
 	CONSTRUCT_STD_LIST(std_1, int, {1, -2,231,3,213,122,2});
     CONSTRUCT_FT_LIST(ft_1, int, std_1.begin(), std_1.end());
     APPLY_BOTH(std_1, ft_1, reverse);
-    COMP_CONTAINERS(ft_1, std_1);  
+    COMP_CONTAINERS(ft_1, std_1);
 }

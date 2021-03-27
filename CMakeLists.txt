@@ -22,13 +22,17 @@ set(Headers
 	srcs/ft_containers.hpp
 	srcs/iterators/vector_iterator.hpp
 	srcs/iterators/list_iterator.hpp
+	srcs/iterators/bst_iterator.hpp
+
 	srcs/templates/reverse_iterator.hpp
 	srcs/templates/constBool.hpp
 	srcs/templates/enable_if.hpp
 	srcs/templates/list_node.hpp
+	srcs/templates/bst_node.hpp
 	srcs/templates/is_integral.hpp
 	srcs/containers/vector.hpp
 	srcs/containers/list.hpp
+	srcs/containers/set.hpp
 )
 
 add_library(${This} INTERFACE)
