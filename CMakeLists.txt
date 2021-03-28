@@ -24,6 +24,7 @@ set(Headers
 	srcs/iterators/list_iterator.hpp
 	srcs/iterators/bst_iterator.hpp
 
+	srcs/templates/pair.hpp
 	srcs/templates/reverse_iterator.hpp
 	srcs/templates/constBool.hpp
 	srcs/templates/enable_if.hpp

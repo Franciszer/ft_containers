@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bst_iterator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:47:22 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/26 23:59:00 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/28 17:29:06 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,11 @@ namespace ft {
 			reference		operator*() const { return _current->content; }
 			pointer			operator->() const { return &(_current->content); }
 			bst_iterator	&operator++() {
-				if (_current->left)
-					_current = _current->left;
+				if (_current->left) {
+					while (_current->left)
+						_current = _current->left;
+					return bst_iterator(_current);					
+				}
 				else if (_current->right)
 					_current = _current->right;
 				else if (_current->parent)

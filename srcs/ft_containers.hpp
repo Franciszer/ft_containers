@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_containers.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:26:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/26 23:56:01 by francisco        ###   ########.fr       */
+/*   Updated: 2021/03/28 17:25:42 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <stdexcept>
 # include <cmath>
 
+# include "pair.hpp"
 # include "constBool.hpp"
 # include "enable_if.hpp"
 # include "is_integral.hpp"
