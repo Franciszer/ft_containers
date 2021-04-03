@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:45:25 by francisco         #+#    #+#             */
-/*   Updated: 2021/04/03 11:46:15 by francisco        ###   ########.fr       */
+/*   Updated: 2021/04/03 12:02:01 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,13 @@ namespace ft {
 					x.parent(tmp.parent);
 				}
 	};
-	
+
 	_BST_NODE_TP
 	bool		operator==(const bst_node<_BST_NODE_TP_INTIT> &lhs,\
 							const bst_node<_BST_NODE_TP_INTIT> &rhs)
 	{
-		return lhs.key == rhs.key;
+		return !lhs::key_compare(lhs.key, rhs.key) &&\
+				!lhs::key_compare(rhs.key, lhs.key);
 	}
 
 	_BST_NODE_TP
@@ -106,7 +107,7 @@ namespace ft {
 	bool		operator<(const bst_node<_BST_NODE_TP_INTIT> &lhs,\
 							const bst_node<_BST_NODE_TP_INTIT> &rhs)
 	{
-		return lhs.key < rhs.key;
+		return lhs::key_compare(lhs.key, rhs.key);
 	}
 
 	_BST_NODE_TP
