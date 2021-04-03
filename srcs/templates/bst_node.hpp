@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:45:25 by francisco         #+#    #+#             */
-/*   Updated: 2021/04/03 12:02:01 by francisco        ###   ########.fr       */
+/*   Updated: 2021/04/03 12:02:48 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 		class		VCompare = std::less<V>\
 		>
 
-# define _BST_NODE_TP_INTIT Key, B, KCompare, V, VCompare
+# define _BST_NODE_TP_INIT Key, B, KCompare, V, VCompare
 namespace ft {
 
 	_BST_NODE_TP
@@ -89,44 +89,44 @@ namespace ft {
 	};
 
 	_BST_NODE_TP
-	bool		operator==(const bst_node<_BST_NODE_TP_INTIT> &lhs,\
-							const bst_node<_BST_NODE_TP_INTIT> &rhs)
+	bool		operator==(const bst_node<_BST_NODE_TP_INIT> &lhs,\
+							const bst_node<_BST_NODE_TP_INIT> &rhs)
 	{
 		return !lhs::key_compare(lhs.key, rhs.key) &&\
 				!lhs::key_compare(rhs.key, lhs.key);
 	}
 
 	_BST_NODE_TP
-	bool		operator!=(const bst_node<_BST_NODE_TP_INTIT> &lhs,\
-							const bst_node<_BST_NODE_TP_INTIT> &rhs)
+	bool		operator!=(const bst_node<_BST_NODE_TP_INIT> &lhs,\
+							const bst_node<_BST_NODE_TP_INIT> &rhs)
 	{
 		return !(lhs == rhs);
 	}
 
 	_BST_NODE_TP
-	bool		operator<(const bst_node<_BST_NODE_TP_INTIT> &lhs,\
-							const bst_node<_BST_NODE_TP_INTIT> &rhs)
+	bool		operator<(const bst_node<_BST_NODE_TP_INIT> &lhs,\
+							const bst_node<_BST_NODE_TP_INIT> &rhs)
 	{
 		return lhs::key_compare(lhs.key, rhs.key);
 	}
 
 	_BST_NODE_TP
-	bool		operator<=(const bst_node<_BST_NODE_TP_INTIT> &lhs,\
-							const bst_node<_BST_NODE_TP_INTIT> &rhs)
+	bool		operator<=(const bst_node<_BST_NODE_TP_INIT> &lhs,\
+							const bst_node<_BST_NODE_TP_INIT> &rhs)
 	{
 		return lhs < rhs || lhs == rhs;
 	}
 
 	_BST_NODE_TP
-	bool		operator>(const bst_node<_BST_NODE_TP_INTIT> &lhs,\
-							const bst_node<_BST_NODE_TP_INTIT> &rhs)
+	bool		operator>(const bst_node<_BST_NODE_TP_INIT> &lhs,\
+							const bst_node<_BST_NODE_TP_INIT> &rhs)
 	{
 		return lhs.key > rhs.key;
 	}
 
 	_BST_NODE_TP
-	bool		operator<(const bst_node<_BST_NODE_TP_INTIT> &lhs,\
-							const bst_node<_BST_NODE_TP_INTIT> &rhs)
+	bool		operator<(const bst_node<_BST_NODE_TP_INIT> &lhs,\
+							const bst_node<_BST_NODE_TP_INIT> &rhs)
 	{
 		return lhs < rhs || lhs == rhs;
 	}
