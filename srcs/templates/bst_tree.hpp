@@ -5,54 +5,210 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 10:17:30 by francisco         #+#    #+#             */
-/*   Updated: 2021/04/03 12:02:07 by francisco        ###   ########.fr       */
+/*   Created: 2021/03/26 23:45:25 by francisco         #+#    #+#             */
+/*   Updated: 2021/04/03 21:28:19 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_containers.hpp"
+#ifndef BST_TREE_HPP
 
-#ifndef		BST_TREE_HPP
+# define BST_TREE_HPP
 
-# define	BST_TREE_HPP
+# include "ft_containers.hpp"
 
+# define _BST_TREE_TP template<\
+		typename	Key,\
+		typename 	V,\
+		bool 		B,\
+		class		KCompare = std::less<Key>,\
+		class		VCompare = std::less<V>,\
+		class		Alloc = std::allocator<pair<Key, V> >\
+		>
+
+# define _BST_TREE_TP_INIT Key, V, B, KCompare, VCompare, Alloc
+
+using ft::pair;
 namespace ft {
 
-template <
-	class Key,\
-	bool B,\
-	class KCompare = std::less<Key>,\
-	class V = Key,\
-	class VCompare = std::less<V>,\
-	class Alloc = std::allocator<bst_node<Key, B, V> >\
-	>
-class bst_tree
+	_BST_TREE_TP
+	class bst_tree {
+		public:
+			typedef	V													value_type;
+			typedef	Key													key_type;
+			typedef pair<value_type, key_type>							content_type;
+			typedef bst_tree											tree_type;
+			typedef	long int											difference_type;
+			typedef	size_t												size_type;
+			typedef	KCompare											key_compare;
+			typedef	VCompare											value_compare;
+
+			typedef	content_type&										reference;
+			typedef	const content_type&									const_reference;
+			typedef	content_type*										pointer;
+			typedef	const content_type*									const_pointer;
+
+			typedef	Alloc												allocator_type;
+			typedef std::allocator<bst_tree>							tree_allocator_type;
+
+			bst_tree(content_type val = content_type(),\
+				key_compare k = key_compare(), value_compare v = value_compare()):
+			_content(),
+			_left(NULL),
+			_right(NULL),
+			_parent(NULL),
+			_alloc(),
+			_tree_alloc(),
+			_key_comp(k),
+			_value_comp(v)
+			{
+				_content = _new_content(val);
+			}
+
+		bst_tree(const tree_type *parent, content_type val = content_type(),\
+				key_compare k = key_compare(), value_compare v = value_compare()):
+			_content(),
+			_left(NULL),
+			_right(NULL),
+			_parent(parent),
+			_alloc(),
+			_tree_alloc(),
+			_key_comp(k),
+			_value_comp(v)
+			{
+				_content = _new_content(val);
+			}
+
+			bst_tree(const bst_tree<Key, V, false> &src):
+			_content(),
+			_left(src._left),
+			_right(src._right),
+			_parent(src._parent),
+			_alloc(src._alloc),
+			_tree_alloc(src._tree_alloc),
+			_key_comp(src._key_comp),
+			_value_comp(src._value_comp)
+			{
+				_content = _new_content(src._content);
+			}
+
+			~bst_tree() {
+				if (_left) 		~(*_left);
+				if (_right) 	~(*_right);
+				_del_node(this);
+			}
+
+			bst_tree	&operator=(const bst_tree &src) {
+				bst_tree	cpy(src);
+
+				this->swap(cpy);
+				return *this;
+			}
+
+			friend bst_tree	*insert(const tree_type &current, const_reference val = content_type()) {
+				if (current._key_comp(val.first, current._content->first)) {
+					if (current._content->first)
+						return current.insert(val);
+					 else
+					 	return current._left = current._new_node(val);
+				}
+				else if (current._key_comp(current._content->first, val.first)) {
+					if (current._content->first)
+						return current.insert(val);
+					 else
+					 	return current._right = current._new_node(val);
+				}
+				else
+					return NULL;
+			}
+
+
+			private:
+				tree_type		*_new_node(const content_type &val = content_type(),\
+					const tree_type *parent = NULL) {
+					tree_type	tree(parent, val);
+					tree_type	*ptr = _tree_alloc.allocate(sizeof(tree_type));
+
+					_tree_alloc.construct(ptr, tree);
+					return ptr;
+				}
+			
+				tree_type		*_del_node(tree_type* &target) {
+					_alloc.destroy(target->_content);
+					_alloc.deallocate(target->content);
+					_tree_alloc.destoy(target);
+					_tree_alloc.deallocate(target);
+					target = NULL;
+				}
+
+				void	swap(bst_tree x) {
+					bst_tree tmp(*this);
+
+					this->value(x.value);
+					this->left(x.left);
+					this->right(x.right);
+					this->parent(x.parent);
+
+					x.value(tmp.value);
+					x.left(tmp.left);
+					x.right(tmp.right);
+					x.parent(tmp.parent);
+				}
+
+				content_type		_content;
+				pointer				_left;
+				pointer				_right;
+				pointer				_parent;
+				allocator_type		_alloc;
+				tree_allocator_type	_tree_alloc;
+				key_compare			_key_comp;
+				value_compare		_value_comp;
+	};
+
+
+// COMPARAISON OPERATORS
+
+_BST_TREE_TP
+bool		operator==(const bst_tree<_BST_TREE_TP_INIT> &lhs,\
+						const bst_tree<_BST_TREE_TP_INIT> &rhs)
 {
-public:
-	typedef bst_node<_BST_NODE_TP_INTIT>						node_type;
-	typedef	node_type::value_type								value_type;
-	typedef	node_type::key_type									key_type;
-	typedef	node_type::key_compare								key_compare;
-	typedef	node_type::value_compare							value_compare;
-	typedef	Alloc												allocator_type;
-	typedef	long int											difference_type;
-	typedef	size_t												size_type;
+	return !lhs._key_comp(lhs._content->first, rhs._content->first) &&\
+			!lhs._key_comp(rhs._content->first, lhs._content->first);
+}
 
-	typedef	node_type&											reference;
-	typedef	const node_type&									const_reference;
-	typedef	node_type*											pointer;
-	typedef	const node_type*									const_pointer;
-	
-	bst_tree(/* args */);
-	~bst_tree();
-private:
-	node_type	_current;
-	node_type	_leftmost;
-	node_type	_rightmost;
-	size_type	_size;
-};
+_BST_TREE_TP
+bool		operator!=(const bst_tree<_BST_TREE_TP_INIT> &lhs,\
+						const bst_tree<_BST_TREE_TP_INIT> &rhs)
+{
+	return !(lhs == rhs);
+}
 
+_BST_TREE_TP
+bool		operator<(const bst_tree<_BST_TREE_TP_INIT> &lhs,\
+						const bst_tree<_BST_TREE_TP_INIT> &rhs)
+{
+	return lhs._key_comp(lhs._content->first, rhs._content->first);
+}
 
+_BST_TREE_TP
+bool		operator<=(const bst_tree<_BST_TREE_TP_INIT> &lhs,\
+						const bst_tree<_BST_TREE_TP_INIT> &rhs)
+{
+	return lhs < rhs || lhs == rhs;
+}
+
+_BST_TREE_TP
+bool		operator>(const bst_tree<_BST_TREE_TP_INIT> &lhs,\
+						const bst_tree<_BST_TREE_TP_INIT> &rhs)
+{
+	return !(lhs < rhs);
+}
+
+_BST_TREE_TP
+bool		operator>=(const bst_tree<_BST_TREE_TP_INIT> &lhs,\
+						const bst_tree<_BST_TREE_TP_INIT> &rhs)
+{
+	return lhs > rhs || lhs >= rhs;
+}
 }
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pair.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 14:46:54 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/28 17:24:31 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/04/03 16:47:05 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ namespace ft {
 	template<class T1, class T2>
 	struct pair {
 		typedef T1	first_type;
-		typedef T2	first_type;
+		typedef T2	second_type;
 
 		T1	first;
 		T2	second;

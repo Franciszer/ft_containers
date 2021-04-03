@@ -29,7 +29,7 @@ set(Headers
 	srcs/templates/constBool.hpp
 	srcs/templates/enable_if.hpp
 	srcs/templates/list_node.hpp
-	srcs/templates/bst_node.hpp
+	srcs/templates/bst_tree.hpp
 	srcs/templates/is_integral.hpp
 	srcs/containers/vector.hpp
 	srcs/containers/list.hpp
