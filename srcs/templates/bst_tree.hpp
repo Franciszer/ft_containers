@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bst_tree.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:45:25 by francisco         #+#    #+#             */
-/*   Updated: 2021/04/03 21:28:19 by francisco        ###   ########.fr       */
+/*   Updated: 2021/04/04 12:08:21 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@
 # define _BST_TREE_TP template<\
 		typename	Key,\
 		typename 	V,\
-		bool 		B,\
 		class		KCompare = std::less<Key>,\
 		class		VCompare = std::less<V>,\
 		class		Alloc = std::allocator<pair<Key, V> >\
 		>
 
-# define _BST_TREE_TP_INIT Key, V, B, KCompare, VCompare, Alloc
+# define _BST_TREE_TP_INIT Key, V, KCompare, VCompare, Alloc
 
 using ft::pair;
 namespace ft {
@@ -33,22 +32,27 @@ namespace ft {
 	_BST_TREE_TP
 	class bst_tree {
 		public:
-			typedef	V													value_type;
-			typedef	Key													key_type;
-			typedef pair<value_type, key_type>							content_type;
-			typedef bst_tree											tree_type;
-			typedef	long int											difference_type;
-			typedef	size_t												size_type;
-			typedef	KCompare											key_compare;
-			typedef	VCompare											value_compare;
+			typedef	V								value_type;
+			typedef	Key								key_type;
+			typedef pair<value_type, key_type>		content_type;
+			typedef bst_tree						tree_type;
+			typedef	long int						difference_type;
+			typedef	size_t							size_type;
+			typedef	KCompare						key_compare;
+			typedef	VCompare						value_compare;
 
-			typedef	content_type&										reference;
-			typedef	const content_type&									const_reference;
-			typedef	content_type*										pointer;
-			typedef	const content_type*									const_pointer;
+			typedef	content_type&					content_reference;
+			typedef	content_type*					content_pointer;
+			typedef	const content_type*				content_const_pointer;
+			typedef	const content_type&				content_const_reference;
 
-			typedef	Alloc												allocator_type;
-			typedef std::allocator<bst_tree>							tree_allocator_type;
+			typedef tree_type&						tree_reference;
+			typedef tree_type*						tree_pointer;
+			typedef const tree_type*				tree_const_pointer;
+			typedef const tree_type&				tree_const_reference;
+
+			typedef	Alloc							allocator_type;
+			typedef std::allocator<bst_tree>		tree_allocator_type;
 
 			bst_tree(content_type val = content_type(),\
 				key_compare k = key_compare(), value_compare v = value_compare()):
@@ -78,7 +82,7 @@ namespace ft {
 				_content = _new_content(val);
 			}
 
-			bst_tree(const bst_tree<Key, V, false> &src):
+			bst_tree(const bst_tree<Key, V> &src):
 			_content(),
 			_left(src._left),
 			_right(src._right),
@@ -97,14 +101,14 @@ namespace ft {
 				_del_node(this);
 			}
 
-			bst_tree	&operator=(const bst_tree &src) {
+			tree_type	&operator=(tree_const_reference src) {
 				bst_tree	cpy(src);
 
 				this->swap(cpy);
 				return *this;
 			}
 
-			friend bst_tree	*insert(const tree_type &current, const_reference val = content_type()) {
+			friend bst_tree	*insert(tree_reference current, content_type val = content_type()) {
 				if (current._key_comp(val.first, current._content->first)) {
 					if (current._content->first)
 						return current.insert(val);
@@ -123,7 +127,7 @@ namespace ft {
 
 
 			private:
-				tree_type		*_new_node(const content_type &val = content_type(),\
+				tree_type		*_new_node(content_const_reference val = content_type(),\
 					const tree_type *parent = NULL) {
 					tree_type	tree(parent, val);
 					tree_type	*ptr = _tree_alloc.allocate(sizeof(tree_type));
@@ -155,9 +159,9 @@ namespace ft {
 				}
 
 				content_type		_content;
-				pointer				_left;
-				pointer				_right;
-				pointer				_parent;
+				tree_pointer		_left;
+				tree_pointer		_right;
+				tree_pointer		_parent;
 				allocator_type		_alloc;
 				tree_allocator_type	_tree_alloc;
 				key_compare			_key_comp;
