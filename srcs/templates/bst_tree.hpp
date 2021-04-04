@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 23:45:25 by francisco         #+#    #+#             */
-/*   Updated: 2021/04/04 12:08:21 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/04/04 12:11:15 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ namespace ft {
 			}
 
 			~bst_tree() {
-				if (_left) 		~(*_left);
-				if (_right) 	~(*_right);
+				if (_left) 		~(*_left);	_delnode(_left);
+				if (_right) 	~(*_right);	_del_node(_right);
 				_del_node(this);
 			}
 
