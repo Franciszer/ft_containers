@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 08:24:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/20 15:00:26 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 16:01:17 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,39 +57,67 @@ template< class Key, class T,
 			Compare comp;
 		};
 		
+
+		
 		explicit map (const key_compare& comp = key_compare(),
               const allocator_type& alloc = allocator_type()) {
 				  _construct(comp, alloc);
 			  }	
 	
-		// template <class InputIterator>
-		// map (InputIterator first, InputIterator last,
-		// 	const key_compare& comp = key_compare(),
-		// 	const allocator_type& alloc = allocator_type(),
-		// 	typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) {
-				
-		// 	}
+		template <class InputIterator>
+		map (InputIterator first, InputIterator last,
+			const key_compare& comp = key_compare(),
+			const allocator_type& alloc = allocator_type(),
+			typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) {
+				_construct(comp, alloc);
+				for (; first != last ; first++)
+					_insert_element(*first, _root);
+			}
 		
 		map (const map& x);
 
 		map& operator=(const map& x);
 
-		iterator begin();
-		const_iterator begin() const;
-		iterator end();
-		const_iterator end() const;
+		iterator begin() {
+			return iterator(ft::_min_value(_root));
+		}
+		const_iterator begin() const {
+			return const_iterator(ft::_min_value(_root));
+		}
+		iterator end() {
+			return iterator(_end);
+		}
+		const_iterator end() const {
+			return const_iterator(_end);
+		}
 		reverse_iterator rbegin();
 		const_reverse_iterator rbegin() const;
 		reverse_iterator rend();
 		const_reverse_iterator rend() const;
 
-		bool empty() const;
-		size_type size() const;
+		bool empty() const {
+			return _size == 0;
+		}
+		size_type size() const {
+			return _size;
+		}
+		
 		size_type max_size() const;
 
 		mapped_type& operator[] (const key_type& k);
 
-		pair<iterator,bool> insert (const value_type& val);
+		pair<iterator,bool> insert (const value_type& val) {
+			bst*	node;
+			size_type prevsize = _size;
+			_insert_element(val, _root);
+			node = _size > prevsize ? _last_created : _already_present;
+			if (_root == _end) {
+				_root = node;
+				_root->right = _end;
+				_end->parent = _root;
+			}
+			return ft::make_pair(iterator(node), _size > prevsize);
+		}
 		iterator insert (iterator position, const value_type& val);
 		
 		template <class InputIterator>
@@ -144,8 +172,8 @@ template< class Key, class T,
 				++_size;
 				_last_created = _new_node(content);
 				if (node == _end) {
-					_last_created->right = _end;
 					_end->parent = _last_created;
+					_last_created->right = _end;
 				}
 				return _last_created;
 			}
@@ -159,6 +187,8 @@ template< class Key, class T,
 				node->right = right_child;
 				right_child->parent = node;
 			}
+			else
+				_already_present = node;
 			return node;
 		}
 

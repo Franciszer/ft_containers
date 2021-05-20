@@ -7,28 +7,31 @@ set(LIB_DIR srcs/lib)
 
 set(VECTOR_DIR srcs/vector)
 set(LIST_DIR srcs/list)
-set(HELPERS_DIR srcs/helpers/)
+set(MAP_DIR srcs/map)
+set(HELPERS_DIR srcs/helpers)
 
 set(Sources
 	${LIB_DIR}/container_macros.hpp
 
-	${VECTOR_DIR}/TVector_Constructor.cpp
-	${VECTOR_DIR}/TVector_Iterator.cpp
-	${VECTOR_DIR}/TVector_Capacity.cpp
-	${VECTOR_DIR}/TVector_Operator.cpp
-	${VECTOR_DIR}/TVector_Modifiers.cpp
-	${VECTOR_DIR}/TVector_NonMembers.cpp
+	# ${VECTOR_DIR}/TVector_Constructor.cpp
+	# ${VECTOR_DIR}/TVector_Iterator.cpp
+	# ${VECTOR_DIR}/TVector_Capacity.cpp
+	# ${VECTOR_DIR}/TVector_Operator.cpp
+	# ${VECTOR_DIR}/TVector_Modifiers.cpp
+	# ${VECTOR_DIR}/TVector_NonMembers.cpp
 
-	${LIST_DIR}/TList_Constructor.cpp
-	${LIST_DIR}/TList_Iterators.cpp
-	${LIST_DIR}/TList_Capacity.cpp
-	${LIST_DIR}/TList_ElementAccess.cpp
-	${LIST_DIR}/TList_Modifiers.cpp
-	${LIST_DIR}/TList_Operators.cpp
-	${LIST_DIR}/TList_NonMembers.cpp
+	# ${LIST_DIR}/TList_Constructor.cpp
+	# ${LIST_DIR}/TList_Iterators.cpp
+	# ${LIST_DIR}/TList_Capacity.cpp
+	# ${LIST_DIR}/TList_ElementAccess.cpp
+	# ${LIST_DIR}/TList_Modifiers.cpp
+	# ${LIST_DIR}/TList_Operators.cpp
+	# ${LIST_DIR}/TList_NonMembers.cpp
 
 	${HELPERS_DIR}/Tpair.cpp
 	${HELPERS_DIR}/Tcompare.cpp
+
+	${MAP_DIR}/TMap_Constructors.cpp
 )
 
 add_executable(${This} ${Sources})

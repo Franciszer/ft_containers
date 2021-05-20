@@ -69,192 +69,10 @@ include test/CMakeFiles/gtest_ft_containers.dir/progress.make
 # Include the compile flags for this target's objects.
 include test/CMakeFiles/gtest_ft_containers.dir/flags.make
 
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.o: ../test/srcs/vector/TVector_Constructor.cpp
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.o"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Constructor.cpp
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.i"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Constructor.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.i
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.s"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Constructor.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.s
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.o: ../test/srcs/vector/TVector_Iterator.cpp
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.o"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Iterator.cpp
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.i"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Iterator.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.i
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.s"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Iterator.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.s
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.o: ../test/srcs/vector/TVector_Capacity.cpp
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.o"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Capacity.cpp
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.i"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Capacity.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.i
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.s"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Capacity.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.s
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.o: ../test/srcs/vector/TVector_Operator.cpp
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.o"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Operator.cpp
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.i"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Operator.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.i
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.s"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Operator.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.s
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.o: ../test/srcs/vector/TVector_Modifiers.cpp
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.o"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Modifiers.cpp
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.i"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Modifiers.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.i
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.s"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_Modifiers.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.s
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.o: ../test/srcs/vector/TVector_NonMembers.cpp
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.o"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_NonMembers.cpp
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.i"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_NonMembers.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.i
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.s"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/vector/TVector_NonMembers.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.s
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.o: ../test/srcs/list/TList_Constructor.cpp
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.o"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Constructor.cpp
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.i"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Constructor.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.i
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.s"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Constructor.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.s
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.o: ../test/srcs/list/TList_Iterators.cpp
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.o"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Iterators.cpp
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.i"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Iterators.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.i
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.s"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Iterators.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.s
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.o: ../test/srcs/list/TList_Capacity.cpp
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.o"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Capacity.cpp
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.i"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Capacity.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.i
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.s"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Capacity.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.s
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.o: ../test/srcs/list/TList_ElementAccess.cpp
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.o"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_ElementAccess.cpp
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.i"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_ElementAccess.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.i
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.s"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_ElementAccess.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.s
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.o: ../test/srcs/list/TList_Modifiers.cpp
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.o"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Modifiers.cpp
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.i"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Modifiers.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.i
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.s"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Modifiers.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.s
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.o: ../test/srcs/list/TList_Operators.cpp
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.o"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Operators.cpp
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.i"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Operators.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.i
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.s"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_Operators.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.s
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.o: ../test/srcs/list/TList_NonMembers.cpp
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.o"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_NonMembers.cpp
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.i"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_NonMembers.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.i
-
-test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.s"
-	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/list/TList_NonMembers.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.s
-
 test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tpair.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
 test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tpair.cpp.o: ../test/srcs/helpers/Tpair.cpp
 test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tpair.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tpair.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tpair.cpp.o"
 	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tpair.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tpair.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tpair.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/helpers/Tpair.cpp
 
 test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tpair.cpp.i: cmake_force
@@ -268,7 +86,7 @@ test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tpair.cpp.s: cmake_force
 test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
 test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.o: ../test/srcs/helpers/Tcompare.cpp
 test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.o"
 	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/helpers/Tcompare.cpp
 
 test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.i: cmake_force
@@ -279,47 +97,37 @@ test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.s"
 	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/helpers/Tcompare.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.s
 
+test/CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/flags.make
+test/CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.o: ../test/srcs/map/TMap_Constructors.cpp
+test/CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.o: test/CMakeFiles/gtest_ft_containers.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.o"
+	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.o -MF CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.o.d -o CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/map/TMap_Constructors.cpp
+
+test/CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.i"
+	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/frthierr/workplace/ft_containers/test/srcs/map/TMap_Constructors.cpp > CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.i
+
+test/CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.s"
+	cd /Users/frthierr/workplace/ft_containers/build/test && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/frthierr/workplace/ft_containers/test/srcs/map/TMap_Constructors.cpp -o CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.s
+
 # Object files for target gtest_ft_containers
 gtest_ft_containers_OBJECTS = \
-"CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.o" \
-"CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.o" \
-"CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.o" \
-"CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.o" \
-"CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.o" \
-"CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.o" \
-"CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.o" \
-"CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.o" \
-"CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.o" \
-"CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.o" \
-"CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.o" \
-"CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.o" \
-"CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.o" \
 "CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tpair.cpp.o" \
-"CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.o"
+"CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.o" \
+"CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.o"
 
 # External object files for target gtest_ft_containers
 gtest_ft_containers_EXTERNAL_OBJECTS =
 
-test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.o
-test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.o
-test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.o
-test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.o
-test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.o
-test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.o
-test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.o
-test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.o
-test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.o
-test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.o
-test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.o
-test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.o
-test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.o
 test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tpair.cpp.o
 test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tcompare.cpp.o
+test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.o
 test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/build.make
 test/gtest_ft_containers: lib/libgtest_maind.a
 test/gtest_ft_containers: lib/libgtestd.a
 test/gtest_ft_containers: test/CMakeFiles/gtest_ft_containers.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable gtest_ft_containers"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/frthierr/workplace/ft_containers/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable gtest_ft_containers"
 	cd /Users/frthierr/workplace/ft_containers/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gtest_ft_containers.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

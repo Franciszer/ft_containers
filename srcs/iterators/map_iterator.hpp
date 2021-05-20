@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:30:05 by francisco         #+#    #+#             */
-/*   Updated: 2021/05/20 11:09:07 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 15:26:16 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ namespace ft {
 			
 			typedef typename ConstBool<B, T&, const T&>::type		reference;
 			typedef typename ConstBool<B, T*, const T*>::type		pointer;
-			typedef	ft::list_node<T>								node;
-			typedef	ft::list_node<T>*								nodePtr;
+			typedef	ft::bst<T>										node;
+			typedef	ft::bst<T>*										nodePtr;
 			typedef ft::bst<T>										bst;
 			
 			map_iterator(nodePtr ptr = 0): _current(ptr) {}

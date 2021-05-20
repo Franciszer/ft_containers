@@ -233,317 +233,29 @@ srcs/helpers/Tpair.cpp.s:
 	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/helpers/Tpair.cpp.s
 .PHONY : srcs/helpers/Tpair.cpp.s
 
-srcs/list/TList_Capacity.o: srcs/list/TList_Capacity.cpp.o
-.PHONY : srcs/list/TList_Capacity.o
+srcs/map/TMap_Constructors.o: srcs/map/TMap_Constructors.cpp.o
+.PHONY : srcs/map/TMap_Constructors.o
 
 # target to build an object file
-srcs/list/TList_Capacity.cpp.o:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.o
-.PHONY : srcs/list/TList_Capacity.cpp.o
+srcs/map/TMap_Constructors.cpp.o:
+	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.o
+.PHONY : srcs/map/TMap_Constructors.cpp.o
 
-srcs/list/TList_Capacity.i: srcs/list/TList_Capacity.cpp.i
-.PHONY : srcs/list/TList_Capacity.i
-
-# target to preprocess a source file
-srcs/list/TList_Capacity.cpp.i:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.i
-.PHONY : srcs/list/TList_Capacity.cpp.i
-
-srcs/list/TList_Capacity.s: srcs/list/TList_Capacity.cpp.s
-.PHONY : srcs/list/TList_Capacity.s
-
-# target to generate assembly for a file
-srcs/list/TList_Capacity.cpp.s:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Capacity.cpp.s
-.PHONY : srcs/list/TList_Capacity.cpp.s
-
-srcs/list/TList_Constructor.o: srcs/list/TList_Constructor.cpp.o
-.PHONY : srcs/list/TList_Constructor.o
-
-# target to build an object file
-srcs/list/TList_Constructor.cpp.o:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.o
-.PHONY : srcs/list/TList_Constructor.cpp.o
-
-srcs/list/TList_Constructor.i: srcs/list/TList_Constructor.cpp.i
-.PHONY : srcs/list/TList_Constructor.i
+srcs/map/TMap_Constructors.i: srcs/map/TMap_Constructors.cpp.i
+.PHONY : srcs/map/TMap_Constructors.i
 
 # target to preprocess a source file
-srcs/list/TList_Constructor.cpp.i:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.i
-.PHONY : srcs/list/TList_Constructor.cpp.i
+srcs/map/TMap_Constructors.cpp.i:
+	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.i
+.PHONY : srcs/map/TMap_Constructors.cpp.i
 
-srcs/list/TList_Constructor.s: srcs/list/TList_Constructor.cpp.s
-.PHONY : srcs/list/TList_Constructor.s
-
-# target to generate assembly for a file
-srcs/list/TList_Constructor.cpp.s:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Constructor.cpp.s
-.PHONY : srcs/list/TList_Constructor.cpp.s
-
-srcs/list/TList_ElementAccess.o: srcs/list/TList_ElementAccess.cpp.o
-.PHONY : srcs/list/TList_ElementAccess.o
-
-# target to build an object file
-srcs/list/TList_ElementAccess.cpp.o:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.o
-.PHONY : srcs/list/TList_ElementAccess.cpp.o
-
-srcs/list/TList_ElementAccess.i: srcs/list/TList_ElementAccess.cpp.i
-.PHONY : srcs/list/TList_ElementAccess.i
-
-# target to preprocess a source file
-srcs/list/TList_ElementAccess.cpp.i:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.i
-.PHONY : srcs/list/TList_ElementAccess.cpp.i
-
-srcs/list/TList_ElementAccess.s: srcs/list/TList_ElementAccess.cpp.s
-.PHONY : srcs/list/TList_ElementAccess.s
+srcs/map/TMap_Constructors.s: srcs/map/TMap_Constructors.cpp.s
+.PHONY : srcs/map/TMap_Constructors.s
 
 # target to generate assembly for a file
-srcs/list/TList_ElementAccess.cpp.s:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_ElementAccess.cpp.s
-.PHONY : srcs/list/TList_ElementAccess.cpp.s
-
-srcs/list/TList_Iterators.o: srcs/list/TList_Iterators.cpp.o
-.PHONY : srcs/list/TList_Iterators.o
-
-# target to build an object file
-srcs/list/TList_Iterators.cpp.o:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.o
-.PHONY : srcs/list/TList_Iterators.cpp.o
-
-srcs/list/TList_Iterators.i: srcs/list/TList_Iterators.cpp.i
-.PHONY : srcs/list/TList_Iterators.i
-
-# target to preprocess a source file
-srcs/list/TList_Iterators.cpp.i:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.i
-.PHONY : srcs/list/TList_Iterators.cpp.i
-
-srcs/list/TList_Iterators.s: srcs/list/TList_Iterators.cpp.s
-.PHONY : srcs/list/TList_Iterators.s
-
-# target to generate assembly for a file
-srcs/list/TList_Iterators.cpp.s:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Iterators.cpp.s
-.PHONY : srcs/list/TList_Iterators.cpp.s
-
-srcs/list/TList_Modifiers.o: srcs/list/TList_Modifiers.cpp.o
-.PHONY : srcs/list/TList_Modifiers.o
-
-# target to build an object file
-srcs/list/TList_Modifiers.cpp.o:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.o
-.PHONY : srcs/list/TList_Modifiers.cpp.o
-
-srcs/list/TList_Modifiers.i: srcs/list/TList_Modifiers.cpp.i
-.PHONY : srcs/list/TList_Modifiers.i
-
-# target to preprocess a source file
-srcs/list/TList_Modifiers.cpp.i:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.i
-.PHONY : srcs/list/TList_Modifiers.cpp.i
-
-srcs/list/TList_Modifiers.s: srcs/list/TList_Modifiers.cpp.s
-.PHONY : srcs/list/TList_Modifiers.s
-
-# target to generate assembly for a file
-srcs/list/TList_Modifiers.cpp.s:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Modifiers.cpp.s
-.PHONY : srcs/list/TList_Modifiers.cpp.s
-
-srcs/list/TList_NonMembers.o: srcs/list/TList_NonMembers.cpp.o
-.PHONY : srcs/list/TList_NonMembers.o
-
-# target to build an object file
-srcs/list/TList_NonMembers.cpp.o:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.o
-.PHONY : srcs/list/TList_NonMembers.cpp.o
-
-srcs/list/TList_NonMembers.i: srcs/list/TList_NonMembers.cpp.i
-.PHONY : srcs/list/TList_NonMembers.i
-
-# target to preprocess a source file
-srcs/list/TList_NonMembers.cpp.i:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.i
-.PHONY : srcs/list/TList_NonMembers.cpp.i
-
-srcs/list/TList_NonMembers.s: srcs/list/TList_NonMembers.cpp.s
-.PHONY : srcs/list/TList_NonMembers.s
-
-# target to generate assembly for a file
-srcs/list/TList_NonMembers.cpp.s:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_NonMembers.cpp.s
-.PHONY : srcs/list/TList_NonMembers.cpp.s
-
-srcs/list/TList_Operators.o: srcs/list/TList_Operators.cpp.o
-.PHONY : srcs/list/TList_Operators.o
-
-# target to build an object file
-srcs/list/TList_Operators.cpp.o:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.o
-.PHONY : srcs/list/TList_Operators.cpp.o
-
-srcs/list/TList_Operators.i: srcs/list/TList_Operators.cpp.i
-.PHONY : srcs/list/TList_Operators.i
-
-# target to preprocess a source file
-srcs/list/TList_Operators.cpp.i:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.i
-.PHONY : srcs/list/TList_Operators.cpp.i
-
-srcs/list/TList_Operators.s: srcs/list/TList_Operators.cpp.s
-.PHONY : srcs/list/TList_Operators.s
-
-# target to generate assembly for a file
-srcs/list/TList_Operators.cpp.s:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/list/TList_Operators.cpp.s
-.PHONY : srcs/list/TList_Operators.cpp.s
-
-srcs/vector/TVector_Capacity.o: srcs/vector/TVector_Capacity.cpp.o
-.PHONY : srcs/vector/TVector_Capacity.o
-
-# target to build an object file
-srcs/vector/TVector_Capacity.cpp.o:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.o
-.PHONY : srcs/vector/TVector_Capacity.cpp.o
-
-srcs/vector/TVector_Capacity.i: srcs/vector/TVector_Capacity.cpp.i
-.PHONY : srcs/vector/TVector_Capacity.i
-
-# target to preprocess a source file
-srcs/vector/TVector_Capacity.cpp.i:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.i
-.PHONY : srcs/vector/TVector_Capacity.cpp.i
-
-srcs/vector/TVector_Capacity.s: srcs/vector/TVector_Capacity.cpp.s
-.PHONY : srcs/vector/TVector_Capacity.s
-
-# target to generate assembly for a file
-srcs/vector/TVector_Capacity.cpp.s:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Capacity.cpp.s
-.PHONY : srcs/vector/TVector_Capacity.cpp.s
-
-srcs/vector/TVector_Constructor.o: srcs/vector/TVector_Constructor.cpp.o
-.PHONY : srcs/vector/TVector_Constructor.o
-
-# target to build an object file
-srcs/vector/TVector_Constructor.cpp.o:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.o
-.PHONY : srcs/vector/TVector_Constructor.cpp.o
-
-srcs/vector/TVector_Constructor.i: srcs/vector/TVector_Constructor.cpp.i
-.PHONY : srcs/vector/TVector_Constructor.i
-
-# target to preprocess a source file
-srcs/vector/TVector_Constructor.cpp.i:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.i
-.PHONY : srcs/vector/TVector_Constructor.cpp.i
-
-srcs/vector/TVector_Constructor.s: srcs/vector/TVector_Constructor.cpp.s
-.PHONY : srcs/vector/TVector_Constructor.s
-
-# target to generate assembly for a file
-srcs/vector/TVector_Constructor.cpp.s:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Constructor.cpp.s
-.PHONY : srcs/vector/TVector_Constructor.cpp.s
-
-srcs/vector/TVector_Iterator.o: srcs/vector/TVector_Iterator.cpp.o
-.PHONY : srcs/vector/TVector_Iterator.o
-
-# target to build an object file
-srcs/vector/TVector_Iterator.cpp.o:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.o
-.PHONY : srcs/vector/TVector_Iterator.cpp.o
-
-srcs/vector/TVector_Iterator.i: srcs/vector/TVector_Iterator.cpp.i
-.PHONY : srcs/vector/TVector_Iterator.i
-
-# target to preprocess a source file
-srcs/vector/TVector_Iterator.cpp.i:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.i
-.PHONY : srcs/vector/TVector_Iterator.cpp.i
-
-srcs/vector/TVector_Iterator.s: srcs/vector/TVector_Iterator.cpp.s
-.PHONY : srcs/vector/TVector_Iterator.s
-
-# target to generate assembly for a file
-srcs/vector/TVector_Iterator.cpp.s:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Iterator.cpp.s
-.PHONY : srcs/vector/TVector_Iterator.cpp.s
-
-srcs/vector/TVector_Modifiers.o: srcs/vector/TVector_Modifiers.cpp.o
-.PHONY : srcs/vector/TVector_Modifiers.o
-
-# target to build an object file
-srcs/vector/TVector_Modifiers.cpp.o:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.o
-.PHONY : srcs/vector/TVector_Modifiers.cpp.o
-
-srcs/vector/TVector_Modifiers.i: srcs/vector/TVector_Modifiers.cpp.i
-.PHONY : srcs/vector/TVector_Modifiers.i
-
-# target to preprocess a source file
-srcs/vector/TVector_Modifiers.cpp.i:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.i
-.PHONY : srcs/vector/TVector_Modifiers.cpp.i
-
-srcs/vector/TVector_Modifiers.s: srcs/vector/TVector_Modifiers.cpp.s
-.PHONY : srcs/vector/TVector_Modifiers.s
-
-# target to generate assembly for a file
-srcs/vector/TVector_Modifiers.cpp.s:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Modifiers.cpp.s
-.PHONY : srcs/vector/TVector_Modifiers.cpp.s
-
-srcs/vector/TVector_NonMembers.o: srcs/vector/TVector_NonMembers.cpp.o
-.PHONY : srcs/vector/TVector_NonMembers.o
-
-# target to build an object file
-srcs/vector/TVector_NonMembers.cpp.o:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.o
-.PHONY : srcs/vector/TVector_NonMembers.cpp.o
-
-srcs/vector/TVector_NonMembers.i: srcs/vector/TVector_NonMembers.cpp.i
-.PHONY : srcs/vector/TVector_NonMembers.i
-
-# target to preprocess a source file
-srcs/vector/TVector_NonMembers.cpp.i:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.i
-.PHONY : srcs/vector/TVector_NonMembers.cpp.i
-
-srcs/vector/TVector_NonMembers.s: srcs/vector/TVector_NonMembers.cpp.s
-.PHONY : srcs/vector/TVector_NonMembers.s
-
-# target to generate assembly for a file
-srcs/vector/TVector_NonMembers.cpp.s:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_NonMembers.cpp.s
-.PHONY : srcs/vector/TVector_NonMembers.cpp.s
-
-srcs/vector/TVector_Operator.o: srcs/vector/TVector_Operator.cpp.o
-.PHONY : srcs/vector/TVector_Operator.o
-
-# target to build an object file
-srcs/vector/TVector_Operator.cpp.o:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.o
-.PHONY : srcs/vector/TVector_Operator.cpp.o
-
-srcs/vector/TVector_Operator.i: srcs/vector/TVector_Operator.cpp.i
-.PHONY : srcs/vector/TVector_Operator.i
-
-# target to preprocess a source file
-srcs/vector/TVector_Operator.cpp.i:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.i
-.PHONY : srcs/vector/TVector_Operator.cpp.i
-
-srcs/vector/TVector_Operator.s: srcs/vector/TVector_Operator.cpp.s
-.PHONY : srcs/vector/TVector_Operator.s
-
-# target to generate assembly for a file
-srcs/vector/TVector_Operator.cpp.s:
-	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/vector/TVector_Operator.cpp.s
-.PHONY : srcs/vector/TVector_Operator.cpp.s
+srcs/map/TMap_Constructors.cpp.s:
+	cd /Users/frthierr/workplace/ft_containers/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/gtest_ft_containers.dir/build.make test/CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Constructors.cpp.s
+.PHONY : srcs/map/TMap_Constructors.cpp.s
 
 # Help Target
 help:
@@ -565,45 +277,9 @@ help:
 	@echo "... srcs/helpers/Tpair.o"
 	@echo "... srcs/helpers/Tpair.i"
 	@echo "... srcs/helpers/Tpair.s"
-	@echo "... srcs/list/TList_Capacity.o"
-	@echo "... srcs/list/TList_Capacity.i"
-	@echo "... srcs/list/TList_Capacity.s"
-	@echo "... srcs/list/TList_Constructor.o"
-	@echo "... srcs/list/TList_Constructor.i"
-	@echo "... srcs/list/TList_Constructor.s"
-	@echo "... srcs/list/TList_ElementAccess.o"
-	@echo "... srcs/list/TList_ElementAccess.i"
-	@echo "... srcs/list/TList_ElementAccess.s"
-	@echo "... srcs/list/TList_Iterators.o"
-	@echo "... srcs/list/TList_Iterators.i"
-	@echo "... srcs/list/TList_Iterators.s"
-	@echo "... srcs/list/TList_Modifiers.o"
-	@echo "... srcs/list/TList_Modifiers.i"
-	@echo "... srcs/list/TList_Modifiers.s"
-	@echo "... srcs/list/TList_NonMembers.o"
-	@echo "... srcs/list/TList_NonMembers.i"
-	@echo "... srcs/list/TList_NonMembers.s"
-	@echo "... srcs/list/TList_Operators.o"
-	@echo "... srcs/list/TList_Operators.i"
-	@echo "... srcs/list/TList_Operators.s"
-	@echo "... srcs/vector/TVector_Capacity.o"
-	@echo "... srcs/vector/TVector_Capacity.i"
-	@echo "... srcs/vector/TVector_Capacity.s"
-	@echo "... srcs/vector/TVector_Constructor.o"
-	@echo "... srcs/vector/TVector_Constructor.i"
-	@echo "... srcs/vector/TVector_Constructor.s"
-	@echo "... srcs/vector/TVector_Iterator.o"
-	@echo "... srcs/vector/TVector_Iterator.i"
-	@echo "... srcs/vector/TVector_Iterator.s"
-	@echo "... srcs/vector/TVector_Modifiers.o"
-	@echo "... srcs/vector/TVector_Modifiers.i"
-	@echo "... srcs/vector/TVector_Modifiers.s"
-	@echo "... srcs/vector/TVector_NonMembers.o"
-	@echo "... srcs/vector/TVector_NonMembers.i"
-	@echo "... srcs/vector/TVector_NonMembers.s"
-	@echo "... srcs/vector/TVector_Operator.o"
-	@echo "... srcs/vector/TVector_Operator.i"
-	@echo "... srcs/vector/TVector_Operator.s"
+	@echo "... srcs/map/TMap_Constructors.o"
+	@echo "... srcs/map/TMap_Constructors.i"
+	@echo "... srcs/map/TMap_Constructors.s"
 .PHONY : help
 
 
