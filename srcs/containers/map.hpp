@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 08:24:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/20 11:33:59 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 12:55:03 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,17 @@ template< class Key, class T,
 		};
 		
 		explicit map (const key_compare& comp = key_compare(),
-              const allocator_type& alloc = allocator_type());		
+              const allocator_type& alloc = allocator_type()) {
+				  _construct(comp, alloc);
+			  }	
 	
-		template <class InputIterator>
-		map (InputIterator first, InputIterator last,
-			const key_compare& comp = key_compare(),
-			const allocator_type& alloc = allocator_type());
+		// template <class InputIterator>
+		// map (InputIterator first, InputIterator last,
+		// 	const key_compare& comp = key_compare(),
+		// 	const allocator_type& alloc = allocator_type(),
+		// 	typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) {
+				
+		// 	}
 		
 		map (const map& x);
 
@@ -109,7 +114,59 @@ template< class Key, class T,
 		pair<const_iterator,const_iterator> equal_range (const key_type& k) const;
 		pair<iterator,iterator>             equal_range (const key_type& k);
 	private:
-		typename Allocator::template rebind<bst>::other		_alloc;
+
+		void		_construct(const Compare& comp, const Allocator &alloc) {
+			_comp_key = comp;
+			_alloc = alloc;
+			_root = _new_node(ft::make_pair(key_type(), mapped_type()));
+			_last_created = NULL;
+			_already_present = NULL;
+			_end = _root;
+			_size = 0;
+		}
+		
+		bst*		_new_node(const value_type& content) {
+			bst*	new_node = _alloc_node.allocate(sizeof(bst));
+			_alloc.construct(&new_node->content, content);
+			new_node->left = NULL;
+			new_node->right = NULL;
+			new_node->parent = NULL;
+			return new_node;
+		}
+
+		void		_free_node(bst* node) {
+			_alloc.destroy(&node->content);
+			_alloc_node.deallocate(node, sizeof(bst));
+		}
+
+		bst*		_insert_element(const value_type& content, bst* node) {
+			if (!node || node == _end) {
+				++_size;
+				_last_created = _new_node(content);
+				if (node == _end) {
+					_last_created->right = _end;
+					_end->parent = _last_created;
+				}
+				return _last_created;
+			}
+			else if (_comp_key(content.first, node->content.first)) { // content smaller than current node's
+				bst*	left_child = _insert_element(content, node->left);
+				node->left = left_child;
+				left_child->parent = node;
+			}
+			else if (content.first != node->content.first) { // content greater than current node's
+				bst*	right_child = _insert_element(content, node->right);
+				node->right = right_child;
+				right_child->parent = node;
+			}
+			return node;
+		}
+
+		// bst*		_delete_element()
+
+		typename Allocator::template rebind<bst>::other		_alloc_node;
+		Compare		_comp_key;
+		Allocator	_alloc;
 		bst*		_root;	
 		bst*		_last_created;	
 		bst*		_already_present;	
