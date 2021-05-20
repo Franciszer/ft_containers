@@ -7,6 +7,7 @@ set(LIB_DIR srcs/lib)
 
 set(VECTOR_DIR srcs/vector)
 set(LIST_DIR srcs/list)
+set(HELPERS_DIR srcs/helpers/)
 
 set(Sources
 	${LIB_DIR}/container_macros.hpp
@@ -26,7 +27,8 @@ set(Sources
 	${LIST_DIR}/TList_Operators.cpp
 	${LIST_DIR}/TList_NonMembers.cpp
 
-
+	${HELPERS_DIR}/Tpair.cpp
+	${HELPERS_DIR}/Tcompare.cpp
 )
 
 add_executable(${This} ${Sources})

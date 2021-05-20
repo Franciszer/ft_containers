@@ -29,6 +29,7 @@ set(Headers
 	srcs/templates/is_integral.hpp
 	srcs/containers/vector.hpp
 	srcs/containers/list.hpp
+	src/includes/pair.hpp
 )
 
 add_library(${This} INTERFACE)

@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:26:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/18 14:25:01 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 11:02:44 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,12 @@
 
 # include "vector.hpp"
 # include "list.hpp"
+
+# include "pair.hpp"
+# include "compare.hpp"
+
+# include "bst.hpp"
+# include "map_iterator.hpp"
+# include "map.hpp"
 
 #endif
