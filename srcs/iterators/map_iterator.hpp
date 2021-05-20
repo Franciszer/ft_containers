@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:30:05 by francisco         #+#    #+#             */
-/*   Updated: 2021/05/20 15:26:16 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 18:10:49 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ namespace ft {
 			typedef	ft::bst<T>*										nodePtr;
 			typedef ft::bst<T>										bst;
 			
-			map_iterator(nodePtr ptr = 0): _current(ptr) {}
+			map_iterator(const nodePtr ptr = 0): _current(ptr) {}
 			map_iterator(const map_iterator<T, false> &src) { _current = src.getNodePtr(); }
 			~map_iterator() {}
 
@@ -67,7 +67,7 @@ namespace ft {
 			bool			operator==( const map_iterator &it ) const { return this->_current == it._current; }
 			bool			operator!=( const map_iterator &it ) const { return this->_current != it._current; }
 		private:
-			bst				_current;
+			bst*			_current;
 	};
 }
 

@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 07:45:44 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/20 08:08:38 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 18:23:01 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class pair {
 		pair(const first_type& x, const second_type& y): first(x), second(y) {}
 		
 		template<class U1, class U2>
-		pair(const pair<U1, U2>& p): first(p.first), second(p.first) {}
+		pair(const pair<U1, U2>& p): first(p.first), second(p.second) {}
 		~pair() {}
 
 		pair   &operator=(pair const &src) {

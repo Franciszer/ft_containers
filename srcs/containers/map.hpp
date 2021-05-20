@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 08:24:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/20 16:01:17 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 18:23:14 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ template< class Key, class T,
         typedef typename Allocator::pointer				pointer;
         typedef typename Allocator::const_pointer		const_pointer;
 		typedef bst<value_type> 						bst;
-		typedef	ft::map_iterator<T, false>				iterator;
-		typedef	ft::map_iterator<T, true>				const_iterator;
+		typedef	ft::map_iterator<value_type, false>		iterator;
+		typedef	ft::map_iterator<value_type, true>		const_iterator;
 		typedef ft::reverse_iterator<iterator>			reverse_iterator;
 		typedef ft::reverse_iterator<const_iterator>	const_reverse_iterator;
 
@@ -71,7 +71,7 @@ template< class Key, class T,
 			typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) {
 				_construct(comp, alloc);
 				for (; first != last ; first++)
-					_insert_element(*first, _root);
+					insert(*first);
 			}
 		
 		map (const map& x);

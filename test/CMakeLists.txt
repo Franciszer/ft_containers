@@ -32,6 +32,7 @@ set(Sources
 	${HELPERS_DIR}/Tcompare.cpp
 
 	${MAP_DIR}/TMap_Constructors.cpp
+	${MAP_DIR}/TMap_Modifiers.cpp
 )
 
 add_executable(${This} ${Sources})

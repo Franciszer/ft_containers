@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   TMap_Constructors.cpp                              :+:      :+:    :+:   */
+/*   TMap_Modifiers.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 15:03:56 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/20 18:01:23 by frthierr         ###   ########.fr       */
+/*   Created: 2021/05/20 18:02:30 by frthierr          #+#    #+#             */
+/*   Updated: 2021/05/20 18:23:31 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,10 @@ class	TMap_Constructors: public ::testing::Test {
 		virtual void	TearDown() {}
 };
 
-TEST_F(TMap_Constructors, def) {
-	ft::map<int, int>	m;
-	EXPECT_TRUE(true);
+TEST_F(TMap_Constructors, insert) {
+	map<int, int> m;
+	auto p = ft::make_pair(3, 5);
+	m.insert(p);
+	EXPECT_EQ(m.begin()->first, p.first);
+	EXPECT_EQ(m.begin()->second, p.second);
 }
-
-// TEST_F(TMap_Constructors, range) {
-// 	std::map<int, int>	v{{1, 2}, {2, 3}, {3, 4}};
-// 	ft::map<int, int> m(v.begin(), v.end());
-// 	auto it2 = v.begin();
-// 	for (ft::map<int, int>::iterator it = m.begin() ; it != m.end() && it2 != v.end() ; it++, it2++)
-// 		EXPECT_EQ(it->first, it2->first);
-// }
-
