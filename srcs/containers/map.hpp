@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 08:24:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/20 18:23:14 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 18:43:33 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,11 @@ template< class Key, class T,
 					insert(*first);
 			}
 		
-		map (const map& x);
+		map (const map& x) {
+			_construct(Compare(), Allocator());
+			for (const_iterator it = x.begin() ; it != x.end(); it++)
+				insert(*it);
+		}
 
 		map& operator=(const map& x);
 
