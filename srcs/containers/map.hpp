@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 08:24:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/20 12:55:03 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 15:00:26 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ template< class Key, class T,
 				node->left = left_child;
 				left_child->parent = node;
 			}
-			else if (content.first != node->content.first) { // content greater than current node's
+			else if (_comp_key(node->content.first, content.first)) { // content greater than current node's
 				bst*	right_child = _insert_element(content, node->right);
 				node->right = right_child;
 				right_child->parent = node;
@@ -162,7 +162,67 @@ template< class Key, class T,
 			return node;
 		}
 
-		// bst*		_delete_element()
+		bst*		_delete_element(const key_type& key, bst* node) {
+			if (!node || node == _end) { // not found
+				return node;
+			}
+			if (_comp_key(key, node->content.first)) {
+				node->left = _delete_element(key, node->left);
+				return node;
+			}
+			else if (_comp_key(node->content.first, key)) {
+				node->right = _delete_element(key, node->right);
+				return node;
+			}
+			_size -= 1;
+			if (!node->left && !node->right) { // case no children
+				if (node == _root)
+					_root = _end;
+				_free_node(node);
+				return NULL;
+			}
+			else if (node->left != node->right) { // case one child
+				bst* tmp = node->left ? node->left : node->right;
+				tmp->parent = node->parent;
+				if (node == _root)
+					_root = tmp;
+				_free_node(node);
+				return tmp;
+			}
+			else { // case both children
+				bst*	successor_parent = node;
+				bst&	successor = node->right;
+				while (successor->left) { // find smallest node of right subtree
+					successor_parent = successor;
+					successor = successor->left;
+				}
+				if (successor_parent != node)
+					successor_parent->left = successor->right;
+				else
+					successor_parent->right = successor_parent->right;
+				if (successor->right)
+					successor->right->parent = successor_parent;
+				successor->right = node->right;
+				if (successor->right)
+					successor->right->parent = successor;
+				successor->left = node->left;
+				if (successor->left)
+					successor->left->parent = successor;
+				successor->parent = node->parent;
+				if (node == _root)
+					_root = successor;
+				_free_node(node);
+				return successor;
+			}
+		}
+
+		void	_clear(bst* node) {
+			if (node->left)
+				_clear(node->left);
+			if (node->right)
+				_clear(node->right);
+			_free_node(node);
+		}
 
 		typename Allocator::template rebind<bst>::other		_alloc_node;
 		Compare		_comp_key;
