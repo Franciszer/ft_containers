@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 08:24:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/21 15:45:12 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/21 19:01:46 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,8 +171,20 @@ template< class Key, class T,
 		key_compare key_comp() const;
 		value_compare value_comp() const;
 
-		iterator find (const key_type& k);
-		const_iterator find (const key_type& k) const;
+		iterator find(const key_type& k) {
+			bst*	node = _find(k, _root);
+			if (!node)
+				return iterator(_end);
+			return iterator(node);
+		}
+
+		const_iterator find(const key_type& k) const {
+			bst*	node = _find(k, _root);
+			if (!node)
+				return const_iterator(_end);
+			return const_iterator(node);
+		}
+
 		size_type count (const key_type& k) const;
 		iterator lower_bound (const key_type& k);
 		const_iterator lower_bound (const key_type& k) const;
@@ -283,6 +295,15 @@ template< class Key, class T,
 				_free_node(node);
 				return successor;
 			}
+		}
+
+		bst*	_find(const Key& key, bst* node) {
+			if (!node || node == _end || key == node->content.first) // end of search
+				return node;
+			else if (_comp_key(key, node->content.first))	// case left
+				return _find(key, node->left);
+			else 											// case right
+				return _find(key, node->right);
 		}
 
 		void	_clear(bst* node) {
