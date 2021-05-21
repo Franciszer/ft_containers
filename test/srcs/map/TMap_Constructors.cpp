@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:03:56 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/20 18:43:50 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/21 09:18:01 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,19 @@ TEST_F(TMap_Constructors, copy) {
 	for (; it != m.end() && it2 != m2.end(); it++, it2++) {
 		EXPECT_EQ(*it, *it2);
 	}
+}
+
+TEST_F(TMap_Constructors, operator_eq) {
+	map<double, float>	m;
+
+	m.insert(make_pair(0.12312, 2211211.124121243));
+	m.insert(make_pair(3123.321, 12346.213));
+	m.insert(make_pair(1234.345, -2131.2454));
+	m.insert(make_pair(-2112.23, -132.43124));
+	m.insert(make_pair(124125.1231, 313.345345));
+	auto m2 = m;
+	EXPECT_EQ(m.size(), m2.size());
+	auto it2 = m2.begin();
+	for (auto it = m.begin() ; it != m.end(); it++, it2++)
+		EXPECT_EQ(*it, *it2);
 }

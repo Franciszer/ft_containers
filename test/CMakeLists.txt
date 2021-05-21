@@ -33,6 +33,7 @@ set(Sources
 
 	${MAP_DIR}/TMap_Constructors.cpp
 	${MAP_DIR}/TMap_Modifiers.cpp
+	${MAP_DIR}/TMap_Iterators.cpp
 )
 
 add_executable(${This} ${Sources})

@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 08:24:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/21 09:08:35 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/21 09:41:19 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,12 @@ template< class Key, class T,
 				insert(*it);
 		}
 
-		map& operator=(const map& x);
+		map& operator=(const map& x) {
+			if (this != &x) {
+				for (auto it = x.begin(); it != x.end(); it++)
+					this->insert(*it);
+			}
+		}
 
 		iterator begin() {
 			return iterator(ft::_min_value(_root));
@@ -94,10 +99,18 @@ template< class Key, class T,
 		const_iterator end() const {
 			return const_iterator(_end);
 		}
-		reverse_iterator rbegin();
-		const_reverse_iterator rbegin() const;
-		reverse_iterator rend();
-		const_reverse_iterator rend() const;
+		reverse_iterator rbegin() {
+			return reverse_iterator(end());
+		}
+		const_reverse_iterator rbegin() const {
+			return const_reverse_iterator(end());
+		}
+		reverse_iterator rend() {
+			return reverse_iterator(begin());
+		}
+		const_reverse_iterator rend() const {
+			return const_reverse_iterator(begin());
+		}
 
 		bool empty() const {
 			return _size == 0;

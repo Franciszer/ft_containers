@@ -38,5 +38,10 @@
   "directory": "/Users/frthierr/workplace/ft_containers/build/test",
   "command": "/usr/bin/clang++  -I/Users/frthierr/workplace/ft_containers/srcs -I/Users/frthierr/workplace/ft_containers/srcs/iterators -I/Users/frthierr/workplace/ft_containers/srcs/templates -I/Users/frthierr/workplace/ft_containers/srcs/containers -I/Users/frthierr/workplace/ft_containers/. -I/Users/frthierr/workplace/ft_containers/test/srcs/lib -I/Users/frthierr/workplace/ft_containers/Headers -isystem /Users/frthierr/workplace/ft_containers/googletest/googletest/include -isystem /Users/frthierr/workplace/ft_containers/googletest/googletest -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14 -Wall -Wextra -std=c++98 -std=gnu++17 -o CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Modifiers.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/map/TMap_Modifiers.cpp",
   "file": "/Users/frthierr/workplace/ft_containers/test/srcs/map/TMap_Modifiers.cpp"
+},
+{
+  "directory": "/Users/frthierr/workplace/ft_containers/build/test",
+  "command": "/usr/bin/clang++  -I/Users/frthierr/workplace/ft_containers/srcs -I/Users/frthierr/workplace/ft_containers/srcs/iterators -I/Users/frthierr/workplace/ft_containers/srcs/templates -I/Users/frthierr/workplace/ft_containers/srcs/containers -I/Users/frthierr/workplace/ft_containers/. -I/Users/frthierr/workplace/ft_containers/test/srcs/lib -I/Users/frthierr/workplace/ft_containers/Headers -isystem /Users/frthierr/workplace/ft_containers/googletest/googletest/include -isystem /Users/frthierr/workplace/ft_containers/googletest/googletest -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14 -Wall -Wextra -std=c++98 -std=gnu++17 -o CMakeFiles/gtest_ft_containers.dir/srcs/map/TMap_Iterators.cpp.o -c /Users/frthierr/workplace/ft_containers/test/srcs/map/TMap_Iterators.cpp",
+  "file": "/Users/frthierr/workplace/ft_containers/test/srcs/map/TMap_Iterators.cpp"
 }
 ]

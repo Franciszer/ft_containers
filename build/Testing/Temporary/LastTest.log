@@ -1,3 +1,56 @@
-Start testing: May 21 08:54 CEST
+Start testing: May 21 09:19 CEST
 ----------------------------------------------------------
-End testing: May 21 08:54 CEST
+1/1 Testing: gtest_ft_containers
+1/1 Test: gtest_ft_containers
+Command: "/Users/frthierr/workplace/ft_containers/build/test/gtest_ft_containers"
+Directory: /Users/frthierr/workplace/ft_containers/build/test
+"gtest_ft_containers" start time: May 21 09:19 CEST
+Output:
+----------------------------------------------------------
+Running main() from /Users/frthierr/workplace/ft_containers/googletest/googletest/src/gtest_main.cc
+[0;32m[==========] [mRunning 10 tests from 4 test suites.
+[0;32m[----------] [mGlobal test environment set-up.
+[0;32m[----------] [m3 tests from Tpair
+[0;32m[ RUN      ] [mTpair.constructors
+[0;32m[       OK ] [mTpair.constructors (0 ms)
+[0;32m[ RUN      ] [mTpair.make_pair
+[0;32m[       OK ] [mTpair.make_pair (0 ms)
+[0;32m[ RUN      ] [mTpair.relational_operators
+[0;32m[       OK ] [mTpair.relational_operators (0 ms)
+[0;32m[----------] [m3 tests from Tpair (0 ms total)
+
+[0;32m[----------] [m2 tests from Tcompare
+[0;32m[ RUN      ] [mTcompare.less
+[0;32m[       OK ] [mTcompare.less (0 ms)
+[0;32m[ RUN      ] [mTcompare.equal_to
+[0;32m[       OK ] [mTcompare.equal_to (0 ms)
+[0;32m[----------] [m2 tests from Tcompare (0 ms total)
+
+[0;32m[----------] [m4 tests from TMap_Constructors
+[0;32m[ RUN      ] [mTMap_Constructors.def
+[0;32m[       OK ] [mTMap_Constructors.def (0 ms)
+[0;32m[ RUN      ] [mTMap_Constructors.range
+[0;32m[       OK ] [mTMap_Constructors.range (0 ms)
+[0;32m[ RUN      ] [mTMap_Constructors.copy
+[0;32m[       OK ] [mTMap_Constructors.copy (0 ms)
+[0;32m[ RUN      ] [mTMap_Constructors.operator_eq
+[0;32m[       OK ] [mTMap_Constructors.operator_eq (0 ms)
+[0;32m[----------] [m4 tests from TMap_Constructors (0 ms total)
+
+[0;32m[----------] [m1 test from TMap_Modifiers
+[0;32m[ RUN      ] [mTMap_Modifiers.insert
+[0;32m[       OK ] [mTMap_Modifiers.insert (0 ms)
+[0;32m[----------] [m1 test from TMap_Modifiers (0 ms total)
+
+[0;32m[----------] [mGlobal test environment tear-down
+[0;32m[==========] [m10 tests from 4 test suites ran. (0 ms total)
+[0;32m[  PASSED  ] [m10 tests.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"gtest_ft_containers" end time: May 21 09:19 CEST
+"gtest_ft_containers" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 21 09:19 CEST

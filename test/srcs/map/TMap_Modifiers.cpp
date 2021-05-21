@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:02:30 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/21 09:10:39 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/21 09:18:33 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ using ft::pair;
 using ft::map;
 using ft::make_pair;
 
-class	TMap_Constructors: public ::testing::Test {
+class	TMap_Modifiers: public ::testing::Test {
 	public:
-		TMap_Constructors() {}
+		TMap_Modifiers() {}
 
 	protected:
 		virtual void	SetUp() {}
@@ -30,7 +30,7 @@ class	TMap_Constructors: public ::testing::Test {
 		virtual void	TearDown() {}
 };
 
-TEST_F(TMap_Constructors, insert) {
+TEST_F(TMap_Modifiers, insert) {
 	// VALUE_TYPE VERSION
 	map<int, int> m;
 	pair<int, int>	p[5];
