@@ -60,7 +60,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14"
+					"fragment" : " -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14"
 				},
 				{
 					"backtrace" : 2,
@@ -155,20 +155,16 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
-				"role" : "flags"
-			},
-			{
 				"fragment" : "",
 				"role" : "flags"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "../lib/libgtest_maind.a",
+				"fragment" : "../lib/libgtest_main.a",
 				"role" : "libraries"
 			},
 			{
-				"fragment" : "../lib/libgtestd.a",
+				"fragment" : "../lib/libgtest.a",
 				"role" : "libraries"
 			}
 		],
