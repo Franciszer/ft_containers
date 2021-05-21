@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 08:24:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/21 09:41:19 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/21 15:45:12 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,14 +146,25 @@ template< class Key, class T,
 		}
 		
 		template <class InputIterator>
-		void insert (InputIterator first, InputIterator last) {
+		void insert (InputIterator first, InputIterator last,\
+			typename ft::enable_if<!ft::is_integral<InputIterator>::value >::type* = 0) {
 			for (; first != last ; first++)
 				this->insert(*first);
 		}
 
-		void erase (iterator position);
-		size_type erase (const key_type& k);
-		void erase (iterator first, iterator last);
+		void erase (iterator position) {
+			erase(position.getNodePtr()->content.first);
+		}
+
+		size_type erase (const key_type& k) {
+			size_type	tmp = _size;
+			_delete_element(k, _root);
+			return static_cast<size_type>(tmp == _size);
+		}
+		void erase (iterator first, iterator last) {
+			for (; first != last; first++)
+				erase(first);
+		}
 		void swap (map& x);
 		void clear();
 
@@ -249,7 +260,7 @@ template< class Key, class T,
 			}
 			else { // case both children
 				bst*	successor_parent = node;
-				bst&	successor = node->right;
+				bst*	successor = node->right;
 				while (successor->left) { // find smallest node of right subtree
 					successor_parent = successor;
 					successor = successor->left;

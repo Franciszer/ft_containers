@@ -11,7 +11,7 @@ set(MAP_DIR srcs/map)
 set(HELPERS_DIR srcs/helpers)
 
 set(Sources
-	${LIB_DIR}/container_macros.hpp
+	# ${LIB_DIR}/container_macros.hpp
 
 	# ${VECTOR_DIR}/TVector_Constructor.cpp
 	# ${VECTOR_DIR}/TVector_Iterator.cpp

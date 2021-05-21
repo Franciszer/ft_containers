@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:02:30 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/21 09:18:33 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/21 16:17:09 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,51 @@ TEST_F(TMap_Modifiers, insert) {
 	for (auto it3 = m3.begin(); it3 != m3.end(); it3++, it++) {
 		EXPECT_EQ(*it, *it3);
 	}
+}
+
+TEST_F(TMap_Modifiers, erase) {
+	// KEY_TYPE VERSION
+	map<int, int>	m;
+	pair<int, int>	p(2, 5);
+	m.insert(p);
+	m.insert(make_pair(23,23123));
+	m.insert(make_pair(3213,3212));
+	m.insert(make_pair(2123213,4534543));
+	m.insert(make_pair(2312,322));
+	m.insert(make_pair(2434,441));
+	m.insert(make_pair(214124,654454554));
+	map<int, int>::size_type	size = m.size();
+	m.erase(p.first);
+	EXPECT_EQ(size - 1, m.size());
+	for (auto it = m.begin(); it != m.end(); it++)
+		EXPECT_NE(it->first, p.first);
+		
+	// ITERATOR VERSION
+	map<int, int>	m2;
+	m2.insert(make_pair(23,23123));
+	m2.insert(make_pair(3213,3212));
+	m2.insert(make_pair(2123213,4534543));
+	m2.erase(m2.begin());
+	EXPECT_EQ(m2.size(), 2);
+	for (auto it = m2.begin(); it != m2.end(); it++)
+		EXPECT_NE(it->first, 23);
+
+	// RANGE VERSION
+	map<int, int>	m3;
+	m3.insert(make_pair(23,23123));
+	m3.insert(make_pair(3213,3212));
+	m3.insert(make_pair(2123213,4534543));
+	m3.erase(m3.begin(), m3.end());
+	EXPECT_EQ(m3.size(), 0);
+
+	auto p2 = make_pair(2123213,4534543);
+	m3.insert(make_pair(23,23123));
+	m3.insert(make_pair(3213,3212));
+	m3.insert(p2);
+	auto end = --m3.end();
+	for (auto it = m3.begin(); it != end; it++)
+		m3.erase(it);
+	EXPECT_EQ(m3.size(), 1);
+	auto tocomp = m3.begin().getNodePtr()->content;
+	EXPECT_TRUE(tocomp.first == p2.first && tocomp.second == p2.second);
 }

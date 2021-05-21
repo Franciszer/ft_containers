@@ -11,7 +11,7 @@ BuildDirectory: /Users/frthierr/workplace/ft_containers/build
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: e3r8p20.42.fr
+Site: e1r7p4.42.fr
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Darwin-clang++

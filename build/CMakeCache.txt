@@ -308,7 +308,7 @@ MEMORYCHECK_COMMAND:FILEPATH=MEMORYCHECK_COMMAND-NOTFOUND
 MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
 
 //Name of the computer/site where compile is being run
-SITE:STRING=e3r8p20.42.fr
+SITE:STRING=e1r7p4.42.fr
 
 //Value Computed by CMake
 ft_containers_BINARY_DIR:STATIC=/Users/frthierr/workplace/ft_containers/build
