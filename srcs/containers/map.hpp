@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 08:24:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/20 18:43:33 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/21 09:08:35 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,10 +122,21 @@ template< class Key, class T,
 			}
 			return ft::make_pair(iterator(node), _size > prevsize);
 		}
-		iterator insert (iterator position, const value_type& val);
+		iterator insert (iterator position, const value_type& val) {
+			bst*	hint = position.getNodePtr();
+			size_type	tmp = _size;
+			_insert_element(val, hint);
+			if (_size == tmp)
+				_insert_element(val, _root);
+			bst* node = _size == tmp ? _already_present : _last_created;
+			return iterator(node);
+		}
 		
 		template <class InputIterator>
-		void insert (InputIterator first, InputIterator last);
+		void insert (InputIterator first, InputIterator last) {
+			for (; first != last ; first++)
+				this->insert(*first);
+		}
 
 		void erase (iterator position);
 		size_type erase (const key_type& k);
