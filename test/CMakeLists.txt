@@ -32,8 +32,10 @@ set(Sources
 	# ${HELPERS_DIR}/Tcompare.cpp
 
 	${MAP_DIR}/TMap_Constructors.cpp
-	${MAP_DIR}/TMap_Modifiers.cpp
 	${MAP_DIR}/TMap_Iterators.cpp
+	${MAP_DIR}/TMap_Capacity.cpp
+	${MAP_DIR}/TMap_ElementAccess.cpp
+	${MAP_DIR}/TMap_Modifiers.cpp
 	${MAP_DIR}/TMap_Operations.cpp
 )
 

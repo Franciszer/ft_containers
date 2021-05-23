@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 19:03:36 by francisco         #+#    #+#             */
-/*   Updated: 2021/05/23 13:04:09 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/23 13:58:59 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ TEST_F(TMap_Operations, count) {
 	m.insert(make_pair(1,43));
 	m.insert(make_pair(2,43));
 	EXPECT_EQ(m.count(2), 1);
-	// EXPECT_EQ(m.count(3), 0);
+	EXPECT_EQ(m.count(3), 0);
 }
 
 TEST_F(TMap_Operations, lower_bound) {

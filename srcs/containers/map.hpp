@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 08:24:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/23 13:15:53 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/23 14:40:05 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,12 @@ template< class Key, class T,
 				insert(*it);
 		}
 
+		~map() {
+			clear();
+		}
 		map& operator=(const map& x) {
 			if (this != &x) {
+				clear();
 				for (auto it = x.begin(); it != x.end(); it++)
 					this->insert(*it);
 			}
@@ -119,11 +123,19 @@ template< class Key, class T,
 			return _size;
 		}
 		
-		size_type max_size() const;
+		size_type max_size() const {
+			return _alloc_node.max_size();
+		}
 
-		mapped_type& operator[] (const key_type& k);
+		mapped_type& operator[] (const key_type& k) {
+			iterator it = find(k);
+			if (it == end())
+				return insert(value_type(k, mapped_type())).first->second;
+			else
+				return it->second;
+		}
 
-		pair<iterator,bool> insert (const value_type& val) {
+		pair<iterator,bool> insert(const value_type& val) {
 			bst*	node;
 			size_type prevsize = _size;
 			_insert_element(val, _root);
@@ -135,7 +147,7 @@ template< class Key, class T,
 			}
 			return ft::make_pair(iterator(node), _size > prevsize);
 		}
-		iterator insert (iterator position, const value_type& val) {
+		iterator insert(iterator position, const value_type& val) {
 			bst*	hint = position.getNodePtr();
 			size_type	tmp = _size;
 			_insert_element(val, hint);
@@ -186,7 +198,16 @@ template< class Key, class T,
 			_size = x._size;
 			x._size = size_tmp;
 		}
-		void clear();
+		void clear() {
+			if (!this->empty()) {
+				_clear_tree(_root);
+				_root = _end;
+				_end->parent = NULL;
+				_already_present = NULL;
+				_last_created = NULL;
+				_size = 0;
+			}
+		}
 
 		key_compare key_comp() const {
 			return key_comp;
@@ -278,6 +299,14 @@ template< class Key, class T,
 			new_node->right = NULL;
 			new_node->parent = NULL;
 			return new_node;
+		}
+
+		void		_clear_tree(bst* node) {
+			if (node->left && node->left != _end)
+				_clear_tree(node->left);
+			if (node->right && node->right != _end)
+				_clear_tree(node->right);
+			_free_node(node);
 		}
 
 		void		_free_node(bst* node) {
