@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 08:24:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/21 19:01:46 by francisco        ###   ########.fr       */
+/*   Updated: 2021/05/23 13:15:53 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,33 +165,100 @@ template< class Key, class T,
 			for (; first != last; first++)
 				erase(first);
 		}
-		void swap (map& x);
+		void swap (map& x) {
+			bst* root_tmp = _root;
+			_root = x._root;
+			x._root = root_tmp;	
+
+			bst* last_created_tmp = _last_created;
+			_last_created = x._last_created;
+			x._last_created = last_created_tmp;
+
+			bst* already_present_tmp = _already_present;
+			_already_present = x._already_present;
+			x._already_present = already_present_tmp;
+
+			bst* end_tmp = _end;
+			_end = x._end;
+			x._end = end_tmp;
+
+			size_type size_tmp = _size;
+			_size = x._size;
+			x._size = size_tmp;
+		}
 		void clear();
 
-		key_compare key_comp() const;
-		value_compare value_comp() const;
+		key_compare key_comp() const {
+			return key_comp;
+		}
+		
+		value_compare value_comp() const {
+			return value_compare(key_comp);
+		}
 
 		iterator find(const key_type& k) {
 			bst*	node = _find(k, _root);
 			if (!node)
 				return iterator(_end);
-			return iterator(node);
-		}
+			return iterator(node);		}
 
 		const_iterator find(const key_type& k) const {
 			bst*	node = _find(k, _root);
+			
 			if (!node)
-				return const_iterator(_end);
-			return const_iterator(node);
+				return iterator(_end);
+			return iterator(node);
 		}
 
-		size_type count (const key_type& k) const;
-		iterator lower_bound (const key_type& k);
-		const_iterator lower_bound (const key_type& k) const;
-		iterator upper_bound (const key_type& k);
-		const_iterator upper_bound (const key_type& k) const;
-		pair<const_iterator,const_iterator> equal_range (const key_type& k) const;
-		pair<iterator,iterator>             equal_range (const key_type& k);
+		size_type count (const key_type& k) const {
+			find(k);
+			return find(k) != end();
+		}
+		
+		iterator lower_bound (const key_type& k) {
+			iterator it = begin();
+			while (it != end()) {
+				if (!_comp_key(it->first, k))
+					return it;
+				it++;
+			}
+			return end();
+		}
+		const_iterator lower_bound (const key_type& k) const {
+			iterator it = begin();
+			while (it != end()) {
+				if (!_comp_key(it->first, k))
+					return it;
+				it++;
+			}
+			return end();
+		}
+		iterator upper_bound (const key_type& k) {
+			iterator it = begin();
+			while (it != end()) {
+				if (_comp_key(k, it->first))
+					return it;
+				it++;
+			}
+			return end();
+		}
+		const_iterator upper_bound (const key_type& k) const {
+			iterator it = begin();
+			while (it != end()) {
+				if (_comp_key(k, it->first))
+					return it;
+				it++;
+			}
+			return end();
+		}
+		
+		pair<iterator,iterator> equal_range( const Key& key ) {
+            return make_pair(lower_bound(key), upper_bound(key));
+        }
+    	pair<const_iterator,const_iterator> equal_range( const Key& key ) const {
+			return make_pair(lower_bound(key), upper_bound(key));
+        }
+		
 	private:
 
 		void		_construct(const Compare& comp, const Allocator &alloc) {
@@ -297,7 +364,7 @@ template< class Key, class T,
 			}
 		}
 
-		bst*	_find(const Key& key, bst* node) {
+		bst*	_find(const Key& key, bst* node) const {
 			if (!node || node == _end || key == node->content.first) // end of search
 				return node;
 			else if (_comp_key(key, node->content.first))	// case left

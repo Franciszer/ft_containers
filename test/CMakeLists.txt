@@ -11,7 +11,7 @@ set(MAP_DIR srcs/map)
 set(HELPERS_DIR srcs/helpers)
 
 set(Sources
-	# ${LIB_DIR}/container_macros.hpp
+	${LIB_DIR}/container_macros.hpp
 
 	# ${VECTOR_DIR}/TVector_Constructor.cpp
 	# ${VECTOR_DIR}/TVector_Iterator.cpp
@@ -28,8 +28,8 @@ set(Sources
 	# ${LIST_DIR}/TList_Operators.cpp
 	# ${LIST_DIR}/TList_NonMembers.cpp
 
-	${HELPERS_DIR}/Tpair.cpp
-	${HELPERS_DIR}/Tcompare.cpp
+	# ${HELPERS_DIR}/Tpair.cpp
+	# ${HELPERS_DIR}/Tcompare.cpp
 
 	${MAP_DIR}/TMap_Constructors.cpp
 	${MAP_DIR}/TMap_Modifiers.cpp

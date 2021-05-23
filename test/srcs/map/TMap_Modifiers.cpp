@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:02:30 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/21 16:17:09 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/23 11:27:19 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,4 +113,19 @@ TEST_F(TMap_Modifiers, erase) {
 	EXPECT_EQ(m3.size(), 1);
 	auto tocomp = m3.begin().getNodePtr()->content;
 	EXPECT_TRUE(tocomp.first == p2.first && tocomp.second == p2.second);
+}
+
+TEST_F(TMap_Modifiers, swap) {
+	std::map<int, int> sm = {{2,3}, {3,4}, {543,432}, {312,213}};
+	map<int, int>	m;
+	for (auto it = sm.begin(); it != sm.end(); it++) {
+		m.insert(make_pair(it->first, it->second));
+	}
+	map<int, int>	m1;
+	m.swap(m1);
+	EXPECT_TRUE(m.empty());
+	auto it2 = m1.begin();
+	for(auto it = sm.begin(); it != sm.end(); it++, it2++) {
+		EXPECT_TRUE(it->first == it2->first && it->second == it2->second);
+	}
 }
