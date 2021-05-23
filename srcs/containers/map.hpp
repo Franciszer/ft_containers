@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 08:24:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/23 14:40:05 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/23 14:41:11 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,7 @@ template< class Key, class T,
 		map& operator=(const map& x) {
 			if (this != &x) {
 				clear();
-				for (auto it = x.begin(); it != x.end(); it++)
-					this->insert(*it);
+				this->swap(x);
 			}
 		}
 
