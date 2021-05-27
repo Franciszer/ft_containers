@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 08:24:17 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/23 14:41:11 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 11:23:06 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ template< class Key, class T,
 
 		~map() {
 			clear();
+			_free_node(_end);
 		}
 		map& operator=(const map& x) {
 			if (this != &x) {
@@ -173,8 +174,10 @@ template< class Key, class T,
 			return static_cast<size_type>(tmp == _size);
 		}
 		void erase (iterator first, iterator last) {
+			first++;
 			for (; first != last; first++)
-				erase(first);
+				erase(--iterator(first));
+			erase(--iterator(first));
 		}
 		void swap (map& x) {
 			bst* root_tmp = _root;
