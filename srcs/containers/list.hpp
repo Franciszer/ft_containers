@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/26 10:02:50 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 15:43:48 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "list_node.hpp"
 
 namespace ft {
-    template<typename T, class Alloc=std::allocator<list_node<T> > >
+    template<typename T, class Alloc=std::allocator<T > >
     class list {
         
 		public:
@@ -357,7 +357,7 @@ namespace ft {
 			}
 			
         private:
-			allocator_type	_alloc;
+			typename Alloc::template rebind<node>::other		_alloc;
             nodePtr			_end;
 			size_type		_size;
 
@@ -393,10 +393,8 @@ namespace ft {
 				_alloc.deallocate(ptr, sizeof(nodePtr));
 				_size--;
 			}
-    };
-
-		template <class T, class Alloc>
-		bool operator==(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+			
+		friend bool operator==(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
 			if (lhs.size() != rhs.size())
 				return false;
 			typename ft::list<T, Alloc>::const_iterator	it = lhs.begin();
@@ -409,13 +407,11 @@ namespace ft {
 			return true;
 		}
 
-		template<class T, class Alloc>
-		bool operator!=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+		friend bool operator!=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
 			return !(lhs == rhs);
 		}
 
-		template<class T, class Alloc>
-		bool operator<(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+		friend bool operator<(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
 			typename ft::list<T, Alloc>::const_iterator	it = lhs.begin();
 			typename ft::list<T, Alloc>::const_iterator	it2 = rhs.begin();
 
@@ -428,25 +424,23 @@ namespace ft {
 			return false;
 		}
 
-		template<class T, class Alloc>
-		bool operator>(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+		friend bool operator>(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
 			return rhs < lhs;
 		}
 
-		template<class T, class Alloc>
-		bool operator<=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+		friend bool operator<=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
 			return (lhs < rhs || lhs == rhs);
 		}
 
-		template<class T, class Alloc>
-		bool operator>=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
+		friend bool operator>=(const list<T,Alloc>& lhs, const list<T,Alloc>& rhs) {
 			return (lhs > rhs || lhs == rhs);
 		}
 
-		template <class T, class Alloc>
-  		void swap (list<T,Alloc>& x, list<T,Alloc>& y) {
-			  x.swap(y);
-		  }
+		friend void swap (list<T,Alloc>& x, list<T,Alloc>& y) {
+				x.swap(y);
+		}
+    };
+
 }
 
 #endif
