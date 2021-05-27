@@ -11,6 +11,8 @@ SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS
 set(VECTOR_DIR srcs/vector)
 set(LIST_DIR srcs/list)
 set(MAP_DIR srcs/map)
+set(QUEUE_DIR srcs/queue)
+set(STACK_DIR srcs/stack)
 set(HELPERS_DIR srcs/helpers)
 
 set(Sources
@@ -40,6 +42,9 @@ set(Sources
 	${MAP_DIR}/TMap_ElementAccess.cpp
 	${MAP_DIR}/TMap_Modifiers.cpp
 	${MAP_DIR}/TMap_Operations.cpp
+
+	${QUEUE_DIR}/TQueue.cpp
+	${STACK_DIR}/TStack.cpp
 )
 
 add_executable(${This} ${Sources})

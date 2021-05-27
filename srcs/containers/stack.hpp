@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 14:56:52 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/27 15:58:02 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:59:45 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@ namespace ft {
 
 		explicit stack (const container_type& ctnr = container_type()): _c(ctnr) {}
 
+
+		stack &operator=(const stack &rhs) {
+			if (this != &rhs)
+				_c = rhs._c;
+			return *this;
+		}
+
+		virtual ~stack() {}
+		
 		bool	empty() const {
 			return _c.empty();
 		}

@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 14:56:52 by frthierr          #+#    #+#             */
-/*   Updated: 2021/05/27 15:58:16 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:59:27 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,16 @@ namespace ft {
 
 
 		explicit queue (const container_type& ctnr = container_type()): _c(ctnr) {}
+
+		queue(const queue &src): _c(src._c) {}
+		
+		queue &operator=(const queue &rhs) {
+			if (this != &rhs)
+				_c = rhs._c;
+			return *this;
+		}
+
+		virtual ~queue() {}
 
 		bool	empty() const {
 			return _c.empty();

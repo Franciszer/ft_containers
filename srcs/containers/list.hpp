@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:27:55 by francisco         #+#    #+#             */
-/*   Updated: 2021/05/27 15:43:48 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 17:03:10 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ namespace ft {
 			bool						empty() const { return _size == 0; }
 			size_type					size() const { return _size; }
 			size_type					max_size() const {
-				return (static_cast<size_type>(pow(2.0, sizeof(pointer) * 8)/sizeof(value_type)) - 1);
+				return _alloc.max_size();
 			}
 			reference					front() { return _end->next->content; }
 			const_reference				front() const { return _end->next->content; }

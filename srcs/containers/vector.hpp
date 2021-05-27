@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 11:25:58 by frthierr          #+#    #+#             */
-/*   Updated: 2021/03/26 10:08:11 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 17:06:28 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ namespace	ft {
 		// CAPACITY	
 			size_type	size() const {return this->_size;}
 			size_type	max_size() const {
-				return (static_cast<size_type>(pow(2.0, sizeof(pointer) * 8)/sizeof(value_type)) - 1);
+				return _allocator.max_size();
 			}
 			void		resize (size_type n, value_type val = value_type()) {
 				if (n > this->_capacity)
@@ -276,47 +276,40 @@ namespace	ft {
 				this->_data = newData;
 			}
 			
+		// NON-MEMBER FUNCTION OVERLOADS
+		friend bool operator== (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {
+			if (lhs._size != rhs._size)
+				return false;
+			typename ft::vector<T, Alloc>::const_iterator lit = lhs.begin();
+			typename ft::vector<T, Alloc>::const_iterator rit = rhs.begin();
+			for (;	lit != lhs.end(), rit != rhs.end(); lit++, rit++) {
+					if (*lit != *rit)
+						return false;
+				}
+			if (lit == lhs.end() && rit == rhs.end())
+				return true;
+		}
+		friend bool operator!= (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {
+			return !(lhs == rhs);
+		}
+		friend bool operator<  (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {
+			typename ft::vector<T, Alloc>::const_iterator lit = lhs.begin();
+			typename ft::vector<T, Alloc>::const_iterator rit = rhs.begin();
+			for (; lit != lhs.end(), rit != rhs.end(); lit++, rit++) {
+					if (*lit < *rit)
+						return true;
+				}
+			return lhs._size < rhs._size;
+		}
+		friend bool operator<= (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {return (lhs < rhs) || (lhs == rhs);}
+		friend bool operator>  (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {return !(lhs < rhs);};
+		friend bool operator>= (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {return (lhs > rhs) || (lhs == rhs);};
+
+		friend void swap (vector<T, Alloc>& x, vector<T, Alloc>& y) {
+			x.swap(y);
+		}
 	};
 
-	// NON-MEMBER FUNCTION OVERLOADS
-	template<class T, class Alloc>
-	bool operator== (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {
-		if (lhs._size != rhs._size)
-			return false;
-		typename ft::vector<T, Alloc>::const_iterator lit = lhs.begin();
-		typename ft::vector<T, Alloc>::const_iterator rit = rhs.begin();
-		for (;	lit != lhs.end(), rit != rhs.end(); lit++, rit++) {
-				if (*lit != *rit)
-					return false;
-			}
-		if (lit == lhs.end() && rit == rhs.end())
-			return true;
-	}
-	template<class T, class Alloc>
-	bool operator!= (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {
-		return !(lhs == rhs);
-	}
-	template<class T, class Alloc>
-	bool operator<  (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {
-		typename ft::vector<T, Alloc>::const_iterator lit = lhs.begin();
-		typename ft::vector<T, Alloc>::const_iterator rit = rhs.begin();
-		for (; lit != lhs.end(), rit != rhs.end(); lit++, rit++) {
-				if (*lit < *rit)
-					return true;
-			}
-		return lhs._size < rhs._size;
-	}
-	template<class T, class Alloc>
-	bool operator<= (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {return (lhs < rhs) || (lhs == rhs);}
-	template<class T, class Alloc>
-	bool operator>  (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {return !(lhs < rhs);};
-	template<class T, class Alloc>
-	bool operator>= (const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs) {return (lhs > rhs) || (lhs == rhs);};
-
-	template<class T, class Alloc>
-	void swap (vector<T, Alloc>& x, vector<T, Alloc>& y) {
-		x.swap(y);
-	}
 }
 
 
