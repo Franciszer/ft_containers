@@ -6,7 +6,7 @@
 /*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 22:49:52 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/25 15:22:09 by frthierr         ###   ########.fr       */
+/*   Updated: 2021/05/25 18:30:47 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ namespace ft{
                 return *(--tmp);
             }
 
-			
             reverse_iterator    operator+(difference_type n) const { return (_current - n); }
 
             reverse_iterator    &operator++() { --_current; return *this; }

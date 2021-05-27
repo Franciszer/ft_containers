@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   TVector_Operator.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: frthierr <frthierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:13:36 by francisco         #+#    #+#             */
-/*   Updated: 2021/03/13 21:46:38 by francisco        ###   ########.fr       */
+/*   Updated: 2021/05/27 14:41:41 by frthierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <gtest/gtest.h>
 
 // OPERATOR TESTS
-class	TVector_ElementAccess: public ::testing::Test {
+class	TVector_Operator: public ::testing::Test {
 	public:
-		TVector_ElementAccess() {}
+		TVector_Operator() {}
 
 		ft::vector<int>		*ft_vec = nullptr;
 		std::vector<int>		*std_vec = nullptr;        
@@ -36,28 +36,29 @@ class	TVector_ElementAccess: public ::testing::Test {
 		}
 };
 
-TEST_F(TVector_ElementAccess, operator_square_brackets) {
-    ft_vec = new ft::vector<int>(10);
+TEST_F(TVector_Operator, operator_square_brackets) {
+    ft_vec = new ft::vector<int>();
 
-    for (int i = 0; i < 10; i++) {
-        (*ft_vec)[i] = 0;
+    ft::vector<int> *vec2 = new ft::vector<int>;
+    vec2->push_back(54);
+    vec2->push_back(-213);
+    vec2->push_back(23123);
+    vec2->push_back(-888);
+    vec2->push_back(777);
+    ft_vec->push_back(54);
+    ft_vec->push_back(-213);
+    ft_vec->push_back(23123);
+    ft_vec->push_back(-888);
+    ft_vec->push_back(777);
+
+    for (ft::vector<int>::size_type i = 0; i < vec2->size(); i++) {
+        EXPECT_EQ((*vec2)[i], (*ft_vec)[i]);
     }
-
-    std_vec = new std::vector<int>();
-    std_vec->push_back(54);
-    std_vec->push_back(-213);
-    std_vec->push_back(23123);
-    std_vec->push_back(-888);
-    std_vec->push_back(777);
-
-    for (ft::vector<int>::size_type i = 0; i < std_vec->size(); i++) {
-        (*ft_vec)[i] = (*std_vec)[i];
-        EXPECT_EQ((*std_vec)[i], (*ft_vec)[i]);
-    }
+	delete vec2;
     SUCCEED();
 }
 
-TEST_F(TVector_ElementAccess, at) {
+TEST_F(TVector_Operator, at) {
     ft_vec = new ft::vector<int>;
 
     ft_vec->push_back(-2);
@@ -82,7 +83,7 @@ TEST_F(TVector_ElementAccess, at) {
     FAIL();
 }
 
-TEST_F(TVector_ElementAccess, front) {
+TEST_F(TVector_Operator, front) {
     ft_vec = new ft::vector<int>;
 
     ft_vec->push_back(5);
@@ -91,7 +92,7 @@ TEST_F(TVector_ElementAccess, front) {
     EXPECT_EQ(999, (*ft_vec)[0]);
 }
 
-TEST_F(TVector_ElementAccess, back) {
+TEST_F(TVector_Operator, back) {
     ft_vec = new ft::vector<int>;
 
     ft_vec->push_back(5);
