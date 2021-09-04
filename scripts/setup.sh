@@ -18,6 +18,7 @@ if [ "$?" -ne "0" ]; then
 	fi
 fi
 
+git submodule init && git submodule update
 ls build > /dev/null 2>&-
 if [ "$?" -ne "0" ]; then
     rm -rf build
